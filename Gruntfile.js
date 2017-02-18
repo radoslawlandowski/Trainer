@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         copy: {
             requirejs: {
                 src: './node_modules/requirejs/require.js',
-                dest: './public/javascripts/libs/require.js'
+                dest: './public/scripts/libs/require.js'
             }
         }
     });
