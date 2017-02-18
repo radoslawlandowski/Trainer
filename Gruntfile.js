@@ -10,6 +10,7 @@ module.exports = function (grunt) {
                 args: ['install']
             }
         },
+        
         copy: {
             requirejs: {
                 src: './node_modules/requirejs/require.js',

@@ -1,4 +1,5 @@
 requirejs.config({
+    baseUrl: 'scripts/',
     paths: {
         'Example': 'application/Example'
     }
