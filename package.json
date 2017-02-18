@@ -11,6 +11,12 @@
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "morgan": "~1.7.0",
+    "requirejs": "^2.3.2",
     "serve-favicon": "~2.3.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-run": "^0.6.0"
   }
 }
