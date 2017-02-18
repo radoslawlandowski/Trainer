@@ -31,3 +31,6 @@ npm-debug.log
 
 # FrontEnd libraries
 public/javascripts/libs
+
+# Bower components
+bower_components
