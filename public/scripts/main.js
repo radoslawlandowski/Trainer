@@ -2,8 +2,10 @@ requirejs.config({
     baseUrl: 'scripts/',
     paths: {
         /* Modules and files */
-        'TrainMainModule': 'application/TrainMainModule',
-        'TrainMainConfig': 'application/TrainMainConfig',
+        'MainModule': 'application/main/MainModule',
+        'MainConfig': 'application/main/MainConfig',
+        'AthleteModule': 'application/athlete/AthleteModule',
+        'AthleteConfig': 'application/athlete/AthleteConfig',
 
         /* Libs */
         'angular': 'libs/angular.min',
@@ -19,6 +21,6 @@ requirejs.config({
     }
 });
 
-requirejs(['TrainMainModule'], function(TrainMainModule) {
-    TrainMainModule.init();
+requirejs(['MainModule'], function(MainModule) {
+    MainModule.init();
 });
