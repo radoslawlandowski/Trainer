@@ -22,7 +22,13 @@ requirejs.config({
             deps: ['angular']
         },
         'angular-material': {
-            deps: ['angular-aria', 'angular-animate']
+            deps: ['angular', 'angular-aria', 'angular-animate']
+        },
+        'angular-aria': {
+            deps: ['angular']
+        },
+        'angular-animate': {
+            deps: ['angular']
         }
     }
 });
