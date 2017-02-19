@@ -8,25 +8,36 @@ module.exports = function (grunt) {
                 },
                 cmd: 'npm',
                 args: ['install']
-            },
-            bowerinstall: {
-                options: {
-                    wait: true
-                },
-                cmd: 'bower',
-                args: ['install']
             }
         },
+        
         copy: {
             requirejs: {
                 src: './node_modules/requirejs/require.js',
                 dest: './public/scripts/libs/require.js'
+            }
+        },
+
+        bowercopy: {
+            options: {
+                clean: true
+            },
+            libs: {
+                options: {
+                    destPrefix: 'public/scripts/libs/',
+                    srcPrefix: 'bower_components/'
+                },
+                files: {
+                    'angular.min.js': 'angular/angular.min.js',
+                    'angular-ui-router.min.js': 'angular-ui-router/release/angular-ui-router.min.js'
+                }
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-bowercopy');
 
-    grunt.registerTask('install', ['run:npminstall', 'run:bowerinstall', 'copy:requirejs']);
+    grunt.registerTask('install', ['run:npminstall', 'copy:requirejs', 'bowercopy:libs']);
 };
