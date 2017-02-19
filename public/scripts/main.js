@@ -6,6 +6,10 @@ requirejs.config({
         'MainConfig': 'application/main/MainConfig',
         'AthleteModule': 'application/athlete/AthleteModule',
         'AthleteConfig': 'application/athlete/AthleteConfig',
+        'AthleteStates': 'application/athlete/shared/AthleteStates',
+        'AthleteMainController': 'application/athlete/main/AthleteMainController',
+
+        'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
 
         /* Libs */
         'angular': 'libs/angular.min',

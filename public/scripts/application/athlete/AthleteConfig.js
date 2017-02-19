@@ -1,9 +1,9 @@
-define(['AthleteModule'], function (AthleteModule) {
-    AthleteModule.config(function ($stateProvider, $urlRouterProvider) {
+define(['AthleteModule', 'AthleteStates'], function (AthleteModule, AthleteStates) {
+    AthleteModule.config(function ($stateProvider, $urlRouterProvider, AthleteStates) {
         var basePath = 'scripts/application/athlete/';
 
         var athleteBoardState = {
-            name: 'athlete.board',
+            name: AthleteStates.BOARD.state,
             url: '/board',
             templateUrl: basePath + 'board/athlete-board.html'
         };
