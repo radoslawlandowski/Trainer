@@ -1,16 +1,6 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        run: {
-            npminstall: {
-                options: {
-                    wait: true
-                },
-                cmd: 'npm',
-                args: ['install']
-            }
-        },
-        
         copy: {
             requirejs: {
                 src: './node_modules/requirejs/require.js',
@@ -35,9 +25,8 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bowercopy');
 
-    grunt.registerTask('install', ['run:npminstall', 'copy:requirejs', 'bowercopy:libs']);
+    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs']);
 };
