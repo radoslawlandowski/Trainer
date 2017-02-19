@@ -28,7 +28,8 @@ module.exports = function (grunt) {
                     srcPrefix: 'bower_components/'
                 },
                 files: {
-                    'angular.min.js': 'angular/angular.min.js'
+                    'angular.min.js': 'angular/angular.min.js',
+                    'angular-ui-router.min.js': 'angular-ui-router/release/angular-ui-router.min.js'
                 }
             }
         }

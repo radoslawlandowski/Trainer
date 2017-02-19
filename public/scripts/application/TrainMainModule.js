@@ -1,8 +1,10 @@
-define(['angular'], function(angular) {
-    var m = angular.module('TrainMainModule', []);
+define(['angular', 'angular-ui-router'], function(angular) {
+    var m = angular.module('TrainMainModule', ['ui.router']);
 
     m.init = function() {
-        angular.bootstrap(document, ['TrainMainModule']);
+        require(['TrainMainConfig'], function() {
+            angular.bootstrap(document, ['TrainMainModule']);       
+        });
     };
 
     return m;
