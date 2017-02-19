@@ -1,20 +1,20 @@
 define(['AthleteModule', 'AthleteStates'], function (AthleteModule, AthleteStates) {
-    AthleteModule.config(function ($stateProvider, $urlRouterProvider, AthleteStates) {
+    AthleteModule.config(function ($stateProvider, AthleteStates) {
         var basePath = 'scripts/application/athlete/';
 
-        var athleteBoardState = {
+        var boardState = {
             name: AthleteStates.BOARD.state,
-            url: '/board',
+            url: AthleteStates.BOARD.path,
             templateUrl: basePath + 'board/athlete-board.html'
         };
 
-        var athleteDataState = {
-            name: 'athlete.data',
-            url: '/data',
+        var dataState = {
+            name: AthleteStates.DATA.state,
+            url: AthleteStates.DATA.path,
             templateUrl: basePath + 'data/athlete-data.html'
         };
 
-        $stateProvider.state(athleteBoardState);
-        $stateProvider.state(athleteDataState);
+        $stateProvider.state(boardState);
+        $stateProvider.state(dataState);
     });
 })
