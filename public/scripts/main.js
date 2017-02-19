@@ -9,7 +9,10 @@ requirejs.config({
 
         /* Libs */
         'angular': 'libs/angular.min',
-        'angular-ui-router': 'libs/angular-ui-router.min'
+        'angular-ui-router': 'libs/angular-ui-router.min',
+        'angular-aria': 'libs/angular-aria.min.js',
+        'angular-animate': 'lib/angular-animate.min.js',
+        'angular-material': 'lib/angular-material.min.js'
     },
     shim: {
         'angular': {
@@ -17,6 +20,9 @@ requirejs.config({
         },
         'angular-ui-router': {
             deps: ['angular']
+        },
+        'angular-material': {
+            deps: ['angular-aria', 'angular-animate']
         }
     }
 });
