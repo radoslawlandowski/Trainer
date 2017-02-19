@@ -10,9 +10,9 @@ requirejs.config({
         /* Libs */
         'angular': 'libs/angular.min',
         'angular-ui-router': 'libs/angular-ui-router.min',
-        'angular-aria': 'libs/angular-aria.min.js',
-        'angular-animate': 'lib/angular-animate.min.js',
-        'angular-material': 'lib/angular-material.min.js'
+        'angular-aria': 'libs/angular-aria.min',
+        'angular-animate': 'libs/angular-animate.min',
+        'angular-material': 'libs/angular-material.min'
     },
     shim: {
         'angular': {
