@@ -22,6 +22,8 @@
     "grunt-karma": "^2.0.0",
     "grunt-run": "^0.6.0",
     "jasmine": "^2.5.3",
-    "karma": "^1.5.0"
+    "karma": "^1.5.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-requirejs": "^1.1.0"
   }
 }
