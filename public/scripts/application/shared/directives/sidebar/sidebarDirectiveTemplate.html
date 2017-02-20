@@ -1,0 +1,5 @@
+<md-content>
+    <section layout="column" layout-wrap>
+        <md-button id={{value.state}} ng-repeat="(key, value) in states" ng-click="onClick(value.state)" class="md-primary md-raised">{{value.displayedName}}</md-button>
+    </section>
+</md-content>
