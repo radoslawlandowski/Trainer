@@ -1,5 +1,6 @@
-define(['angular', 'AthleteMainController', 'angular-mocks', 'AthleteModule'], function (angular) {
+define(['angular', 'angular-mocks', 'AthleteMainController', 'AthleteModule'], function () {
     describe('AthleteMainController Tests', function () {
+
         beforeEach(module('AthleteModule'));
 
         var $controller;
@@ -9,15 +10,15 @@ define(['angular', 'AthleteMainController', 'angular-mocks', 'AthleteModule'], f
             $controller = _$controller_;
 
             AthleteMainController = $controller('AthleteMainController', {
-                states: states
+                states: testStates
             });
         }));
 
-        var states = { 'first': 'firstState', 'second': 'secondState', 'third': 'thirdState' };
+        var testStates = { 'first': 'firstState', 'second': 'secondState', 'third': 'thirdState' };
 
         describe('When creating AthleteMainController:', function () {
             it("the resolved data should be properly assigned", function () {
-                expect(AthleteMainController.states).toEqual(states);
+                expect(AthleteMainController.states).toEqual(testStates);
             });
         });
     });
