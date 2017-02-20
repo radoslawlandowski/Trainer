@@ -2,33 +2,27 @@ define(['AthleteModule'], function (AthleteModule) {
     AthleteModule.constant('AthleteStates', {
         'BOARD': {
             'state': 'athlete.board',
-            'displayedName': 'Board',
-            'path': '/board'
+            'displayedName': 'Board'
         },
-        'MY_TRAINING': {
-            'state': 'athlete.myTraining',
-            'displayedName': 'My training',
-            'path': '/mytraining'
+        'TRAINING': {
+            'state': 'athlete.training',
+            'displayedName': 'Training'
         }, 
-        'MY_DIET': {
-            'state': 'athlete.myDiet',
-            'displayedName': 'My diet',
-            'path': '/mydiet'
+        'DIET': {
+            'state': 'athlete.diet',
+            'displayedName': 'Diet'
         }, 
         'STATS': {
             'state': 'athlete.stats',
-            'displayedName': 'Stats',
-            'path': '/stats'
+            'displayedName': 'Stats'
         }, 
         'GOALS': {
             'state': 'athlete.goals',
-            'displayedName': 'Goals',
-            'path': '/goals'
+            'displayedName': 'Goals'
         },
         'DATA': {
             'state': 'athlete.data',
-            'displayedName': 'Data',
-            'path': '/data'
+            'displayedName': 'Data'
         }
     })
 })

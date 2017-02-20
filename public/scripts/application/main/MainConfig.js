@@ -15,15 +15,14 @@ define(['angular', 'MainModule', 'AthleteMainController', 'AthleteStates'], func
             controller: 'AthleteMainController',
             controllerAs: 'amc',
             resolve: {
-                states: function(AthleteStates) {
-                    return AthleteStates;
-                }
+                states: (AthleteStates) => { return AthleteStates; }
             }
         };
 
-        $stateProvider.state(mainState);
-        $stateProvider.state(athleteState);
+        $stateProvider
+            .state(mainState)
+            .state(athleteState);
 
-        $urlRouterProvider.otherwise("/main")
-    });
+        $urlRouterProvider.otherwise("/main");
+    })
 })

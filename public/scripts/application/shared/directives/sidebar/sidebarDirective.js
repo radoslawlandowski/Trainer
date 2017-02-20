@@ -12,5 +12,5 @@ define(['MainModule'], function (MainModule) {
                 };
             }
         };
-    })
-})
+    });
+});
