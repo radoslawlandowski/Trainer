@@ -31,7 +31,9 @@ require.config({
       'angular-ui-router': 'libs/angular-ui-router.min',
       'angular-aria': 'libs/angular-aria.min',
       'angular-animate': 'libs/angular-animate.min',
-      'angular-material': 'libs/angular-material.min'
+      'angular-material': 'libs/angular-material.min',
+      'angular-mocks': 'libs/angular-mocks'
+
   },
   shim: {
       'angular': {
@@ -48,6 +50,9 @@ require.config({
       },
       'angular-animate': {
           deps: ['angular']
+      },
+      'angular-mocks': {
+        deps: ['angular']
       }
   },
   // dynamically load all test files
