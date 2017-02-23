@@ -27,11 +27,19 @@ module.exports = function (grunt) {
                     'angular-mocks.js': 'angular-mocks/angular-mocks.js'
                 }
             }
+        },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                singleRun: false
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bowercopy');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs']);
 };

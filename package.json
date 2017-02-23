@@ -14,7 +14,7 @@
     "morgan": "~1.7.0",
     "requirejs": "^2.3.2",
     "serve-favicon": "~2.3.2"
-  },
+  }, 
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-bowercopy": "^1.2.4",
