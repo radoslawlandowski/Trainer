@@ -14,8 +14,15 @@ define(['AthleteModule'], function (AthleteModule) {
             templateUrl: base + 'data/athlete-data.html'
         };
 
+        var trainingState = {
+            name: 'athlete.training',
+            url: '/training',
+            templateUrl: base + 'training/athlete-training.html'
+        };
+
         $stateProvider
             .state(boardState)
-            .state(dataState);
+            .state(dataState)
+            .state(trainingState);
     })
 })
