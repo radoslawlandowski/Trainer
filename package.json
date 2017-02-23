@@ -14,11 +14,18 @@
     "morgan": "~1.7.0",
     "requirejs": "^2.3.2",
     "serve-favicon": "~2.3.2"
-  },
+  }, 
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-bowercopy": "^1.2.4",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-run": "^0.6.0"
+    "grunt-karma": "^2.0.0",
+    "grunt-run": "^0.6.0",
+    "jasmine": "^2.5.3",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-requirejs": "^1.1.0",
+    "karma-spec-reporter": "0.0.26"
   }
 }
