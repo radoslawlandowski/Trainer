@@ -8,8 +8,10 @@ requirejs.config({
         'AthleteConfig': 'application/athlete/AthleteConfig',
         'AthleteStates': 'application/athlete/shared/AthleteStates',
         'AthleteMainController': 'application/athlete/main/AthleteMainController',
+        'AthleteTrainingController': 'application/athlete/training/AthleteTrainingController',
 
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
+        'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         
         'Exercises': 'application/shared/constants/Exercises',
         'Muscles': 'application/shared/constants/Muscles',
