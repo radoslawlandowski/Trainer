@@ -1,29 +1,29 @@
-define(['MainModule', 'Muscles'], function(MainModule, Muscles) {
+define(['MainModule'], function(MainModule) {
     MainModule.constant('Exercises', {
         'BicepCurl': {
             name: 'BicepCurl',
             description: 'Take the bar and just curl your biceps',
             musclesInvolved: [
-                Muscles.Arms.tricep,
-                Muscles.Forearms.contractor
+                "tricep",
+                "forearm"
             ]
         },
         'BenchPress': {
             name: 'Bench press',
             description: 'Push the bar high!',
             musclesInvolved: [
-                Muscles.Arms.tricep,
-                Muscles.Chest.major,
-                Muscles.Chest.minor
+                "tricep",
+                "chest minor",
+                "chest major"
             ]
         },
         'BackRowing': {
             name: 'Rows',
             description: 'Pull the bar to your belly',
             musclesInvolved: [
-                Muscles.Back.major,
-                Muscles.Back.romboid,
-                Muscles.Arms.bicep
+                "back major",
+                "back romboid",
+                "bicep"
             ]
         }
     })
