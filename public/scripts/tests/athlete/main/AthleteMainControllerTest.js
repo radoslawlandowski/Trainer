@@ -17,9 +17,9 @@ define(['angular', 'angular-mocks', 'AthleteMainController', 'AthleteModule'], f
         var testStates = { 'first': 'firstState', 'second': 'secondState', 'third': 'thirdState' };
 
         describe('When creating AthleteMainController:', function () {
-            it("the resolved data should be properly assigned", function () {
+            it("the injected data should be properly assigned", function () {
                 expect(AthleteMainController.states).toEqual(testStates);
             });
         });
     });
-});
+}); 
