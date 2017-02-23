@@ -10,6 +10,9 @@ requirejs.config({
         'AthleteMainController': 'application/athlete/main/AthleteMainController',
 
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
+        
+        'Exercises': 'application/shared/constants/Exercises',
+        'Muscles': 'application/shared/constants/Muscles',
 
         /* Libs */
         'angular': 'libs/angular.min',
