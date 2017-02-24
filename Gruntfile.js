@@ -24,7 +24,9 @@ module.exports = function (grunt) {
                     'angular-animate.min.js': 'angular-animate/angular-animate.min.js',
                     'angular-material.min.js': 'angular-material/angular-material.min.js',
                     'angular-material.min.css': 'angular-material/angular-material.min.css',
-                    'angular-mocks.js': 'angular-mocks/angular-mocks.js'
+                    'angular-mocks.js': 'angular-mocks/angular-mocks.js',
+                    'ui-bootstrap-csp.css': 'angular-bootstrap/ui-bootstrap-csp.css',
+                    'ui-bootstrap-tpls.min.js': 'angular-bootstrap/ui-bootstrap-tpls.min.js'
                 }
             }
         },
