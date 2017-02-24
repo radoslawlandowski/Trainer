@@ -3,8 +3,7 @@ define(['MainModule'], function(MainModule) {
         return {
             restrict: 'E',
             scope: {
-                'exercise': '=',
-                'viewMode': '='
+                'exercise': '='
             },
             templateUrl: 'scripts/application/shared/directives/exercise/exerciseCardDirectiveTemplate.html'
         };
