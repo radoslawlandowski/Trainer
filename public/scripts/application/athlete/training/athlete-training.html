@@ -1,0 +1,5 @@
+<h1>This is athletes training view</h1>
+
+<exercise-plan-directive ng-repeat="chosenExercise in atc.training track by $index" exercise="chosenExercise" on-cancel="atc.removeFromRoutine($index)"></exercise-plan-directive>
+
+<exercise-card-directive ng-repeat="(key, value) in atc.exercises" exercise="value" ng-click="atc.addToRoutine(value.name)"></exercise-card-directive>
