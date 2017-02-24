@@ -6,7 +6,7 @@
         <span>Set {{ $index + 1 }}:</span>
         <input type="text" ng-model="set.reps"> x</input>
         <input type="text" ng-model="set.weight"> kg</input>
-        <button ng-click="remove($index)">Remove></button>
+        <button ng-click="remove($index)" ng-hide="exercise.sets.length === 1">Remove</button>
         <br>
     </div>
     <div>
