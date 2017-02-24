@@ -38,7 +38,8 @@ require.config({
       'angular-aria': 'libs/angular-aria.min',
       'angular-animate': 'libs/angular-animate.min',
       'angular-material': 'libs/angular-material.min',
-      'angular-mocks': 'libs/angular-mocks'
+      'angular-mocks': 'libs/angular-mocks',
+      'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min'
 
   },
   shim: {
@@ -59,6 +60,9 @@ require.config({
       },
       'angular-mocks': {
         deps: ['angular']
+      },
+      'ui-bootstrap-tpls': {
+          deps: ['angular']
       }
   },
   // dynamically load all test files

@@ -23,7 +23,8 @@ requirejs.config({
         'angular-ui-router': 'libs/angular-ui-router.min',
         'angular-aria': 'libs/angular-aria.min',
         'angular-animate': 'libs/angular-animate.min',
-        'angular-material': 'libs/angular-material.min'
+        'angular-material': 'libs/angular-material.min',
+        'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min'
     },
     shim: {
         'angular': {
@@ -39,6 +40,9 @@ requirejs.config({
             deps: ['angular']
         },
         'angular-animate': {
+            deps: ['angular']
+        },
+        'ui-bootstrap-tpls': {
             deps: ['angular']
         }
     }
