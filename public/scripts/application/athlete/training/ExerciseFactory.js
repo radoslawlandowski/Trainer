@@ -1,17 +1,20 @@
 define(['AthleteModule'], function(AthleteModule) {
     AthleteModule.factory('ExerciseFactory', function() {
-        var Exercise = function(rawExercise) {
-            var name = "";
-            var set = {
-                reps
+        return {    
+            create: function(name) {
+                return {
+                    name: name,
+                    sets: [],
+
+                    addSet: function(set) {
+                        this.sets.push(set);
+                    },
+
+                    removeSet: function(index) {
+                        this.sets.splice(index, 1);
+                    }
+                }
             }
-            this.initialize = function(rawExercise) {
-                
-            };
-
-            this.initialize(rawExercise);
-        };
-
-    return (Exercise);
+        }
     })
 })
