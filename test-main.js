@@ -29,7 +29,8 @@ require.config({
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
       'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
       'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
-                
+      'trainingDirective': 'application/shared/directives/training/trainingDirective',
+
       'Exercises': 'application/shared/constants/Exercises',
       'Muscles': 'application/shared/constants/Muscles',
       /* Libs */

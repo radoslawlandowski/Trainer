@@ -13,6 +13,7 @@ requirejs.config({
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
+        'trainingDirective': 'application/shared/directives/training/trainingDirective',
         'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
                 
         'Exercises': 'application/shared/constants/Exercises',
