@@ -1,17 +1,17 @@
-<div>
-    <div>
+<div class="well">
+    <div class="row">
         <span>{{ exercise.name }}</span>
     </div>
-    <div ng-repeat="set in exercise.sets">
+    <div class="row" ng-repeat="set in exercise.sets">
         <span>Set {{ $index + 1 }}:</span>
         <input type="text" ng-model="set.reps"> x</input>
         <input type="text" ng-model="set.weight"> kg</input>
-        <button ng-click="remove($index)" ng-hide="exercise.sets.length === 1">Remove</button>
+        <button class="btn" ng-click="remove($index)" ng-hide="exercise.sets.length === 1">Remove</button>
         <br>
     </div>
-    <div>
-        <button ng-click="addSet()">Add set</button>
-        <button ng-click="onCancel({index: $index})">Remove</button>
+    <div class="row">
+        <button class="btn" ng-click="addSet()">Add set</button>
+        <button class="btn" ng-click="onCancel({index: $index})">Remove</button>
     </div>
     <br>
 </div>
