@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
         bowercopy: {
             options: {
-                clean: true
+                clean: false
             },
             libs: {
                 options: {
@@ -20,11 +20,24 @@ module.exports = function (grunt) {
                 files: {
                     'angular.min.js': 'angular/angular.min.js',
                     'angular-ui-router.min.js': 'angular-ui-router/release/angular-ui-router.min.js',
-                    'angular-aria.min.js': 'angular-aria/angular-aria.min.js',
                     'angular-animate.min.js': 'angular-animate/angular-animate.min.js',
-                    'angular-material.min.js': 'angular-material/angular-material.min.js',
-                    'angular-material.min.css': 'angular-material/angular-material.min.css',
-                    'angular-mocks.js': 'angular-mocks/angular-mocks.js'
+                    'angular-mocks.js': 'angular-mocks/angular-mocks.js',
+                    'ui-bootstrap-csp.css': 'angular-bootstrap/ui-bootstrap-csp.css',
+                    'ui-bootstrap-tpls.min.js': 'angular-bootstrap/ui-bootstrap-tpls.min.js',
+                    'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+                }
+            },
+            fonts: {
+                options: {
+                    destPrefix: 'public/scripts/fonts/',
+                    srcPrefix:'bower_components/bootstrap/fonts/'
+                },
+                files: {
+                    'glyphicons-halflings-regular.eot': 'glyphicons-halflings-regular.eot',
+                    'glyphicons-halflings-regular.svg': 'glyphicons-halflings-regular.svg',
+                    'glyphicons-halflings-regular.ttf': 'glyphicons-halflings-regular.ttf',
+                    'glyphicons-halflings-regular.woff': 'glyphicons-halflings-regular.woff',
+                    'glyphicons-halflings-regular.woff2': 'glyphicons-halflings-regular.woff2'
                 }
             }
         },
@@ -45,5 +58,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs']);
+    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
 };

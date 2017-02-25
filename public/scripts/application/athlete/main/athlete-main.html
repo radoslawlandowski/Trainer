@@ -1,11 +1,11 @@
-<div>
-    <head>
-        <h1>This is main Athlete page</h1>
-    </head>
-    <body>
-        <div layout="row">
-            <sidebar-directive states="amc.states" flex="5"></sidebar-directive>
-            <ui-view flex-offset="5"></ui-view>
-        </div>
-    </body>
+<div class="row well">
+    Here I am! Hahaha!
+</div>
+<div class="row">
+    <div class="col-lg-1 sidebar">
+        <sidebar-directive states="amc.states"></sidebar-directive>
+    </div>
+    <div class="col-lg-11">
+        <ui-view></ui-view>
+    </div>
 </div>

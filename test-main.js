@@ -35,10 +35,9 @@ require.config({
       /* Libs */
       'angular': 'libs/angular.min',
       'angular-ui-router': 'libs/angular-ui-router.min',
-      'angular-aria': 'libs/angular-aria.min',
       'angular-animate': 'libs/angular-animate.min',
-      'angular-material': 'libs/angular-material.min',
-      'angular-mocks': 'libs/angular-mocks'
+      'angular-mocks': 'libs/angular-mocks',
+      'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min'
 
   },
   shim: {
@@ -48,17 +47,14 @@ require.config({
       'angular-ui-router': {
           deps: ['angular']
       },
-      'angular-material': {
-          deps: ['angular', 'angular-aria', 'angular-animate']
-      },
-      'angular-aria': {
-          deps: ['angular']
-      },
       'angular-animate': {
           deps: ['angular']
       },
       'angular-mocks': {
         deps: ['angular']
+      },
+      'ui-bootstrap-tpls': {
+          deps: ['angular']
       }
   },
   // dynamically load all test files

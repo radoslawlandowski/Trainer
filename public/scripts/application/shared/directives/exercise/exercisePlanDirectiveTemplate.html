@@ -1,17 +1,28 @@
-<div>
-    <div>
-        <span>{{ exercise.name }}</span>
+<div class="well exercise-plan">
+    <div class="row row-padding">
+        <div class="col-lg-6">
+            <span class="pull-left exercise-plan-title">{{ exercise.name }}</span>
+        </div>
+        <div class="col-lg-6">
+            <span class="pull-right glyphicon glyphicon-remove red exercise-plan-icon-remove pointer-on-hover" ng-click="onCancel({index: $index})"></span>
+        </div>
     </div>
-    <div ng-repeat="set in exercise.sets">
-        <span>Set {{ $index + 1 }}:</span>
-        <input type="text" ng-model="set.reps"> x</input>
-        <input type="text" ng-model="set.weight"> kg</input>
-        <button ng-click="remove($index)" ng-hide="exercise.sets.length === 1">Remove</button>
-        <br>
+    <div class="row" ng-repeat="set in exercise.sets">
+        <div class="col-lg-10">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon">Set {{ $index + 1 }}:</span>
+                <input type="text" class="form-control exercise-plan-reps-input" placeholder="reps" ng-model="set.reps">
+                <span class="input-group-addon">x</span>
+                <input type="text" class="form-control exercise-plan-kilograms-input" placeholder="kgs"  ng-model="set.weight">
+                <span class="input-group-addon">kg</span>
+            </div>
+        </div>
+            <div class="col-lg-2 exercise-plan-icons-block">
+                <span class="glyphicon glyphicon-plus green exercise-plan-icon pointer-on-hover" ng-click="addSet()" ng-show="$index + 1 === exercise.sets.length"></span>
+                <span class="glyphicon glyphicon-minus red exercise-plan-icon pointer-on-hover" ng-click="remove($index)" ng-hide="exercise.sets.length === 1"></span>
+            </div>
+        </div>
     </div>
-    <div>
-        <button ng-click="addSet()">Add set</button>
-        <button ng-click="onCancel({index: $index})">Remove</button>
-    </div>
-    <br>
 </div>
+
+<!--  -->
