@@ -1,10 +1,12 @@
-
+<div class="row well">
+    
+</div>
 <div class="row">
     <div class="col-lg-6">
-        <exercise-plan-directive ng-repeat="chosenExercise in atc.training track by $index" exercise="chosenExercise" on-cancel="atc.removeFromRoutine($index)"></exercise-plan-directive>
+        <exercise-card-directive ng-repeat="(key, value) in atc.exercises" exercise="value" ng-click="atc.addToRoutine(value.name)"></exercise-card-directive>
     </div>
     <div class="col-lg-6">
-        <exercise-card-directive ng-repeat="(key, value) in atc.exercises" exercise="value" ng-click="atc.addToRoutine(value.name)"></exercise-card-directive>
+        <exercise-plan-directive ng-repeat="chosenExercise in atc.training track by $index" exercise="chosenExercise" on-cancel="atc.removeFromRoutine($index)"></exercise-plan-directive>
     </div>
 </div>
 

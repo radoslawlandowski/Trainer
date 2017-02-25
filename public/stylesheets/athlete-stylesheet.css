@@ -1,5 +1,5 @@
 .sidebar {
-    margin-top: 50px;
+    margin-right: 30px;
 }
 
 .green {
@@ -10,8 +10,26 @@
     color: red
 }
 
+.well {
+    background-color: white;
+}
+
+.label-default {
+    background-color: orange;
+}
+
+.input-group-addon {
+    background-color: white;
+}
+
 .exercise-plan {
     max-width: 300px;
+    background-color: white;
+}
+
+.exercise-card {
+    max-width: 300px;
+    background-color: white;
 }
 
 .exercise-plan-reps-input {
@@ -24,6 +42,11 @@
 
 .exercise-plan-title {
     font-size: 16px;
+}
+
+.exercise-card-muscle-label {
+    margin-right: 3px;
+    margin-top: 3px;
 }
 
 .exercise-plan-set-label {
@@ -49,5 +72,14 @@
 }
 
 .row-padding {
-    padding-bottom: 15px;
+    padding-bottom: 13px;
+}
+
+.row-small-padding {
+    padding-bottom: 6px;
+}
+
+.exercise-well {
+    padding-bottom: 5px;
+    padding-top: 5px;
 }

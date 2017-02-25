@@ -1,9 +1,17 @@
-<div class="well">
-    <div class="row">
-        <span id="exerciseName">{{exercise.name}}</span>
-        <span id="musclesInvolved">{{exercise.musclesInvolved}}</span>
-    </div>
-    <div class="row">
-        <span id="exerciseDescription">{{exercise.description}}</span>
+<div class="well exercise-well exercise-card">
+    <div class="row row-small-padding">
+        <div class="col-lg-6">
+            <div class="row">
+                <span id="exerciseName" class="exercise-plan-title">{{exercise.name}}</span>
+            </div>
+            <div class="row">
+                <span id="exerciseDescription">{{exercise.description}}</span>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <span ng-repeat="muscle in exercise.musclesInvolved" class="label label-default exercise-card-muscle-label pull-right">{{muscle}}</span>
+            </div>
+        </div>
     </div>
 </div>
