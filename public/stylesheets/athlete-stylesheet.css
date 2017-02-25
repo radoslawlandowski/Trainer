@@ -1,3 +1,53 @@
 .sidebar {
     margin-top: 50px;
 }
+
+.green {
+    color: lawngreen
+}
+
+.red {
+    color: red
+}
+
+.exercise-plan {
+    max-width: 300px;
+}
+
+.exercise-plan-reps-input {
+    max-width: 80px;
+}
+
+.exercise-plan-kilograms-input {
+    max-width: 80px;
+}
+
+.exercise-plan-title {
+    font-size: 16px;
+}
+
+.exercise-plan-set-label {
+    width: 20px;
+}
+
+.exercise-plan-icon {
+    margin-top: 7px;
+}
+
+.pointer-on-hover:hover {
+    cursor: pointer;
+}
+
+.exercise-plan-icons-block {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.exercise-plan-icon-remove {
+    font-size: 22px;
+    padding-right: 0px;
+}
+
+.row-padding {
+    padding-bottom: 15px;
+}
