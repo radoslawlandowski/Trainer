@@ -20,10 +20,7 @@ module.exports = function (grunt) {
                 files: {
                     'angular.min.js': 'angular/angular.min.js',
                     'angular-ui-router.min.js': 'angular-ui-router/release/angular-ui-router.min.js',
-                    'angular-aria.min.js': 'angular-aria/angular-aria.min.js',
                     'angular-animate.min.js': 'angular-animate/angular-animate.min.js',
-                    'angular-material.min.js': 'angular-material/angular-material.min.js',
-                    'angular-material.min.css': 'angular-material/angular-material.min.css',
                     'angular-mocks.js': 'angular-mocks/angular-mocks.js',
                     'ui-bootstrap-csp.css': 'angular-bootstrap/ui-bootstrap-csp.css',
                     'ui-bootstrap-tpls.min.js': 'angular-bootstrap/ui-bootstrap-tpls.min.js',
