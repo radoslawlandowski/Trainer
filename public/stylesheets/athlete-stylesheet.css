@@ -2,6 +2,10 @@
     margin-right: 30px;
 }
 
+.border-right-dotted {
+    border-right: dotted;
+}
+
 .green {
     color: lawngreen
 }
@@ -12,6 +16,20 @@
 
 .well {
     background-color: white;
+    border-radius: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.padding-right-6 {
+    padding-right: 6px;
+}
+
+.padding-left-8 {
+    padding-left: 8px;
 }
 
 .label-default {
@@ -40,6 +58,31 @@
     max-width: 80px;
 }
 
+.font-size-32 {
+    font-size: 32px;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-8 {
+    font-size: 8px;
+}
+
+table {
+    font-size: 12px;
+    border-bottom: 1px solid;
+    border-bottom-color: lightgrey;
+    padding: 5px;
+}
+
+td, th {
+    padding: 5px;
+    font-weight: normal;
+    text-align: center;
+}
+
 .exercise-plan-title {
     font-size: 16px;
 }
@@ -54,7 +97,37 @@
 }
 
 .exercise-plan-icon {
-    margin-top: 7px;
+    margin-top: 6px;
+}
+
+.input-group-addon:first-child {
+    border-radius: 2px;
+}
+
+.input-group-addon:last-child {
+    border-radius: 2px;
+}
+
+.input-group-addon {
+    border-color: white;
+}
+
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+    height: 20px;
+    margin-top: 5px;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+
+.padding-right-8 {
+    padding-right: 8px;
+}
+
+.input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child) {
+    border-radius: 2px;
 }
 
 .pointer-on-hover:hover {
@@ -71,8 +144,20 @@
     padding-right: 0px;
 }
 
+.no-padding {
+    padding: 0px;
+}
+
+.top-padding-10 {
+    padding: 10px;
+}
+
 .row-padding {
     padding-bottom: 13px;
+}
+
+.row-padding-3 {
+    padding-bottom: 3px;
 }
 
 .row-small-padding {
@@ -82,4 +167,6 @@
 .exercise-well {
     padding-bottom: 5px;
     padding-top: 5px;
+    margin-right: 5px;
+    margin-left: 10px;
 }

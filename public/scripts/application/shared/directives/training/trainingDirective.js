@@ -3,13 +3,12 @@ define(['MainModule'], function (MainModule) {
         return {
             restrict: 'E',
             scope: {
-                'states': '='
+                'trainingData': '=?',
+                'onConfirm': '&',
+                'onCancel': '&'
             },
             templateUrl: 'scripts/application/shared/directives/training/trainingDirectiveTemplate.html',
-            link: function (scope) {
-                scope.onClick = function(state) {
-                    $state.go(state);
-                };
+            link: function (scope, element, attrs) {
             }
         };
     });
