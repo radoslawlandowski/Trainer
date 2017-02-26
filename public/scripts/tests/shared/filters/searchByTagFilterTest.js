@@ -11,12 +11,9 @@ define(['angular', 'angular-mocks', 'MainModule', 'searchByTagFilter', 'Exercise
             Exercises = _Exercises_;
         }));
 
-        var testStates = { 'first': 'firstState', 'second': 'secondState', 'third': 'thirdState' };
-
         describe('When called with valid input and tag', function () {
             it("it should return an array of results", function () {
-                var existingTag = "chest";
-                expect(byTag(Exercises, existingTag).length).toBeGreaterThanOrEqual(1);
+                expect(byTag(Exercises, "chest").length).toBeGreaterThanOrEqual(1);
             });
         });
 
