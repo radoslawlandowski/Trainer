@@ -28,9 +28,11 @@ require.config({
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
       'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
-      'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
       'trainingDirective': 'application/shared/directives/training/trainingDirective',
       'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
+
+      'ExerciseFactory': 'application/shared/factories/ExerciseFactory',
+      'TrainingFactory': 'application/shared/factories/TrainingFactory',
 
       'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
 

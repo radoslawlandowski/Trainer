@@ -1,5 +1,5 @@
-define(['AthleteModule'], function(AthleteModule) {
-    AthleteModule.factory('ExerciseFactory', function() {
+define(['MainModule'], function(MainModule) {
+    MainModule.factory('ExerciseFactory', function() {
         return {    
             create: function(name) {
                 return {
