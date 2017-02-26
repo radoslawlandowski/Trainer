@@ -30,6 +30,7 @@ require.config({
       'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
       'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
       'trainingDirective': 'application/shared/directives/training/trainingDirective',
+      'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
 
       'Exercises': 'application/shared/constants/Exercises',
       'Muscles': 'application/shared/constants/Muscles',

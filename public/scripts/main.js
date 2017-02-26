@@ -14,6 +14,7 @@ requirejs.config({
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
         'trainingDirective': 'application/shared/directives/training/trainingDirective',
+        'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
         'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
                 
         'Exercises': 'application/shared/constants/Exercises',
