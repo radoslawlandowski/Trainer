@@ -14,16 +14,18 @@
         <span ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
     </div>
     <div uib-collapse="!atc.createNewTraining">
-		<div class="row row-padding">
-            <div class="col-xs-6">
-                <exercise-card-directive class="pointer-on-hover" ng-repeat="exerciseCard in atc.exercises" exercise="exerciseCard" ng-click="atc.addToRoutine(exerciseCard.name)"></exercise-card-directive>
+		<div class="row row-padding padding-left-8">
+            <div class="col-xs-6 well padding-left-24">
+                <search-bar-directive search-option="atc.searchOption" search-text="atc.searchText"></search-bar-directive>
+                <hr class="margin-top-3">
+                <exercise-card-directive class="pointer-on-hover" ng-repeat="exerciseCard in atc.exercises | byTag:atc.searchText track by $index" exercise="exerciseCard" ng-click="atc.addToRoutine(exerciseCard.name)"></exercise-card-directive>
             </div>
             <div class="col-xs-6 pull-right">
                 <exercise-plan-directive ng-repeat="exercisePlan in atc.training" exercise="exercisePlan" on-cancel="atc.removeFromRoutine()"></exercise-plan-directive>
             </div>
         </div>
         <div class="row text-center">
-            <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover" ng-click="atc.saveTraining(atc.training)"></span>
+            <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover" ng-show="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
         </div>
 	</div>
 </div>
