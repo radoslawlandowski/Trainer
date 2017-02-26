@@ -32,6 +32,8 @@ require.config({
       'trainingDirective': 'application/shared/directives/training/trainingDirective',
       'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
 
+      'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
+
       'Exercises': 'application/shared/constants/Exercises',
       'Muscles': 'application/shared/constants/Muscles',
       /* Libs */

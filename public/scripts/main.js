@@ -16,7 +16,9 @@ requirejs.config({
         'trainingDirective': 'application/shared/directives/training/trainingDirective',
         'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
         'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
-                
+
+        'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
+     
         'Exercises': 'application/shared/constants/Exercises',
         'Muscles': 'application/shared/constants/Muscles',
 
