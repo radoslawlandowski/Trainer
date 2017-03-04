@@ -3,9 +3,6 @@
         <div class="col-xs-6 padding-left-8">
             <span class="pull-left exercise-plan-title">{{ exercise.name }}</span>
         </div>
-        <div class="col-xs-6 padding-right-6">
-            <span class="pull-right glyphicon glyphicon-remove red exercise-plan-icon-remove pointer-on-hover" ng-click="onCancel({index: $index})"></span>
-        </div>
     </div>
     <div class="row" ng-repeat="set in exercise.sets">
         <div class="col-xs-10 no-padding">
@@ -18,7 +15,7 @@
             </div>
         </div>
             <div class="col-xs-2 exercise-plan-icons-block">
-                <span class="glyphicon glyphicon-minus red exercise-plan-icon pointer-on-hover padding-right-8 pull-left" ng-click="remove($index)" ng-hide="exercise.sets.length === 1"></span>
+                <span class="glyphicon glyphicon-minus red exercise-plan-icon pointer-on-hover padding-right-8 pull-left" ng-click="removeSet($index)" ng-hide="exercise.sets.length === 1"></span>
                 <span class="glyphicon glyphicon-plus green exercise-plan-icon pointer-on-hover pull-left" ng-click="addSet()" ng-show="$index + 1 === exercise.sets.length"></span>
             </div>
         </div>

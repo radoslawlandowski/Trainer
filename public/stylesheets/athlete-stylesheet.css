@@ -10,6 +10,10 @@
     color: lawngreen
 }
 
+.orange {
+    color: orange
+}
+
 .red {
     color: red
 }
@@ -30,6 +34,10 @@
 
 .padding-right-6 {
     padding-right: 6px;
+}
+
+.padding-left-8 {
+    padding-left: 8px;
 }
 
 .padding-left-8 {

@@ -1,40 +1,23 @@
-define(['angular', 'AthleteModule', 'ExerciseFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'searchBarDirective', 'searchByTagFilter', 'trainingDirective', 'Exercises'], function(angular, AthleteModule) {
-    AthleteModule.controller('AthleteTrainingController', function(Exercises, ExerciseFactory) {
+define(['angular', 'AthleteModule', 'TrainingFactory', 'ExerciseFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'searchBarDirective', 'searchByTagFilter', 'trainingDirective', 'Exercises'], function(angular, AthleteModule) {
+    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory, ExerciseFactory) {
         var vm = this;
 
         vm.exercises = Exercises;
         vm.trainings = [];
-        vm.training = [];
-
-        vm.addToRoutine = function(exerciseName) {
-            vm.training.push(ExerciseFactory.create(exerciseName));
-        }
-
-        vm.removeFromRoutine = function(index) {
-            vm.training.splice(index, 1);
-        }
 
         vm.newTraining = function() {
-            vm.training = [];
             vm.createNewTraining = true;
+            vm.training = TrainingFactory.create("New Training");
         }
 
         vm.discardNewTraining = function() {
             vm.createNewTraining = false;
-        }
-
-        vm.panelCollapsed = function() {
-            console.log("After collapse!");
+            vm.training = undefined;
         }
 
         vm.saveTraining = function(training) {
-            var trainingData = {
-                title: "Any title",
-                exercises: training
-            }
-            vm.trainings.push(angular.copy(trainingData));
+            vm.trainings.push(angular.copy(training));
             vm.createNewTraining = false;
         }
-
     })
 })

@@ -7,25 +7,17 @@
             You have no trainings defined. Do you even lift?!
         </div>
     </div>
-    <training-directive ng-repeat="training in atc.trainings" training-data="training"></training-directive>
+    <training-directive ng-repeat="training in atc.trainings" training="training" available-exercises="atc.exercises" edit="false"></training-directive>
     <div class="row row-padding text-center">
         <hr>
         <span ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
         <span ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
     </div>
     <div uib-collapse="!atc.createNewTraining">
-		<div class="row row-padding padding-left-8">
-            <div class="col-xs-6 well padding-left-24">
-                <search-bar-directive search-option="atc.searchOption" search-text="atc.searchText"></search-bar-directive>
-                <hr class="margin-top-3">
-                <exercise-card-directive class="pointer-on-hover" ng-repeat="exerciseCard in atc.exercises | byTag:atc.searchText track by $index" exercise="exerciseCard" ng-click="atc.addToRoutine(exerciseCard.name)"></exercise-card-directive>
-            </div>
-            <div class="col-xs-6 pull-right">
-                <exercise-plan-directive ng-repeat="exercisePlan in atc.training" exercise="exercisePlan" on-cancel="atc.removeFromRoutine()"></exercise-plan-directive>
-            </div>
-        </div>
-        <div class="row text-center">
-            <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover" ng-show="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
+        <training-directive training="atc.training" available-exercises="atc.exercises" edit="true"></training-directive>
+        <div>
+            <div class="row text-center">
+            <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover" ng-if="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
         </div>
 	</div>
 </div>
