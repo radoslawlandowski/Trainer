@@ -1,7 +1,7 @@
 define(['MainModule'], function(MainModule) {
     MainModule.constant('Exercises', {
         'BicepCurl': {
-            name: 'BicepCurl',
+            name: 'Bicep Curl',
             description: 'Take the bar and just curl your biceps',
             musclesInvolved: [
                 "tricep",

@@ -1,16 +1,23 @@
-define(['AthleteModule', 'ExerciseFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'Exercises'], function(AthleteModule) {
-    AthleteModule.controller('AthleteTrainingController', function(Exercises, ExerciseFactory) {
+define(['angular', 'AthleteModule', 'TrainingFactory', 'ExerciseFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'searchBarDirective', 'searchByTagFilter', 'trainingDirective', 'Exercises'], function(angular, AthleteModule) {
+    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory) {
         var vm = this;
 
         vm.exercises = Exercises;
-        vm.training = [];
+        vm.trainings = [];
 
-        vm.addToRoutine = function(exerciseName) {
-            vm.training.push(ExerciseFactory.create(exerciseName));
+        vm.newTraining = function() {
+            vm.createNewTraining = true;
+            vm.training = TrainingFactory.create("New Training");
         }
 
-        vm.removeFromRoutine = function(index) {
-            vm.training.splice(index, 1);
+        vm.discardNewTraining = function() {
+            vm.createNewTraining = false;
+            vm.training = undefined;
+        }
+
+        vm.saveTraining = function(training) {
+            vm.trainings.push(angular.copy(training));
+            vm.createNewTraining = false;
         }
     })
 })

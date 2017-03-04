@@ -1,14 +1,14 @@
 define(['MainModule'], function(MainModule) {
     MainModule.constant('Muscles', {
         'Back': {
-            'major': 'major',
-            'minor': 'minor',
-            'trapezoid': 'trapezoid',
-            'romboid': 'romboid'
+            'major': 'back major',
+            'minor': 'back minor',
+            'trapezoid': 'back trapezoid',
+            'romboid': 'back romboid'
         },
         'Chest': {
-            'major': 'major',
-            'minor': 'minor'
+            'major': 'chest major',
+            'minor': 'chest minor'
         },
         'Forearms': {
             'contractor': 'contractor',

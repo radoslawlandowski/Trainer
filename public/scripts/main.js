@@ -4,6 +4,7 @@ requirejs.config({
         /* Modules and files */
         'MainModule': 'application/main/MainModule',
         'MainConfig': 'application/main/MainConfig',
+
         'AthleteModule': 'application/athlete/AthleteModule',
         'AthleteConfig': 'application/athlete/AthleteConfig',
         'AthleteStates': 'application/athlete/shared/AthleteStates',
@@ -13,8 +14,14 @@ requirejs.config({
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
-        'ExerciseFactory': 'application/athlete/training/ExerciseFactory',
-                
+        'trainingDirective': 'application/shared/directives/training/trainingDirective',
+        'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
+
+        'ExerciseFactory': 'application/shared/factories/ExerciseFactory',
+        'TrainingFactory': 'application/shared/factories/TrainingFactory',
+
+        'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
+     
         'Exercises': 'application/shared/constants/Exercises',
         'Muscles': 'application/shared/constants/Muscles',
 

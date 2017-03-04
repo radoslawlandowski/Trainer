@@ -1,13 +1,25 @@
 <div class="row well">
-    
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <exercise-card-directive ng-repeat="(key, value) in atc.exercises" exercise="value" ng-click="atc.addToRoutine(value.name)"></exercise-card-directive>
+    <div class="row row-padding pull-left font-size-18">
+        <div class="col-xs-12">My trainings</div>
     </div>
-    <div class="col-lg-6">
-        <exercise-plan-directive ng-repeat="chosenExercise in atc.training track by $index" exercise="chosenExercise" on-cancel="atc.removeFromRoutine($index)"></exercise-plan-directive>
+    <div class="row row-padding text-center">
+        <div class="col-xs-12 glyphicon glyphicon-thumbs-down" ng-show="atc.trainings.length === 0">
+            You have no trainings defined. Do you even lift?!
+        </div>
     </div>
+    <training-directive ng-repeat="training in atc.trainings" training="training" available-exercises="atc.exercises" edit="false"></training-directive>
+    <div class="row row-padding text-center">
+        <hr>
+        <span ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
+        <span ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
+    </div>
+    <div uib-collapse="!atc.createNewTraining">
+        <training-directive training="atc.training" available-exercises="atc.exercises" edit="true"></training-directive>
+        <div>
+            <div class="row text-center">
+            <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover" ng-if="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
+        </div>
+	</div>
 </div>
 
 
