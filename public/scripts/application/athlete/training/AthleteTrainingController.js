@@ -1,5 +1,5 @@
 define(['angular', 'AthleteModule', 'TrainingFactory', 'ExerciseFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'searchBarDirective', 'searchByTagFilter', 'trainingDirective', 'Exercises'], function(angular, AthleteModule) {
-    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory, ExerciseFactory) {
+    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory) {
         var vm = this;
 
         vm.exercises = Exercises;
