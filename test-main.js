@@ -43,8 +43,8 @@ require.config({
       'angular-ui-router': 'libs/angular-ui-router.min',
       'angular-animate': 'libs/angular-animate.min',
       'angular-mocks': 'libs/angular-mocks',
-      'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min'
-
+      'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min',
+      'jquery': 'libs/jquery.min'
   },
   shim: {
       'angular': {
