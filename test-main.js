@@ -38,6 +38,11 @@ require.config({
 
       'Exercises': 'application/shared/constants/Exercises',
       'Muscles': 'application/shared/constants/Muscles',
+
+      'templates-athlete': 'application/athlete/templates/templates-athlete',
+      'templates-main': 'application/main/templates/templates-main',
+      'templates-shared': 'application/shared/templates/templates-shared',
+
       /* Libs */
       'angular': 'libs/angular.min',
       'angular-ui-router': 'libs/angular-ui-router.min',

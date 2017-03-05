@@ -52,12 +52,32 @@ module.exports = function (grunt) {
                 configFile: 'karma.conf.js',
                 singleRun: true
             }
-        }
+        },
+
+        html2js: {
+            options: {
+                base: 'public/',
+                amd: true
+            },
+            main: {
+                src: ['public/scripts/application/main/**/*.html'],
+                dest: 'public/scripts/application/main/templates/templates-main.js'
+            },
+            athlete: {
+                src: ['public/scripts/application/athlete/**/*.html'],
+                dest: 'public/scripts/application/athlete/templates/templates-athlete.js'
+            },
+            shared: {
+                src: ['public/scripts/application/shared/**/*.html'],
+                dest: 'public/scripts/application/shared/templates/templates-shared.js'
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-html2js');
 
-    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
+    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts', 'html2js']);
 };

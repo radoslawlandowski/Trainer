@@ -34,3 +34,6 @@ public/scripts/libs/
 
 # Bower components
 bower_components
+
+# HTML Templates javascriptified into angular modules
+templates-*.js
