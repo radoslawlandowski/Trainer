@@ -1,13 +1,13 @@
-<div class="panel panel-success">
+<div id="exercise-card-{{exercise.name}}" class="panel panel-success">
     <div class="panel-heading">
-        <span id="exerciseName">{{exercise.name}}</span>
+        <span id="exercise-name">{{exercise.name}}</span>
     </div>
     <div class="panel-body">
         <div class="col-xs-6">
-            <span id="exerciseDescription">{{exercise.description}}</span>
+            <span id="exercise-description">{{exercise.description}}</span>
         </div>
         <div id="musclesInvolved" class="col-xs-6">
-            <span ng-repeat="muscle in exercise.musclesInvolved" class="label label-default exercise-card-muscle-label pull-right">{{muscle}}</span>
+            <span id="muscle-involved-{{muscle}}" ng-repeat="muscle in exercise.musclesInvolved" class="label label-default exercise-card-muscle-label pull-right">{{muscle}}</span>
         </div>
     </div>
 </div>
