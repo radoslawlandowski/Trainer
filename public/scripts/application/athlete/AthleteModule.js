@@ -1,5 +1,5 @@
-define(['angular', 'templates-athlete'], function(angular) {
-    var m = angular.module('AthleteModule', ['ui.router', 'templates-athlete']);
+define(['angular'], function(angular) {
+    var m = angular.module('AthleteModule', ['ui.router']);
     
     require(['AthleteConfig'], function() {});
 

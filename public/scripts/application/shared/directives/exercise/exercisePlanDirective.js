@@ -3,7 +3,8 @@ define(['MainModule', 'angular'], function(MainModule, angular) {
         return {
             restrict: 'E',
             scope: {
-                'exercise': '='
+                'exercise': '=',
+                'readonly': '='
             },
             templateUrl: 'scripts/application/shared/directives/exercise/exercisePlanDirectiveTemplate.html',
             link: function(scope, element, attrs) {
