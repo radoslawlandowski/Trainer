@@ -1,18 +1,31 @@
-define(['AthleteModule'], function (AthleteModule) {
-    AthleteModule.controller('AthleteDataController', function () {
+define(['AthleteModule', 'AthleteDataService'], function (AthleteModule) {
+    AthleteModule.controller('AthleteDataController', function (AthleteDataService) {
         var vm = this;
 
-        vm.editMode = false;
+        vm.init = init;
+        vm.edit = edit;
+        vm.discard = discard;
+        vm.save = save;
 
-        vm.edit = function () {
-            vm.editMode = !vm.editMode;
-        }
+        vm.init();
 
-        vm.discard = function () {
+        function init () {
             vm.editMode = false;
+            vm.data = AthleteDataService.get();
         }
 
-        vm.save = function () {
+        function edit () {
+            vm.editMode = !vm.editMode;
+            vm.temp = angular.copy(vm.data);
+        }
+
+        function discard () {
+            vm.editMode = false;
+            vm.data = vm.temp;
+        }
+
+        function save () {
+            AthleteDataService.put(vm.data);
             vm.editMode = false;
         }
     })

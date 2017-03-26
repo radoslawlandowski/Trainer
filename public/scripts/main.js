@@ -11,6 +11,7 @@ requirejs.config({
         'AthleteMainController': 'application/athlete/main/AthleteMainController',
         'AthleteTrainingController': 'application/athlete/training/AthleteTrainingController',
         'AthleteDataController': 'application/athlete/data/AthleteDataController',
+        'AthleteDataService': 'application/athlete/data/AthleteDataService',
 
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
