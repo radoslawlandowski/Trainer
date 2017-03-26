@@ -1,6 +1,6 @@
 var BaseComponent = require('./BaseComponent');
 
-function ExerciseCardComponent(parentName) {
+function SearchBarComponent(parentName) {
     this.id = `exercise-card`;
     this.parentId = `exercise-card-${parentName}`
 
@@ -11,19 +11,19 @@ function ExerciseCardComponent(parentName) {
     BaseComponent.call(this, this.id, this.parentId);
 };
 
-ExerciseCardComponent.prototype = new BaseComponent();
-ExerciseCardComponent.prototype.constructor = ExerciseCardComponent;
+SearchBarComponent.prototype = new BaseComponent();
+SearchBarComponent.prototype.constructor = SearchBarComponent;
 
-ExerciseCardComponent.prototype.getExerciseName = function() {
+SearchBarComponent.prototype.getExerciseName = function() {
     return this.getById(this.exerciseNameId).getText();
 };
 
-ExerciseCardComponent.prototype.getExerciseDescription = function() {
+SearchBarComponent.prototype.getExerciseDescription = function() {
     return this.getById(this.exerciseDescriptionId).getText();
 };
 
-ExerciseCardComponent.prototype.getMusclesInvolved = function() {
+SearchBarComponent.prototype.getMusclesInvolved = function() {
     return this.getAllByCss(this.allMusclesInvolvedCssPattern);
 };
 
-module.exports = ExerciseCardComponent;
+module.exports = SearchBarComponent;

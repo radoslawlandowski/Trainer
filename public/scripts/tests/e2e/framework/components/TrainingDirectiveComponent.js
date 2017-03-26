@@ -1,5 +1,6 @@
 var BaseComponent = require('./BaseComponent');
 var ExerciseCardComponent = require('./ExerciseCardComponent');
+var ExercisePlanComponent = require('./ExercisePlanComponent');
 
 function TrainingDirectiveComponent(parentId) {
     this.id = 'training';
@@ -11,6 +12,9 @@ function TrainingDirectiveComponent(parentId) {
 
     this.addExerciseButtonIdPattern = 'add-exercise-button-{{exercise.name}}';
     this.removeExerciseButtonIdPattern = 'remove-exercise-button-{{exercise.name}}';
+
+    this.allExerciseCardsCssPattern = '[id^=exercise-card-]';
+    this.allExercisePlansCssPattern = '[id^=exercise-plan-]';
 
     BaseComponent.call(this, this.id, parentId);
 }
@@ -26,8 +30,16 @@ TrainingDirectiveComponent.prototype.clickRemoveExerciseButton = function (name)
     this.findAndClick(this.removeExerciseButtonIdPattern, '{{exercise.name}}', name);
 }
 
+TrainingDirectiveComponent.prototype.getAllExercisePlans = function () {
+    return this.getAllByCss(this.allExercisePlansCssPattern);
+}
+
 TrainingDirectiveComponent.prototype.getExerciseCard = function (name) {
     return new ExerciseCardComponent(name);
+}
+
+TrainingDirectiveComponent.prototype.getExercisePlan = function (name) {
+    return new ExercisePlanComponent(name);
 }
 
 module.exports = TrainingDirectiveComponent;

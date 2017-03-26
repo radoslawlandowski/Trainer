@@ -14,10 +14,18 @@ BaseComponent.prototype.getById = function(id) {
     return this.element.element(by.id(id));
 };
 
+BaseComponent.prototype.getAllByCss = function(css) {
+    return this.element.all(by.css(css));
+};
+
 BaseComponent.prototype.getInputText = function (element) {
     return this.element.getAttribute("value").then(function(value) {
       return value;
     });
+};
+
+BaseComponent.prototype.fillInput = function(id, text) {
+    return this.element.element(by.id(id)).sendKeys(text);
 };
 
 BaseComponent.prototype.clickMyself = function () {
