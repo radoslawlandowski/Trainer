@@ -30,19 +30,19 @@ define(['angular', 'angular-mocks', 'MainModule', 'Exercises'], function () {
 
         describe('When provided valid exercise attribute', function () {
             it("it should propagate exercise name properly", function () {
-                var exerciseName = getBySelector('#exerciseName');
+                var exerciseName = getBySelector('#exercise-name');
 
                 expect(exerciseName.text()).toEqual(bicepCurl.name);
             });
 
             it("it should propagate exercise description properly", function () {
-                var exerciseDescr = getBySelector('#exerciseDescription');
+                var exerciseDescr = getBySelector('#exercise-description');
 
                 expect(exerciseDescr.text()).toEqual(bicepCurl.description);
             });
 
             it("it should propagate muscles involved properly", function () {
-                var musclesInvolvedDiv = getBySelector('#musclesInvolved');
+                var musclesInvolvedDiv = getBySelector('#muscles-involved-group');
 
                 var muscles = musclesInvolvedDiv.find('span');
 

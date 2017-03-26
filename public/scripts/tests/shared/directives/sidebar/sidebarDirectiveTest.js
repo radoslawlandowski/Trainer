@@ -37,7 +37,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'AthleteState
 
         describe('When provided valid states attribute', function () {
             it("it should create corresponding count of buttons", function () {
-                var buttons = getBySelector('#sidebarButtons').find('button');
+                var buttons = getBySelector('#sidebar-buttons').find('button');
 
                 var statesCount = Object.keys(AthleteStates).length;
 
