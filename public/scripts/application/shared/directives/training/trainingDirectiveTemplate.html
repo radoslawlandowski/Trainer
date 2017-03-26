@@ -1,7 +1,7 @@
-<div class="panel panel-success">
+<div id='training' class="panel panel-success">
     <div class="panel-heading">
-        <span>{{training.title}}</span>
-        <span class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit = !edit"></span> 
+        <span id="training-title" >{{training.title}}</span>
+        <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit = !edit"></span> 
     </div>
     <div class="panel-body">
         <div ng-if="edit" class="col-xs-6">
@@ -10,20 +10,20 @@
             </div>
             <div class="row" ng-repeat="(name, exercise) in availableExercises | byTag : searchText track by $index">
                 <div class="col-xs-9">
-                    <exercise-card-directive exercise="exercise"></exercise-card-directive>        
+                    <exercise-card-directive id="exercise-card-{{exercise.name}}" exercise="exercise"></exercise-card-directive>        
                 </div>
                 <div class="col-xs-3">
-                    <button class="btn btn-info" ng-click="addExercise(exercise.name)">Add</button>
+                    <button id="add-exercise-button-{{exercise.name}}" class="btn btn-info" ng-click="addExercise(exercise.name)">Add</button>
                 </div>
             </div>
         </div>
         <div class="col-xs-6">
             <div class="row" ng-repeat="exercise in training.exercises track by $index">
                 <div class="col-xs-3" ng-if="edit">
-                    <button class="btn btn-danger" ng-click="removeExercise(exercise.name)">Remove</button>
+                    <button id="remove-exercise-button-{{exercise.name}}" class="btn btn-danger" ng-click="removeExercise(exercise.name)">Remove</button>
                 </div>
                 <div class="col-xs-9">
-                    <exercise-plan-directive exercise="exercise" readonly="!edit"></exercise-plan-directive>        
+                    <exercise-plan-directive id="exercise-plan-{{exercise.name}}" exercise="exercise" readonly="!edit"></exercise-plan-directive>        
                 </div>
             </div>
         </div>

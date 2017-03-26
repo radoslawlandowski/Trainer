@@ -1,21 +1,21 @@
-<div class="panel panel-success">
+<div id="exercise-plan" class="panel panel-success">
     <div class="panel-heading">
-        <span id="exerciseName">{{ exercise.name }}</span>
+        <span id="exercise-name">{{ exercise.name }}</span>
     </div>
     <div class="panel-body">
         <div id="sets" class="row" ng-repeat="set in exercise.sets">
             <div class="col-xs-10">
                 <div id="set-{{$index}}" class="input-group input-group-sm">
                     <span class="input-group-addon">Set {{ $index + 1 }}:</span>
-                    <input id="repsInput-{{$index}}" type="text" class="form-control exercise-plan-reps-input" placeholder="reps" ng-model="set.reps" ng-readonly="readonly">
+                    <input id="reps-input-{{$index}}" type="text" class="form-control exercise-plan-reps-input" placeholder="reps" ng-model="set.reps" ng-readonly="readonly">
                     <span class="input-group-addon">x</span>
-                    <input id="weightInput-{{$index}}" type="text" class="form-control exercise-plan-kilograms-input" placeholder="kgs" ng-model="set.weight" ng-readonly="readonly">
+                    <input id="weight-input-{{$index}}" type="text" class="form-control exercise-plan-kilograms-input" placeholder="kgs" ng-model="set.weight" ng-readonly="readonly">
                     <span class="input-group-addon">kg</span>
                 </div>
             </div>
             <div id="buttons" class="col-xs-2 exercise-plan-icons-block" ng-hide="readonly">
-                <span id="removeSetButton-{{$index}}" class="glyphicon glyphicon-minus red exercise-plan-icon pointer-on-hover padding-right-8 pull-left" ng-click="removeSet($index)" ng-hide="exercise.sets.length === 1"></span>
-                <span id="addSetButton-{{$index}}" class="glyphicon glyphicon-plus green exercise-plan-icon pointer-on-hover pull-left" ng-click="addSet()" ng-show="$index + 1 === exercise.sets.length"></span>
+                <span id="remove-set-button-{{$index}}" class="glyphicon glyphicon-minus red exercise-plan-icon pointer-on-hover padding-right-8 pull-left" ng-click="removeSet($index)" ng-hide="exercise.sets.length === 1"></span>
+                <span id="add-set-button-{{$index}}" class="glyphicon glyphicon-plus green exercise-plan-icon pointer-on-hover pull-left" ng-click="addSet()" ng-show="$index + 1 === exercise.sets.length"></span>
             </div>
         </div>
     </div>

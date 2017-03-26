@@ -2,21 +2,21 @@
     <div class="panel-heading">My trainings</div>
     <div class="panel-body">
         <div class="row text-center">
-            <div class="col-xs-12 glyphicon glyphicon-thumbs-down" ng-show="atc.trainings.length === 0">
+            <div id="no-trainings-text" class="col-xs-12 glyphicon glyphicon-thumbs-down" ng-show="atc.trainings.length === 0">
                 You have no trainings defined. Do you even lift?!
             </div>
         </div>
-        <training-directive ng-repeat="training in atc.trainings" training="training" available-exercises="atc.exercises" edit="false"></training-directive>
+        <training-directive id="saved-trainings-{{$index}}" ng-repeat="training in atc.trainings" training="training" available-exercises="atc.exercises" edit="false"></training-directive>
         <div class="row row-padding text-center">
             <hr>
-            <span ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
-            <span ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
+            <span id="new-training-button" ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
+            <span id="discard-training-button" ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
         </div>
         <div uib-collapse="!atc.createNewTraining">
             <training-directive training="atc.training" available-exercises="atc.exercises" edit="true"></training-directive>
             <div>
                 <div class="row text-center">
-                <span class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover " ng-if="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
+                <span id="save-training-button" class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover " ng-if="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
             </div>
         </div>
     </div>

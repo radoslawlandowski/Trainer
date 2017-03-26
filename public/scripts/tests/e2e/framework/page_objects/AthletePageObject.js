@@ -1,0 +1,18 @@
+var BasePageObject = require('./BasePageObject');
+var AthleteTrainingPageObject = require('./athlete/AthleteTrainingPageObject');
+
+var SidebarComponent = require('../components/SidebarComponent');
+
+function AthletePageObject() {
+    this.url = 'http://localhost:3000/#!/athlete';
+
+    BasePageObject.call(this, this.url);
+
+    this.sidebar = new SidebarComponent();
+
+    this.Training = new AthleteTrainingPageObject();
+}
+
+AthletePageObject.prototype = new BasePageObject();
+
+module.exports = AthletePageObject;
