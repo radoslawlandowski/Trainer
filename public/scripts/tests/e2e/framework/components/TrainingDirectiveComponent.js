@@ -34,6 +34,10 @@ TrainingDirectiveComponent.prototype.getAllExercisePlans = function () {
     return this.getAllByCss(this.allExercisePlansCssPattern);
 }
 
+TrainingDirectiveComponent.prototype.getAllExerciseCards = function () {
+    return this.getAllByCss(this.allExerciseCardsCssPattern);
+}
+
 TrainingDirectiveComponent.prototype.getExerciseCard = function (name) {
     return new ExerciseCardComponent(name);
 }

@@ -11,6 +11,10 @@ function AthleteTrainingPageObject() {
     this.saveTrainingButtonId = 'save-training-button';
     this.discardTrainingButtonId = 'discard-training-button';
 
+    this.noTrainingsTextId = 'no-trainings-text';
+    this.trainingsIdPattern = 'saved-trainings-{{$index}}';
+    this.allTrainingsCssPattern = '[id^=saved-trainings-]';
+
     this.NewTrainingComponent = new TrainingDirectiveComponent()
 }
 
@@ -27,5 +31,14 @@ AthleteTrainingPageObject.prototype.clickSaveTrainingButton = function() {
 AthleteTrainingPageObject.prototype.clickDiscardTrainingButton = function() {
     element(by.id(this.discardTrainingButtonId)).click();
 }
+
+AthleteTrainingPageObject.prototype.getNoTrainingText = function() {
+    return element(by.id(this.noTrainingsTextId));
+}
+
+AthleteTrainingPageObject.prototype.getTrainings = function() {
+    return element.all(by.css(this.allTrainingsCssPattern));
+}
+
 
 module.exports = AthleteTrainingPageObject;
