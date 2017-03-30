@@ -1,7 +1,6 @@
 define(['AthleteModule'], function(AthleteModule) {
-    AthleteModule.controller('AthleteBoardController', function(states) {
+    AthleteModule.controller('AthleteBoardController', function() {
         var vm = this;
         
-        vm.states = states;
     })
 })
