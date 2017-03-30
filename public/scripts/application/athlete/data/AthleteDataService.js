@@ -3,6 +3,8 @@ define(['AthleteModule'], function(AthleteModule) {
         var self = this;
 
         var mockAthlete = {
+            'email': 'mock@athlete.com',
+            'password': 'password',
             'firstName': 'mock',
             'lastName': 'athlete',
             'weight': '70',
