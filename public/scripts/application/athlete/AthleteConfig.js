@@ -1,11 +1,13 @@
-define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController'], function (AthleteModule) {
+define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', 'AthleteBoardController'], function (AthleteModule) {
     AthleteModule.config(function ($stateProvider) {
         var base = 'scripts/application/athlete/';
 
         var boardState = {
             name: 'athlete.board',
             url: '/board',
-            templateUrl: base + 'board/athlete-board.html'
+            templateUrl: base + 'board/athlete-board.html',
+            controller: 'AthleteBoardController',
+            controllerAs: 'abc'
         };
 
         var dataState = {
