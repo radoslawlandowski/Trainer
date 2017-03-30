@@ -27,6 +27,7 @@ require.config({
       'AthleteDataController': 'application/athlete/data/AthleteDataController',
       'AthleteDataService': 'application/athlete/data/AthleteDataService',
       'AthleteBoardController': 'application/athlete/board/AthleteBoardController',
+      'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
