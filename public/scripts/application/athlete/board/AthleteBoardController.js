@@ -1,4 +1,4 @@
-define(['AthleteModule', 'AthleteTrainingService', 'Exercises'], function(AthleteModule) {
+define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective'], function(AthleteModule) {
     AthleteModule.controller('AthleteBoardController', function(AthleteTrainingService, Exercises) {
         var vm = this;
 

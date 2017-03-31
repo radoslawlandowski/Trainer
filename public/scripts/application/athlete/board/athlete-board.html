@@ -8,11 +8,16 @@
             <span ng-repeat="training in abc.trainings" ng-click="abc.train(training)" class="list-group-item pointer-on-hover">{{training.title}}</span>
         </div>
     </div>
-    <div ng-if="abc.trainingChosen" class="panel-body">
+    <div ng-if="abc.trainingChosen && !abc.trainingStarted" class="panel-body">
         <div>
             <training-directive training="abc.currentTraining" available-exercises="abc.exercises" is-edited="false"></training-directive>
         </div>
         <button id="button-back-to-list" ng-click="abc.backToList()" class="btn btn-default pull-left">Back to list</button>
         <button id="button-start-training" ng-click="abc.startTraning()" class="btn btn-warning pull-right">Start training!</button>
+    </div>
+
+
+    <div class="panel-body" ng-if="abc.trainingStarted">
+        <perform-training-directive training="abc.currentTraining"></perform-training-directive>
     </div>
 </div>
