@@ -29,6 +29,7 @@ require.config({
       'AthleteBoardController': 'application/athlete/board/AthleteBoardController',
       'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
       'performTrainingDirective': 'application/athlete/board/performTrainingDirective',
+      'TrainingTimer': 'application/athlete/board/TrainingTimer',
 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',

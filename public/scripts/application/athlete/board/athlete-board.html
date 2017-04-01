@@ -18,6 +18,6 @@
 
 
     <div class="panel-body" ng-if="abc.trainingStarted">
-        <perform-training-directive training="abc.currentTraining"></perform-training-directive>
+        <perform-training-directive training="abc.currentTraining" finish="abc.onTrainingFinish(training, timings)"></perform-training-directive>
     </div>
 </div>

@@ -1,39 +1,43 @@
-define(['AthleteModule'], function (AthleteModule) {
-    AthleteModule.directive('performTrainingDirective', function () {
+define(['AthleteModule', 'TrainingTimer'], function (AthleteModule) {
+    AthleteModule.directive('performTrainingDirective', function (TrainingTimer) {
         return {
             restrict: 'E',
             scope: {
-                'training': '='
+                'training': '=',
+                'finish': '&'
             },
             templateUrl: 'scripts/application/athlete/board/performTrainingDirectiveTemplate.html',
             link: function (scope) {
                 scope.exerciseIndex = 0;
                 scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
+                scope.timer = TrainingTimer.create(scope.training);
+                scope.timer.initialize();
+
+                scope.$watch('exerciseIndex', function(currentIndex, previousIndex) {
+                    if(currentIndex !== previousIndex) {
+                        scope.timer.stop(previousIndex);
+                    }
+                    scope.timer.start(currentIndex);
+                });
 
                 scope.previous = function () {
-                    if (scope.exerciseIndex === 0) {
-                        return;
-                    } else {
-                        scope.exerciseIndex -= 1;
-                        scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
-                    }
+                    scope.exerciseIndex -= 1;
+                    scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
                 }
 
                 scope.next = function () {
-                    if (scope.exerciseIndex === scope.training.exercises.length - 1) {
-                        return;
-                    } else {
-                        scope.exerciseIndex += 1;
-                        scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
-                    }
+                    scope.exerciseIndex += 1;
+                    scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
                 }
 
                 scope.finalizeTraining = function () {
-
+                    scope.timer.stop(scope.exerciseIndex);
+                    scope.timer.finish();
+                    scope.finish({training: scope.training, timings: scope.timer.generateReport()});
                 }
 
                 scope.cancelTraining = function () {
-                    
+                    scope.finish({training: scope.training, timings: scope.timer.generateReport()});
                 }
             }
         };
