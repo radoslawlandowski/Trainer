@@ -30,6 +30,7 @@ require.config({
       'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
       'performTrainingDirective': 'application/athlete/board/performTrainingDirective',
       'TrainingTimer': 'application/athlete/board/TrainingTimer',
+      'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
