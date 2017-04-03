@@ -26,6 +26,11 @@ require.config({
       'AthleteTrainingController': 'application/athlete/training/AthleteTrainingController',
       'AthleteDataController': 'application/athlete/data/AthleteDataController',
       'AthleteDataService': 'application/athlete/data/AthleteDataService',
+      'AthleteBoardController': 'application/athlete/board/AthleteBoardController',
+      'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
+      'performTrainingDirective': 'application/athlete/board/performTrainingDirective',
+      'TrainingTimer': 'application/athlete/board/TrainingTimer',
+      'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',

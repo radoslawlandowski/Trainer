@@ -1,11 +1,11 @@
 define(['MainModule', 'ExerciseFactory', 'TrainingFactory'], function (MainModule) {
-    MainModule.directive('trainingDirective', function ($state, ExerciseFactory, TrainingFactory) {
+    MainModule.directive('trainingDirective', function (ExerciseFactory, TrainingFactory) {
         return {
             restrict: 'E',
             scope: {
                 'availableExercises': "=",
                 'training': '=?',
-                'edit': "=?"
+                'isEdited': "=?"
             },
             templateUrl: 'scripts/application/shared/directives/training/trainingDirectiveTemplate.html',
             link: function (scope, element, attrs) {
@@ -15,6 +15,11 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory'], function (MainModul
 
                 scope.removeExercise = function(exercise) {
                     scope.training.removeExercise(exercise);
+                }
+
+                scope.edit = function() {
+                    scope.isEdited = !scope.isEdited;
+                    scope.tempTraining = angular.copy(scope.training);
                 }
             }
         };

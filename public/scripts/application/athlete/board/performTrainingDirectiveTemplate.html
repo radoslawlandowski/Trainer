@@ -1,0 +1,17 @@
+<div>
+    <div> 
+        <button id="cancel-button" class="btn btn-danger" ng-click="cancelTraining()">Cancel</button>
+        <button id="finalize-button" class="btn btn-danger" ng-click="finalizeTraining()">Finalize</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <exercise-plan-directive id="exercise-plan-{{currentExercise.name}}" exercise="currentExercise" readonly="false"></exercise-plan-directive>
+    </div>
+
+    <div>
+        <button id="previous-exercise-button" ng-if="exerciseIndex !== 0" class="btn btn-default pull-left" ng-click="previous()">Previous</button>
+        <button id="next-exercise-button" ng-if="exerciseIndex !== training.exercises.length - 1" class="btn btn-default pull-right" ng-click="next()">Next</button>
+    </div>
+</div>
