@@ -16,7 +16,7 @@ define(['AthleteModule', 'TrainingTimer'], function (AthleteModule) {
                         scope.timer.initialize();
 
                         scope.$watch('exerciseIndex', function (currentIndex, previousIndex) {
-                            if (currentIndex !== previousIndex) {
+                            if (currentIndex !== previousIndex) { // prevent incorrect timer start at directive creation
                                 scope.timer.stop(previousIndex);
                             }
                             scope.timer.start(currentIndex);
