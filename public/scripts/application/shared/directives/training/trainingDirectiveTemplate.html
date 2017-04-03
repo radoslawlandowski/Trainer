@@ -1,6 +1,7 @@
 <div id='training' class="panel panel-success">
     <div class="panel-heading">
-        <span id="training-title" >{{training.title}}</span>
+        <span id="training-title" ng-if="!isEdited">{{training.title}}</span>
+        <input id="training-title-input" ng-model="training.title" ng-if="isEdited">
         <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit()"></span> 
     </div>
     <div class="panel-body">
