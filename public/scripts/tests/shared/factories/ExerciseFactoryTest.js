@@ -1,5 +1,5 @@
 define(['angular', 'angular-mocks', 'MainModule', 'ExerciseFactory'], function () {
-    describe('ExerciseFactory Tests', function () {
+    describe('TrainingFactory', function () {
 
         beforeEach(module('MainModule'));
 

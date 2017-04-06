@@ -13,10 +13,6 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
                 scope.availableExercises = Exercises;
                 scope.daysOfWeek = Days;
 
-                scope.$watchCollection('chosenDays', function(){
-                    console.log(scope.chosenDays);
-                });
-
                 scope.addExercise = function (exerciseName) {
                     scope.tempTraining.addExercise(ExerciseFactory.create(exerciseName));
                 }

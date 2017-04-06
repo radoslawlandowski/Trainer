@@ -12,12 +12,9 @@ define(['MainModule'], function (MainModule) {
                     },
 
                     removeExercise: function (name) {
-                        for(var i = 0 ; i < this.exercises.length ; i++) {
-                            if(this.exercises[i].name === name) {
-                                this.exercises.splice(i, 1);
-                                return;
-                            }
-                        }
+                        this.exercises = this.exercises.filter(function(item) {
+                            return item.name != name;
+                        })
                     }
                 }
             }
