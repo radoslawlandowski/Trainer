@@ -5,6 +5,7 @@ define(['MainModule'], function (MainModule) {
                 return {
                     title: name,
                     exercises: [],
+                    days: [false, false, false, false, true, false, false], // moment.js: days[0] = 'Sunday'!
 
                     addExercise: function (exercise) {
                         this.exercises.push(exercise);

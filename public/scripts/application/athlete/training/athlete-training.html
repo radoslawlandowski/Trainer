@@ -6,18 +6,14 @@
                 You have no trainings defined. Do you even lift?!
             </div>
         </div>
-        <training-directive id="saved-trainings-{{$index}}" ng-repeat="training in atc.trainings" training="training" available-exercises="atc.exercises" edit="false"></training-directive>
+        <training-directive id="saved-trainings-{{$index}}" ng-repeat="training in atc.trainings" training="training" edit="false" on-save="atc.saveTraining(training)"></training-directive>
         <div class="row row-padding text-center">
             <hr>
             <span id="new-training-button" ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
             <span id="discard-training-button" ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
         </div>
-        <div uib-collapse="!atc.createNewTraining">
-            <training-directive training="atc.training" available-exercises="atc.exercises" is-edited="true"></training-directive>
-            <div>
-                <div class="row text-center">
-                <span id="save-training-button" class="glyphicon glyphicon-ok green font-size-32 pointer-on-hover " ng-if="atc.training.length !== 0" ng-click="atc.saveTraining(atc.training)"></span>
-            </div>
+        <div ng-if="atc.createNewTraining">
+            <training-directive training="atc.training" available-exercises="atc.exercises" is-edited="true" on-save="atc.saveTraining(training)"></training-directive>
         </div>
     </div>
 </div>

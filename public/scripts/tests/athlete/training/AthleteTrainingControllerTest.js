@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'], function () {
+define(['angular', 'angular-mocks', 'AthleteModule', 'AthleteTrainingController'], function () {
     describe('AthleteTrainingController Tests', function () {
 
         beforeEach(module('AthleteModule'));
@@ -8,6 +8,7 @@ define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'
         var testStates;
         var fakeCreateFunction;
         var FakeTrainingFactory;
+        var FakeAthleteTrainingService;
 
         beforeEach(inject(function (_$controller_) {
             $controller = _$controller_;
@@ -17,11 +18,17 @@ define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'
                 create: fakeCreateFunction
             }
 
+            FakeAthleteTrainingService = {
+                get: jasmine.createSpy('get'),
+                put: jasmine.createSpy('put')
+            }
+
             testExercises = { 'first': 'firstExc', 'second': 'secondExc', 'third': 'thirdExc' };
             
             AthleteTrainingController = $controller('AthleteTrainingController', {
                 Exercises: testExercises,
-                TrainingFactory: FakeTrainingFactory
+                TrainingFactory: FakeTrainingFactory,
+                AthleteTrainingService: FakeAthleteTrainingService
             });
         }));
 
@@ -52,7 +59,7 @@ define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'
 
             it("the passed object should be pushed to trainings array", function () {
                 AthleteTrainingController.saveTraining({'dummy': 'object'});
-                expect(AthleteTrainingController.trainings.length).toEqual(1);
+                expect(FakeAthleteTrainingService.put).toHaveBeenCalled();
             });
         });
     });

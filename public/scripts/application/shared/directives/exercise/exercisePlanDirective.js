@@ -19,6 +19,7 @@ define(['MainModule', 'angular'], function(MainModule, angular) {
                 scope.removeSet = function(index) {
                     scope.exercise.removeSet(index);
                 }
+
             }
         };
     })

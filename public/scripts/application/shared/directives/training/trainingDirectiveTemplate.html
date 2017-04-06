@@ -1,8 +1,9 @@
 <div id='training' class="panel panel-success">
     <div class="panel-heading">
-        <span id="training-title" ng-if="!isEdited">{{training.title}}</span>
-        <input id="training-title-input" ng-model="training.title" ng-if="isEdited">
-        <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit()"></span> 
+        <span id="training-title" ng-if="!isEdited">{{tempTraining.title}}</span>
+        <input id="training-title-input" ng-model="tempTraining.title" ng-if="isEdited">
+
+        <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit()"></span>
     </div>
     <div class="panel-body">
         <div ng-if="isEdited" class="col-xs-6">
@@ -11,7 +12,7 @@
             </div>
             <div class="row" ng-repeat="(name, exercise) in availableExercises | byTag : searchText track by $index">
                 <div class="col-xs-9">
-                    <exercise-card-directive id="exercise-card-{{exercise.name}}" exercise="exercise"></exercise-card-directive>        
+                    <exercise-card-directive id="exercise-card-{{exercise.name}}" exercise="exercise"></exercise-card-directive>
                 </div>
                 <div class="col-xs-3">
                     <button id="add-exercise-button-{{exercise.name}}" class="btn btn-info" ng-click="addExercise(exercise.name)">Add</button>
@@ -19,14 +20,23 @@
             </div>
         </div>
         <div class="col-xs-6">
-            <div class="row" ng-repeat="exercise in training.exercises track by $index">
+            <label ng-if="isEdited">Performed on:</label>
+            <span ng-if="isEdited" ng-repeat="day in daysOfWeek">{{day}} : 
+                <input type="checkbox" ng-model="tempTraining.days[$index]">
+            </span>
+            <div class="row" ng-repeat="exercise in tempTraining.exercises track by $index">
                 <div class="col-xs-3" ng-if="isEdited">
                     <button id="remove-exercise-button-{{exercise.name}}" class="btn btn-danger" ng-click="removeExercise(exercise.name)">Remove</button>
                 </div>
                 <div class="col-xs-9">
-                    <exercise-plan-directive id="exercise-plan-{{exercise.name}}" exercise="exercise" readonly="!isEdited"></exercise-plan-directive>        
+                    <exercise-plan-directive id="exercise-plan-{{exercise.name}}" exercise="exercise" readonly="!isEdited"></exercise-plan-directive>
                 </div>
             </div>
         </div>
+    </div>
+    <div ng-if="isEdited" class="panel-footer">
+        <span id="save-button" class="glyphicon glyphicon-ok green font-size-18 pointer-on-hover pull-right" ng-click="save()"></span>
+        <span id="discard-button" class="glyphicon glyphicon-remove font-size-18 pointer-on-hover pull-right padding-right-8" ng-click="discard()"></span>
+        <div class="clearfix"></div>
     </div>
 </div>

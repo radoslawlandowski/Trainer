@@ -25,7 +25,9 @@ module.exports = function (grunt) {
                     'ui-bootstrap-csp.css': 'angular-bootstrap/ui-bootstrap-csp.css',
                     'ui-bootstrap-tpls.min.js': 'angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
-                    'jquery.min.js': 'jquery/dist/jquery.min.js'
+                    'jquery.min.js': 'jquery/dist/jquery.min.js',
+                    'moment.min.js': 'moment/min/moment.min.js',
+                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js'
                 }
             },
             fonts: {

@@ -29,9 +29,11 @@ requirejs.config({
         'TrainingFactory': 'application/shared/factories/TrainingFactory',
 
         'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
-     
+        'selectByDayFilter': 'application/shared/filters/selectByDayFilter',
+
         'Exercises': 'application/shared/constants/Exercises',
         'Muscles': 'application/shared/constants/Muscles',
+        'Days': 'application/shared/constants/Days',
 
         'templates-athlete': 'application/athlete/templates/templates-athlete',
         'templates-main': 'application/main/templates/templates-main',
@@ -41,7 +43,9 @@ requirejs.config({
         'angular': 'libs/angular.min',
         'angular-ui-router': 'libs/angular-ui-router.min',
         'angular-animate': 'libs/angular-animate.min',
-        'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min'
+        'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min',
+        'moment': 'libs/moment.min',
+        'angular-moment': 'libs/angular-moment.min'
     },
     shim: {
         'angular': {
