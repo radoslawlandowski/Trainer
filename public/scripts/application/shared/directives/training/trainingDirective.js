@@ -22,7 +22,7 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
                 }
 
                 scope.edit = function () {
-                    scope.isEdited = true;
+                    scope.isEdited = !scope.isEdited;
                 }
 
                 scope.discard = function () {

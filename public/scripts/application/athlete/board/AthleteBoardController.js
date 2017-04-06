@@ -11,13 +11,11 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
         vm.init();
 
         function init() {
-            console.info(moment().format('dddd'));
-
+            vm.exercises = Exercises;
             vm.currentTraining = {};    
 
             vm.trainings = $filter('byDay')(AthleteTrainingService.get(), moment().day());
             vm.trainingChosen = false;
-            vm.exercises = Exercises;
         }
 
         function train(training) {
