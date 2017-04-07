@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-xs-6">
-            <label ng-if="isEdited">Performed on:</label>
+            <label ng-if="isEdited">Performed on:</label><br>
             <span ng-if="isEdited" ng-repeat="day in daysOfWeek">{{day}} : 
                 <input type="checkbox" ng-model="tempTraining.days[$index]">
             </span>

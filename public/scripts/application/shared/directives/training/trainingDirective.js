@@ -26,7 +26,7 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
                 }
 
                 scope.discard = function () {
-                    scope.tempTraining = scope.training;
+                    scope.tempTraining = angular.copy(scope.training);
                     scope.isEdited = false;
                 }
 

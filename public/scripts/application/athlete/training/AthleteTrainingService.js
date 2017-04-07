@@ -12,9 +12,19 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function(Athlete
         training1.addExercise(ExerciseFactory.create("ex2"));
         training1.addExercise(ExerciseFactory.create("ex3"));
 
+        training1.exercises[0].sets.push({});
+        training1.exercises[1].sets.push({});
+        training1.exercises[2].sets.push({});
+
         training2.addExercise(ExerciseFactory.create("ex1"));
         training2.addExercise(ExerciseFactory.create("ex2"));
         training2.addExercise(ExerciseFactory.create("ex3"));
+
+        training2.exercises[0].sets.push({});
+        training2.exercises[1].sets.push({});
+        training2.exercises[2].sets.push({});
+
+
         // ... of testing!
 
         self.trainings = [training1, training2];
@@ -24,12 +34,13 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function(Athlete
         }
 
         self.put = function(data) {
-            var exists = false;
             self.trainings = self.trainings.filter(function(item) {
                 return item.title != data.title;
             })
             
             self.trainings.push(data);
+            
+            return data;
         }
     })
 })

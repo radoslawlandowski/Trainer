@@ -1,5 +1,5 @@
-define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'selectByDayFilter'], function(AthleteModule) {
-    AthleteModule.controller('AthleteBoardController', function(AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
+define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'selectByDayFilter'], function (AthleteModule) {
+    AthleteModule.controller('AthleteBoardController', function (AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
         var vm = this;
 
         vm.train = train;
@@ -12,7 +12,7 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
 
         function init() {
             vm.exercises = Exercises;
-            vm.currentTraining = {};    
+            vm.currentTraining = {};
 
             vm.trainings = $filter('byDay')(AthleteTrainingService.get(), moment().day());
             vm.trainingChosen = false;
