@@ -6,7 +6,9 @@ define(['angular', 'AthleteModule', 'TrainingFactory',, 'exerciseCardDirective',
         vm.trainings = [];
 
         function init() {
-            vm.trainings = AthleteTrainingService.get();
+            AthleteTrainingService.get().then(function(response) {
+                vm.trainings = response;
+            });
         }
 
         init();
@@ -22,7 +24,10 @@ define(['angular', 'AthleteModule', 'TrainingFactory',, 'exerciseCardDirective',
         }
 
         vm.saveTraining = function(training) {
-            AthleteTrainingService.put(training);
+            AthleteTrainingService.put(training).then(function(response) {
+                vm.trainings.push(response);
+            });
+            
             vm.createNewTraining = false;
         }
     })

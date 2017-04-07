@@ -71,5 +71,5 @@ requirejs.config({
 });
 
 requirejs(['MainModule'], function(MainModule) {
-    MainModule.init();
+    MainModule.init('development');
 });
