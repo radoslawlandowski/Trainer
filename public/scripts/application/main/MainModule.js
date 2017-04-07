@@ -2,7 +2,7 @@ define(['angular', 'angular-ui-router', 'AthleteModule', 'ui-bootstrap-tpls', 'a
     var m = angular.module('MainModule', ['ui.router', 'AthleteModule', 'ui.bootstrap', 'ngAnimate', 'angularMoment']);
 
     m.init = function() {
-        require(['MainConfig'], function() {
+        require(['MainConfig', 'FakeModule'], function() {
             angular.bootstrap(document, ['MainModule']);       
         });
     };

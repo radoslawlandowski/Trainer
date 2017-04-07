@@ -44,7 +44,12 @@ requirejs.config({
         'angular-animate': 'libs/angular-animate.min',
         'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min',
         'moment': 'libs/moment.min',
-        'angular-moment': 'libs/angular-moment.min'
+        'angular-moment': 'libs/angular-moment.min',
+        'angular-mocks': 'libs/angular-mocks',
+
+        /* Fakes */
+        'FakeModule': 'application/fakes/FakeModule',
+        'FakeAthleteTrainingService': 'application/fakes/athlete/FakeAthleteTrainingService',
     },
     shim: {
         'angular': {
@@ -58,7 +63,10 @@ requirejs.config({
         },
         'ui-bootstrap-tpls': {
             deps: ['angular']
-        }
+        },
+        'angular-mocks': {
+            deps: ['angular']
+        },
     }
 });
 
