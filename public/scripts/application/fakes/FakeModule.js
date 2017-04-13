@@ -8,17 +8,17 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             var EXERCISES_COUNT = 3;
             var SETS_COUNT = 3;
 
-            var training = TrainingFactory.create(name);
+            var training = TrainingFactory.create({'name': name});
 
             for(var i = 0 ; i < EXERCISES_COUNT ; i++) {
-                training.addExercise(ExerciseFactory.create(`exercise-${i}`));
+                training.addExercise(`exercise-${i}`);
             }
 
             for(var i = 0 ; i < SETS_COUNT ; i++) {
-                training.exercises[0].addSet({});
+                training.getExercises()[0].addSet({});
             }
 
-            return training;
+            return training.getData();
         }
 
         var training1 = generateTraining("First");
@@ -36,8 +36,6 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
         });
 
         $httpBackend.whenGET(/.html/).passThrough(); 
-
-
     })
 
     return m;

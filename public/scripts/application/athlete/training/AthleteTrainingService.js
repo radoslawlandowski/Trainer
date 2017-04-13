@@ -3,8 +3,8 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
         var self = this;
 
         self.get = function () {
-            return $http({ method: 'GET', url: '/api/training' }).then(function (response) {
-                return response.data;
+            return $http({ method: 'GET', url: '/api/training' }).then(function (response) {                
+                return response.data.map((item) => { return TrainingFactory.create(item) });
             }, function (response) {
                 console.error("Get all trainings failed");
             });
@@ -12,8 +12,8 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
 
         self.put = function (data) {
             return $http.post('/api/training', data).then(function (response) {
-                return response.data;
-            }, function(failure) {
+                return TrainingFactory.create(response.data);
+            }, function (failure) {
                 console.error('Posting training failed');
             });
         }

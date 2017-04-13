@@ -1,7 +1,7 @@
 <div id='training' class="panel panel-success">
     <div class="panel-heading">
-        <span id="training-title" ng-if="!isEdited">{{tempTraining.title}}</span>
-        <input id="training-title-input" ng-model="tempTraining.title" ng-if="isEdited">
+        <span id="training-title" ng-if="!isEdited">{{tempTraining.getName()}}</span>
+        <input id="training-title-input" ng-model="tempTraining.name" ng-if="isEdited">
 
         <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit()"></span>
     </div>
@@ -22,14 +22,14 @@
         <div class="col-xs-6">
             <label ng-if="isEdited">Performed on:</label><br>
             <span ng-if="isEdited" ng-repeat="day in daysOfWeek">{{day}} : 
-                <input type="checkbox" ng-model="tempTraining.days[$index]">
+                <input type="checkbox" ng-model="tempTraining.getDays()[$index]">
             </span>
-            <div class="row" ng-repeat="exercise in tempTraining.exercises track by $index">
+            <div class="row" ng-repeat="exercise in tempTraining.getExercises() track by $index">
                 <div class="col-xs-3" ng-if="isEdited">
-                    <button id="remove-exercise-button-{{exercise.name}}" class="btn btn-danger" ng-click="removeExercise(exercise.name)">Remove</button>
+                    <button id="remove-exercise-button-{{exercise.getName()}}" class="btn btn-danger" ng-click="removeExercise(exercise.getName())">Remove</button>
                 </div>
                 <div class="col-xs-9">
-                    <exercise-plan-directive id="exercise-plan-{{exercise.name}}" exercise="exercise" readonly="!isEdited"></exercise-plan-directive>
+                    <exercise-plan-directive id="exercise-plan-{{exercise.getName()}}" exercise="exercise" readonly="!isEdited"></exercise-plan-directive>
                 </div>
             </div>
         </div>

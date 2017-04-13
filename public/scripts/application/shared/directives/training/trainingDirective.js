@@ -3,7 +3,7 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
         return {
             restrict: 'E',
             scope: {
-                'training': '=?',
+                'training': '<?',
                 'isEdited': "=?",
                 'onSave': '&'
             },
@@ -14,11 +14,11 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
                 scope.daysOfWeek = Days;
 
                 scope.addExercise = function (exerciseName) {
-                    scope.tempTraining.addExercise(ExerciseFactory.create(exerciseName));
+                    scope.tempTraining.addExercise(exerciseName);
                 }
 
-                scope.removeExercise = function (exercise) {
-                    scope.tempTraining.removeExercise(exercise);
+                scope.removeExercise = function (exerciseName) {
+                    scope.tempTraining.removeExercise(exerciseName);
                 }
 
                 scope.edit = function () {
@@ -31,7 +31,7 @@ define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days']
                 }
 
                 scope.save = function () {
-                    scope.onSave({training: scope.tempTraining});
+                    scope.onSave({ training: scope.tempTraining });
                     scope.isEdited = false;
                 }
             }

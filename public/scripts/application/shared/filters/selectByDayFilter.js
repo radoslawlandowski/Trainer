@@ -6,7 +6,7 @@ define(['MainModule'], function (MainModule) {
             };
             var result = [];
             for(var i = 0 ; i < trainings.length ; i++) {
-                if (trainings[i].days[day]) {
+                if (trainings[i].getDays()[day]) {
                     result.push(trainings[i]);
                 }
             }

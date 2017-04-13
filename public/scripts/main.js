@@ -25,7 +25,9 @@ requirejs.config({
         'searchBarDirective': 'application/shared/directives/searchbar/searchBarDirective',
 
         'ExerciseFactory': 'application/shared/factories/ExerciseFactory',
+        'ExerciseDataFactory': 'application/shared/factories/ExerciseDataFactory',
         'TrainingFactory': 'application/shared/factories/TrainingFactory',
+        'TrainingDataFactory': 'application/shared/factories/TrainingDataFactory',
 
         'searchByTagFilter': 'application/shared/filters/searchByTagFilter',
         'selectByDayFilter': 'application/shared/filters/selectByDayFilter',

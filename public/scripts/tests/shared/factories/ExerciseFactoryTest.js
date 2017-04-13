@@ -14,14 +14,14 @@ define(['angular', 'angular-mocks', 'MainModule', 'ExerciseFactory'], function (
                 var exerciseName = "MyExercise";
 
                 var exercise = ExerciseFactory.create(exerciseName);
-                expect(exercise.name).toEqual(exerciseName);
+                expect(exercise.getName()).toEqual(exerciseName);
             });
 
             it("it should return an object with addSet function", function () {
                 var exerciseName = "MyExercise";
 
                 var exercise = ExerciseFactory.create(exerciseName);
-                
+                  
                 expect(exercise.addSet).toBeDefined();
             });
 
@@ -41,7 +41,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'ExerciseFactory'], function (
                 var exercise = ExerciseFactory.create(exerciseName);
 
                 exercise.addSet("mySet");
-                expect(exercise.sets[0]).toEqual("mySet");
+                expect(exercise.getSets()[0]).toEqual("mySet");
             });
         });
 
@@ -53,7 +53,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'ExerciseFactory'], function (
 
                 exercise.addSet("mySet");
                 exercise.removeSet(0);
-                expect(exercise.sets[0]).toBeUndefined();
+                expect(exercise.getSets()[0]).toBeUndefined();
             });
         });
     });

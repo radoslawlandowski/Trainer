@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'MainModule', 'selectByDayFilter', 'TrainingFactory'], function () {
+define(['angular', 'angular-mocks', 'MainModule', 'selectByDayFilter'], function () {
     describe('ByDayFilter Tests', function () {
 
         beforeEach(module('MainModule'));
@@ -28,28 +28,29 @@ define(['angular', 'angular-mocks', 'MainModule', 'selectByDayFilter', 'Training
             });
 
             it("it should return array of 1 element", function () {
-                trainings[0].days[MONDAY] = true;
+                trainings[0].getDays()[MONDAY] = true;
 
                 expect(byDay(trainings, MONDAY).length).toEqual(1);
             });
 
             it("it should return array of 2 elements", function () {
-                trainings[0].days[MONDAY] = true;
-                trainings[1].days[MONDAY] = true;
+                trainings[0].getDays()[MONDAY] = true;
+                trainings[1].getDays()[MONDAY] = true;
 
                 expect(byDay(trainings, MONDAY).length).toEqual(2);
             });
         });
 
-        describe('When one training is done in two days', function () {
+        describe('When one training is done in two getDays()', function () {
             it("it should be present in two arrays", function () {
-                trainings[0].days[MONDAY] = true;
-                trainings[0].days[SUNDAY] = true;
+                trainings[0].getDays()[MONDAY] = true;
+                trainings[0].getDays()[SUNDAY] = true;
 
-                var mondayTraining = byDay(trainings, MONDAY);
-                var sundayTraining = byDay(trainings, SUNDAY);
+                var mondayTrainings = byDay(trainings, MONDAY);
+                var sundayTrainings = byDay(trainings, SUNDAY);
 
-                expect(mondayTraining).toEqual(sundayTraining);
+                expect(mondayTrainings).toContain(trainings[0])
+                expect(sundayTrainings).toContain(trainings[0]);
             });
         });
     });

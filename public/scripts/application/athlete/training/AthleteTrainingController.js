@@ -15,7 +15,7 @@ define(['angular', 'AthleteModule', 'TrainingFactory',, 'exerciseCardDirective',
 
         vm.newTraining = function() {
             vm.createNewTraining = true;
-            vm.training = TrainingFactory.create("New Training");
+            vm.training = TrainingFactory.create({ 'name': 'New Training'});
         }
 
         vm.discardNewTraining = function() {
@@ -24,7 +24,7 @@ define(['angular', 'AthleteModule', 'TrainingFactory',, 'exerciseCardDirective',
         }
 
         vm.saveTraining = function(training) {
-            AthleteTrainingService.put(training).then(function(response) {
+            AthleteTrainingService.put(training.getData()).then(function(response) {
                 vm.trainings.push(response);
             });
             
