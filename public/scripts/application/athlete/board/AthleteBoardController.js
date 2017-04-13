@@ -2,8 +2,8 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
     AthleteModule.controller('AthleteBoardController', function (AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
         var vm = this;
 
-        vm.train = train;
         vm.init = init;
+        vm.train = train;
         vm.backToList = backToList;
         vm.startTraning = startTraning;
         vm.onTrainingFinish = onTrainingFinish;
@@ -14,7 +14,12 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
             vm.exercises = Exercises;
             vm.currentTraining = {};
 
-            vm.trainings = $filter('byDay')(AthleteTrainingService.get(), moment().day());
+            AthleteTrainingService.get().then(function(response) {
+                vm.trainings = $filter('byDay')(response, moment().day());
+            }, function(failure) {
+                console.error(`Obtaining trainings failed: ${failure}`);
+            });
+
             vm.trainingChosen = false;
         }
 

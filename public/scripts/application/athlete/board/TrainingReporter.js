@@ -12,14 +12,15 @@ define(['AthleteModule'], function(AthleteModule) {
 
                         report.trainingSummary = (function(training) {
                             var tonnages = [];
-                            for(var i = 0 ; i < training.exercises.length ; i++) {
+                            for(var i = 0 ; i < training.getExercises().length ; i++) {
                                 var tonnage = {
-                                    exercise: training.exercises[i].name,
+                                    exercise: training.getExercises()[i].getName(),
                                     kilograms: 0    
                                 };
 
-                                for(var j = 0 ; j < training.exercises[i].sets.length ; j++) {
-                                    tonnage.kilograms += training.exercises[i].sets[j].reps * training.exercises[i].sets[j].weight;
+                                var sets = training.getExercises()[i].getSets();
+                                for(var j = 0 ; j < sets.length ; j++) {
+                                    tonnage.kilograms += sets[j].reps * sets[j].weight;
                                 }
 
                                 tonnages.push(tonnage);

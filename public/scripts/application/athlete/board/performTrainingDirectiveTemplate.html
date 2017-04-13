@@ -7,11 +7,11 @@
     <hr>
 
     <div>
-        <exercise-plan-directive id="exercise-plan-{{currentExercise.name}}" exercise-data="currentExercise" readonly="false"></exercise-plan-directive>
+        <exercise-plan-directive id="exercise-plan-{{currentExercise.getName()}}" exercise="currentExercise" readonly="false"></exercise-plan-directive>
     </div>
 
     <div>
         <button id="previous-exercise-button" ng-if="exerciseIndex !== 0" class="btn btn-default pull-left" ng-click="previous()">Previous</button>
-        <button id="next-exercise-button" ng-if="exerciseIndex !== training.exercises.length - 1" class="btn btn-default pull-right" ng-click="next()">Next</button>
+        <button id="next-exercise-button" ng-if="exerciseIndex !== training.getExercises().length - 1" class="btn btn-default pull-right" ng-click="next()">Next</button>
     </div>
 </div>

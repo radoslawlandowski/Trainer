@@ -10,9 +10,9 @@ define(['AthleteModule'], function (AthleteModule) {
                     initialize: function() {
                         this.startTime = Date.now();
 
-                        for(var i = 0 ; i < myTraining.exercises.length ; i++) {
+                        for(var i = 0 ; i < myTraining.getExercises().length ; i++) {
                             var timing = {
-                                exercise: myTraining.exercises[i],
+                                exercise: myTraining.getExercises()[i],
                                 totalTime: 0,
                                 lastStart: 0,
                                 lastStop: 0,
@@ -40,8 +40,8 @@ define(['AthleteModule'], function (AthleteModule) {
                         var t;
                         for(var i = 0 ; i < this.timings.length ; i++) {
                             t = this.timings[i];
-                            t.perSetAvg = t.totalTime / t.exercise.sets.length;
-                            t.exercise = t.exercise.name;
+                            t.perSetAvg = t.totalTime / t.exercise.getSets().length;
+                            t.exercise = t.exercise.getName();
                             delete t.lastStart;
                             delete t.lastStop;
                         }

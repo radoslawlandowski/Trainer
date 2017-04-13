@@ -9,22 +9,22 @@ define(['AthleteModule', 'AthleteDataService'], function (AthleteModule) {
 
         vm.init();
 
-        function init () {
+        function init() {
             vm.editMode = false;
             vm.data = AthleteDataService.get();
         }
 
-        function edit () {
+        function edit() {
             vm.editMode = !vm.editMode;
             vm.temp = angular.copy(vm.data);
         }
 
-        function discard () {
+        function discard() {
             vm.editMode = false;
             vm.data = vm.temp;
         }
 
-        function save () {
+        function save() {
             AthleteDataService.put(vm.data);
             vm.editMode = false;
         }
