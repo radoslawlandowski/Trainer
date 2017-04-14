@@ -29,5 +29,10 @@ To run:
         4. npm start - runs the app under port 3000
 
     Develop <Being in main directory>:
-        1. grunt karma - runs frontend tests
-        2. grunt e2e-tests - runs e2e tests
+        frontend tests:
+            1. grunt karma
+        
+        e2e tests:
+        1. webdriver-manager update
+        2. webdriver-manager start
+        2. grunt e2e-tests
