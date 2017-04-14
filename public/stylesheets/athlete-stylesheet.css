@@ -1,3 +1,8 @@
+* {
+  border-radius: 0 !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
 .sidebar {
     margin-right: 30px;
 }
@@ -111,6 +116,7 @@ td, th {
 .exercise-card-muscle-label {
     margin-right: 3px;
     margin-top: 3px;
+    background-color: rgb(204, 204, 204);
 }
 
 .exercise-plan-set-label {
@@ -202,7 +208,39 @@ padding-left-24 {
     margin-left: 10px;
 }
 .sidebar-button {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    color: slategray;
+    background-color: white;
+    margin-bottom: 8px;
+    border-width: 1px;
+    font-size: 24px;
+    border-left-width: 0px;
+    border-right-width: 4px;
+    border-style: solid;
+    border-color: rgba(255, 180, 0, 1);
+}
+
+.panel-custom {
+    border-color: #ffb400;
+    color: slategray;
+    background-color: white;
+    border-left-width: 3px;
+    border-top-color: #ffb400;
+}
+
+.panel-custom > .panel-heading-custom {
+    color: slategray;
+    background-color: rgba(255, 180, 0, 0);
+    border-color: white;
+}
+
+.sidebar-button:hover {
+    color: slategray;
+}
+
+.the-color {
+    background-color: rgba(255, 180, 0, 1)
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
 }
