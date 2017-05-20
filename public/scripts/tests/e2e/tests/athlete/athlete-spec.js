@@ -58,5 +58,22 @@ describe('Athlete spec', function () {
 
             expect(newTraining.getExercisePlan('Rows').getExerciseName()).toEqual('Rows');
         }); 
+
+        it('When saving an edited training the number of trainings should not increment', function () {
+
+            trainingState.getTrainings().count().then(function(count) {
+                var presentTrainingCount = count;
+
+                trainingState.getTraining(2).then(function(editedTraining) {
+
+                    editedTraining.clickEditButton();
+                    editedTraining.clickAddExerciseButton("Rows");
+                    editedTraining.clickSaveButton();
+
+                    expect(trainingState.getTrainings().count()).toEqual(presentTrainingCount);
+                });
+            });
+        });
+
     });
-});
+}); 

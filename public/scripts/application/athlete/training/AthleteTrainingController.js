@@ -1,5 +1,5 @@
 define(['angular', 'AthleteModule', 'TrainingFactory', 'exerciseCardDirective', 'exercisePlanDirective', 'searchBarDirective', 'searchByTagFilter', 'trainingDirective', 'Exercises', 'AthleteTrainingService'], function(angular, AthleteModule) {
-    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory, AthleteTrainingService) {
+    AthleteModule.controller('AthleteTrainingController', function(Exercises, TrainingFactory, AthleteTrainingService, $q) {
         var vm = this;
 
         vm.exercises = Exercises;
@@ -23,12 +23,18 @@ define(['angular', 'AthleteModule', 'TrainingFactory', 'exerciseCardDirective', 
             vm.training = undefined;
         }
 
-        vm.saveTraining = function(training) {
-            AthleteTrainingService.put(training.getData()).then(function(response) {
-                vm.trainings.push(response);
+        vm.saveTraining = function(training, isNew) {
+            return AthleteTrainingService.save(training.getData(), isNew).then(function(response) {
+                if(isNew) {
+                    vm.trainings.push(response);
+                } 
+
+                vm.createNewTraining = false;
+            }, function(failure) {
+                console.warn(failure.data.message);
+                return $q.reject();
             });
             
-            vm.createNewTraining = false;
         }
     })
 })

@@ -5,14 +5,14 @@
                 You have no trainings defined. Do you even lift?!
             </div>
         </div>
-        <training-directive id="saved-trainings-{{$index}}" ng-repeat="training in atc.trainings" training="training" edit="false" on-save="atc.saveTraining(training)"></training-directive>
+        <training-directive id="saved-trainings-{{$index}}" ng-repeat="training in atc.trainings" training="training" edit="false" on-save="atc.saveTraining(training, false)"></training-directive>
         <div class="row row-padding text-center">
             <hr>
             <span id="new-training-button" ng-show="!atc.createNewTraining" class="glyphicon glyphicon-plus green font-size-32 pointer-on-hover" ng-click="atc.newTraining()"></span>
             <span id="discard-training-button" ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
         </div>
         <div ng-if="atc.createNewTraining">
-            <training-directive id="new-training" training="atc.training" available-exercises="atc.exercises" is-edited="true" on-save="atc.saveTraining(training)"></training-directive>
+            <training-directive id="new-training" training="atc.training" available-exercises="atc.exercises" is-edited="true" on-save="atc.saveTraining(training, true)"></training-directive>
         </div>
     </div>
 </div>

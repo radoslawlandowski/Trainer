@@ -31,8 +31,11 @@ define(['MainModule', 'TrainingFactory', 'Exercises', 'Days'], function (MainMod
                 }
 
                 scope.save = function () {
-                    scope.onSave({ training: scope.tempTraining });
-                    scope.isEdited = false;
+                    scope.onSave({ training: scope.tempTraining }).then(function() {
+                        scope.isEdited = false;
+                    }, function(failure) {
+                        console.info("I reached the directive")
+                    });
                 }
             }
         };

@@ -35,5 +35,23 @@ AthleteTrainingPageObject.prototype.getTrainings = function() {
     return element.all(by.css(this.allTrainingsCssPattern));
 }
 
+AthleteTrainingPageObject.prototype.getTraining = function(index) {
+    var elementId = this.trainingsIdPattern.replace('{{$index}}', index);
+
+    return element(by.id(elementId)).isPresent().then(function(isPresent) {
+        if(!isPresent) {
+            throw `The Training of id \'${elementId}\' is not present`
+        } else {
+            return new TrainingDirectiveComponent(elementId);
+        }
+    });
+}
+
+AthleteTrainingPageObject.prototype.getTrainingByName = function(name) {
+    var elementId = this.trainingsIdPattern.replace('{{$index}}', index);
+
+    return element(by.id(elementId));
+}
+
 
 module.exports = AthleteTrainingPageObject;
