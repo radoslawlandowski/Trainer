@@ -40,7 +40,7 @@ AthleteTrainingPageObject.prototype.getTraining = function(index) {
 
     return element(by.id(elementId)).isPresent().then(function(isPresent) {
         if(isPresent === false) {
-            throw `The Training if id \'${elementId}\' is not present`
+            throw `The Training of id \'${elementId}\' is not present`
         } else {
             return new TrainingDirectiveComponent(elementId);
         }
