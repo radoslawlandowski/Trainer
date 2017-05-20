@@ -8,13 +8,13 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             var EXERCISES_COUNT = 3;
             var SETS_COUNT = 3;
 
-            var training = TrainingFactory.create({'name': name});
+            var training = TrainingFactory.create({ 'name': name });
 
-            for(var i = 0 ; i < EXERCISES_COUNT ; i++) {
+            for (var i = 0; i < EXERCISES_COUNT; i++) {
                 training.addExercise(`exercise-${i}`);
             }
 
-            for(var i = 0 ; i < SETS_COUNT ; i++) {
+            for (var i = 0; i < SETS_COUNT; i++) {
                 training.getExercises()[0].addSet({});
             }
 
@@ -27,15 +27,37 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
 
         self.trainings = [training1, training2, training3];
 
-        $httpBackend.whenGET(/.html/).passThrough(); 
+        $httpBackend.whenGET(/.html/).passThrough();
 
         $httpBackend.whenGET('/api/training').respond(self.trainings);
 
         $httpBackend.whenPOST('/api/training').respond(function (method, url, data) {
             var training = angular.fromJson(data);
-            self.trainings = self.trainings.filter((item) => { return item.name != training.name});
-            self.trainings.push(training);
-            return [200, training, {}];
+
+            var trainingExists = false;
+            self.trainings.map((item) => {
+                if (item.name === training.name) {
+                    trainingExists = true;
+                    return;
+                }
+            });
+
+            if (trainingExists) {
+                return [400, {training: training, message: "Training of this name already exists"}, {}]
+            } else {
+                self.trainings.push(training);
+                return [200, training, {}];
+            }
+        });
+
+        $httpBackend.whenPUT('/api/training').respond(function (method, url, data) {
+            var training = angular.fromJson(data);
+            self.trainings.map((item) => {
+                if (item.name === training.name) {
+                    item = training;
+                    return [200, training, {}];
+                }
+            });
         });
 
         self.reports = [];
