@@ -55,9 +55,10 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             self.trainings.map((item) => {
                 if (item.name === training.name) {
                     item = training;
-                    return [200, training, {}];
                 }
             });
+
+            return [200, training, {}];
         });
 
         self.reports = [];
