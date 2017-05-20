@@ -10,7 +10,7 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
             });
         }
 
-        self.put = function (data) {
+        self.save = function (data) {
             return $http.post('/api/training', data).then(function (response) {
                 return TrainingFactory.create(response.data);
             }, function (failure) {

@@ -24,7 +24,7 @@ define(['angular', 'AthleteModule', 'TrainingFactory', 'exerciseCardDirective', 
         }
 
         vm.saveTraining = function(training) {
-            AthleteTrainingService.put(training.getData()).then(function(response) {
+            AthleteTrainingService.save(training.getData()).then(function(response) {
                 vm.trainings.push(response);
             });
             

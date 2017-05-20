@@ -21,10 +21,10 @@ define(['angular', 'angular-mocks', 'AthleteModule', 'AthleteTrainingController'
 
             FakeAthleteTrainingService = {
                 get: {},
-                put: {}
+                save: {}
             }
 
-            spyOn(FakeAthleteTrainingService, 'put').and.callFake(function() {
+            spyOn(FakeAthleteTrainingService, 'save').and.callFake(function() {
                 var deferred = $q.defer();
                 deferred.resolve({});
                 return deferred.promise;
@@ -77,7 +77,7 @@ define(['angular', 'angular-mocks', 'AthleteModule', 'AthleteTrainingController'
                 }
 
                 AthleteTrainingController.saveTraining(fakeTraining);
-                expect(FakeAthleteTrainingService.put).toHaveBeenCalled();
+                expect(FakeAthleteTrainingService.save).toHaveBeenCalled();
             });
         });
     });
