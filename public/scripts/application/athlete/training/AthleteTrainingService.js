@@ -10,7 +10,19 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
             });
         }
 
-        self.save = function (data) {
+        self.save = function (data, isNew) {
+            return isNew ? create(data) : update(data);
+        }
+
+        function create(data) {
+            return $http.post('/api/training', data).then(function (response) {
+                return TrainingFactory.create(response.data);
+            }, function (failure) {
+                console.error('Posting training failed');
+            });
+        }
+
+        function update(data) {
             return $http.post('/api/training', data).then(function (response) {
                 return TrainingFactory.create(response.data);
             }, function (failure) {
