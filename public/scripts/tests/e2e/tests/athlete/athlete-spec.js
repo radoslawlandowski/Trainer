@@ -27,7 +27,7 @@ describe('Athlete spec', function () {
             athletePage.sidebar.clickButton('training');
             trainingState = athletePage.Training;
         })
-
+/*
         it('When clicking \'Training\' state URL should change', function () {
             expect(athletePage.getUrl()).toEqual('http://localhost:3000/#!/athlete/training');
         });
@@ -58,5 +58,25 @@ describe('Athlete spec', function () {
 
             expect(newTraining.getExercisePlan('Rows').getExerciseName()).toEqual('Rows');
         }); 
+*/
+        it('When saving an edited training the number of trainings should be as previously', function () {
+
+            trainingState.getTrainings().count().then(function(count) {
+                var presentTrainingCount = count;
+
+                var editedTraining;
+                trainingState.getTraining(2).then(function(training) {
+                    editedTraining = training;
+                    editedTraining.clickEditButton();
+                    editedTraining.clickAddExerciseButton("Rows");
+                    editedTraining.clickSaveButton();
+
+                    expect(trainingState.getTrainings().count()).toEqual(presentTrainingCount);
+                });
+
+            });
+
+        });
+
     });
 });
