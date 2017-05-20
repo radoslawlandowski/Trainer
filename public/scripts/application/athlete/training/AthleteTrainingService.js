@@ -1,5 +1,5 @@
 define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (AthleteModule) {
-    AthleteModule.service('AthleteTrainingService', function (TrainingFactory, ExerciseFactory, $http) {
+    AthleteModule.service('AthleteTrainingService', function (TrainingFactory, ExerciseFactory, $http, $q) {
         var self = this;
 
         self.get = function () {
@@ -18,7 +18,8 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
             return $http.post('/api/training', data).then(function (response) {
                 return TrainingFactory.create(response.data);
             }, function (failure) {
-                console.error('Posting training failed');
+                console.error(failure.data.message);
+                return $q.reject(failure)
             });
         }
 
