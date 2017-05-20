@@ -1,27 +1,47 @@
-define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'], function () {
+define(['angular', 'angular-mocks', 'AthleteModule', 'AthleteTrainingController'], function () {
     describe('AthleteTrainingController Tests', function () {
 
         beforeEach(module('AthleteModule'));
 
-        var $controller;
+        var $controller, $q;
         var AthleteTrainingController;
         var testStates;
         var fakeCreateFunction;
         var FakeTrainingFactory;
+        var FakeAthleteTrainingService;
 
-        beforeEach(inject(function (_$controller_) {
+        beforeEach(inject(function (_$controller_, _$q_) {
             $controller = _$controller_;
+            $q = _$q_;
 
             fakeCreateFunction = jasmine.createSpy('create');
             FakeTrainingFactory = {
                 create: fakeCreateFunction
             }
 
+            FakeAthleteTrainingService = {
+                get: {},
+                put: {}
+            }
+
+            spyOn(FakeAthleteTrainingService, 'put').and.callFake(function() {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            });
+
+            spyOn(FakeAthleteTrainingService, 'get').and.callFake(function() {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            });
+
             testExercises = { 'first': 'firstExc', 'second': 'secondExc', 'third': 'thirdExc' };
             
             AthleteTrainingController = $controller('AthleteTrainingController', {
                 Exercises: testExercises,
-                TrainingFactory: FakeTrainingFactory
+                TrainingFactory: FakeTrainingFactory,
+                AthleteTrainingService: FakeAthleteTrainingService
             });
         }));
 
@@ -39,7 +59,7 @@ define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'
 
             it("the TrainingFactory create method should be called once with the default name", function () {
                 AthleteTrainingController.newTraining();
-                expect(fakeCreateFunction).toHaveBeenCalledWith("New Training");
+                expect(fakeCreateFunction).toHaveBeenCalledWith({ name: 'New Training'});
                 expect(fakeCreateFunction.calls.count()).toEqual(1);
             });
         });
@@ -51,8 +71,13 @@ define(['angular', 'angular-mocks', 'AthleteTrainingController', 'AthleteModule'
             });
 
             it("the passed object should be pushed to trainings array", function () {
-                AthleteTrainingController.saveTraining({'dummy': 'object'});
-                expect(AthleteTrainingController.trainings.length).toEqual(1);
+
+                var fakeTraining = {
+                    getData: jasmine.createSpy('getData')
+                }
+
+                AthleteTrainingController.saveTraining(fakeTraining);
+                expect(FakeAthleteTrainingService.put).toHaveBeenCalled();
             });
         });
     });

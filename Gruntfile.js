@@ -25,7 +25,9 @@ module.exports = function (grunt) {
                     'ui-bootstrap-csp.css': 'angular-bootstrap/ui-bootstrap-csp.css',
                     'ui-bootstrap-tpls.min.js': 'angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
-                    'jquery.min.js': 'jquery/dist/jquery.min.js'
+                    'jquery.min.js': 'jquery/dist/jquery.min.js',
+                    'moment.min.js': 'moment/min/moment.min.js',
+                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js'
                 }
             },
             fonts: {
@@ -53,25 +55,6 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
-
-//        html2js: {
-//            options: {
-//               base: 'public/',
-//                amd: true
-//            },
-//            main: {
-//                src: ['public/scripts/application/main/**/*.html'],
-//               dest: 'public/scripts/application/main/templates/templates-main.js'
-//            },
-//            athlete: {
-//                src: ['public/scripts/application/athlete/**/*.html'],
-//                dest: 'public/scripts/application/athlete/templates/templates-athlete.js'
-//           },
-//            shared: {
-//                src: ['public/scripts/application/shared/**/*.html'],
-//                dest: 'public/scripts/application/shared/templates/templates-shared.js'
-//            }
-//        },
 
         run: {
             options: {
@@ -112,9 +95,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-run');
 
-    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']); //, 'html2js'
+    grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
     grunt.registerTask('e2e-tests', ['run:start_app', 'run:run_protractor', 'run:stop_app']);
 };

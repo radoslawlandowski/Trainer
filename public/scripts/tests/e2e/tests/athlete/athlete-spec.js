@@ -24,7 +24,7 @@ describe('Athlete spec', function () {
         var trainingState;
 
         beforeEach(function () {
-            athletePage.sidebar.clickButton('Training');
+            athletePage.sidebar.clickButton('training');
             trainingState = athletePage.Training;
         })
 
@@ -32,17 +32,16 @@ describe('Athlete spec', function () {
             expect(athletePage.getUrl()).toEqual('http://localhost:3000/#!/athlete/training');
         });
 
-        it('When no training defined there should be an information printed', function () {
-            expect(trainingState.getTrainings().count()).toEqual(0);
-            expect(trainingState.getNoTrainingText().isDisplayed()).toBe(true);
-        });
 
         it('When new training is added information should disappear and training appear', function () {
-            trainingState.clickNewTrainingButton();
-            trainingState.clickSaveTrainingButton();
+            trainingState.getTrainings().count().then(function(count) {
 
-            expect(trainingState.getTrainings().count()).toEqual(1);
-            expect(trainingState.getNoTrainingText().isDisplayed()).toBe(false);
+                trainingState.clickNewTrainingButton();
+                trainingState.NewTrainingComponent.clickSaveButton();
+
+                expect(trainingState.getTrainings().count()).toEqual(++count);
+                expect(trainingState.getNoTrainingText().isDisplayed()).toBe(false);
+            });
         });
 
         it('When adding new training exercise cards should be visible', function () {
@@ -58,6 +57,6 @@ describe('Athlete spec', function () {
             expect(newTraining.getAllExercisePlans().count()).toBeGreaterThan(0); 
 
             expect(newTraining.getExercisePlan('Rows').getExerciseName()).toEqual('Rows');
-        });
+        }); 
     });
 });

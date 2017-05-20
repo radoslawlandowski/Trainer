@@ -8,24 +8,19 @@ function AthleteTrainingPageObject() {
     BasePageObject.call(this, this.url);
 
     this.newTrainingButtonId = 'new-training-button';
-    this.saveTrainingButtonId = 'save-training-button';
     this.discardTrainingButtonId = 'discard-training-button';
 
     this.noTrainingsTextId = 'no-trainings-text';
     this.trainingsIdPattern = 'saved-trainings-{{$index}}';
     this.allTrainingsCssPattern = '[id^=saved-trainings-]';
 
-    this.NewTrainingComponent = new TrainingDirectiveComponent()
+    this.NewTrainingComponent = new TrainingDirectiveComponent("new-training")
 }
 
 AthleteTrainingPageObject.prototype = new BasePageObject();
 
 AthleteTrainingPageObject.prototype.clickNewTrainingButton = function() {
     element(by.id(this.newTrainingButtonId)).click();
-}
-
-AthleteTrainingPageObject.prototype.clickSaveTrainingButton = function() {
-    element(by.id(this.saveTrainingButtonId)).click();
 }
 
 AthleteTrainingPageObject.prototype.clickDiscardTrainingButton = function() {

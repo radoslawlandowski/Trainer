@@ -1,17 +1,45 @@
-define(['MainModule'], function(MainModule) {
-    MainModule.factory('ExerciseFactory', function() {
-        return {    
-            create: function(name) {
+define(['MainModule'], function (MainModule) {
+    MainModule.factory('ExerciseFactory', function () {
+        return {
+            create: function (data) {
                 return {
-                    name: name,
-                    sets: [],
+                    _name: data.name || "New exercise",
+                    _sets: data.sets || [{}],
 
-                    addSet: function(set) {
-                        this.sets.push(set);
+                    getName: function() {
+                        return this._name;
                     },
 
-                    removeSet: function(index) {
-                        this.sets.splice(index, 1);
+                    setName: function(newName) {
+                        this._name = newName;
+                    },
+
+                    getSets: function() {
+                        return this._sets;
+                    },
+
+                    setSets: function(newSets) {
+                        this._sets = newSets;
+                    },
+
+                    addSet: function (set) {
+                        this._sets.push(set);
+                    },
+
+                    removeSet: function (index) {
+                        this._sets.splice(index, 1);
+                    },
+
+                    setData: function(data) {
+                        this._name = data.name;
+                        this._sets = data.sets;
+                    },
+
+                    getData: function() {
+                        return {
+                            name: this._name,
+                            sets: this._sets
+                        }
                     }
                 }
             }

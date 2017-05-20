@@ -1,9 +1,9 @@
-define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'TrainingReporter'], function(AthleteModule) {
-    AthleteModule.controller('AthleteBoardController', function(AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, TrainingReporter) {
+define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'selectByDayFilter'], function (AthleteModule) {
+    AthleteModule.controller('AthleteBoardController', function (AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
         var vm = this;
 
-        vm.train = train;
         vm.init = init;
+        vm.train = train;
         vm.backToList = backToList;
         vm.startTraning = startTraning;
         vm.onTrainingFinish = onTrainingFinish;
@@ -11,28 +11,16 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
         vm.init();
 
         function init() {
-            vm.currentTraining = {};    
-
-            // For the sake...
-            var training1 = TrainingFactory.create("First");
-            var training2 = TrainingFactory.create("Second");
-
-            training1.addExercise(ExerciseFactory.create("ex1"));
-            training1.addExercise(ExerciseFactory.create("ex2"));
-            training1.addExercise(ExerciseFactory.create("ex3"));
-
-            training2.addExercise(ExerciseFactory.create("ex1"));
-            training2.addExercise(ExerciseFactory.create("ex2"));
-            training2.addExercise(ExerciseFactory.create("ex3"));
-
-            AthleteTrainingService.put(training1);
-            AthleteTrainingService.put(training2);
-            // ... of testing!
-
-
-            vm.trainings = AthleteTrainingService.get();
-            vm.trainingChosen = false;
             vm.exercises = Exercises;
+            vm.currentTraining = {};
+
+            AthleteTrainingService.get().then(function(response) {
+                vm.trainings = $filter('byDay')(response, moment().day());
+            }, function(failure) {
+                console.error(`Obtaining trainings failed: ${failure}`);
+            });
+
+            vm.trainingChosen = false;
         }
 
         function train(training) {
@@ -49,15 +37,9 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
         }
 
         function onTrainingFinish(training, timings) {
-            console.info("onTrainingFinish");
             vm.trainingStarted = false;
             vm.trainingChosen = false;
             vm.currentTraining = {};
-
-            var reporter = TrainingReporter.create("My report", training, timings);
-
-            console.log(reporter.generateReport());
-
         }
     })
 })

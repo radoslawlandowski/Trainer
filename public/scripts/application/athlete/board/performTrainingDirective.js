@@ -11,7 +11,7 @@ define(['AthleteModule', 'TrainingTimer'], function (AthleteModule) {
                 return {
                     pre: function (scope, iElem, iAttrs) {
                         scope.exerciseIndex = 0;
-                        scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
+                        scope.currentExercise = scope.training.getExercises()[scope.exerciseIndex];
                         scope.timer = TrainingTimer.create(scope.training);
                         scope.timer.initialize();
 
@@ -24,12 +24,12 @@ define(['AthleteModule', 'TrainingTimer'], function (AthleteModule) {
 
                         scope.previous = function () {
                             scope.exerciseIndex -= 1;
-                            scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
+                            scope.currentExercise = scope.training.getExercises()[scope.exerciseIndex];
                         }
 
                         scope.next = function () {
                             scope.exerciseIndex += 1;
-                            scope.currentExercise = scope.training.exercises[scope.exerciseIndex];
+                            scope.currentExercise = scope.training.getExercises()[scope.exerciseIndex];
                         }
 
                         scope.finalizeTraining = function () {

@@ -6,6 +6,7 @@ function TrainingDirectiveComponent(parentId) {
     this.id = 'training';
     this.trainingTitleId = 'training-title';
     this.editButtonId = 'edit-button';
+    this.saveButtonId = 'save-button';
 
     this.exerciseCardIdPattern = 'exercise-card-{{exercise.name}}';
     this.exercisePlanIdPattern = 'exercise-plan-{{exercise.name}}';
@@ -21,6 +22,10 @@ function TrainingDirectiveComponent(parentId) {
 
 TrainingDirectiveComponent.prototype = new BaseComponent();
 TrainingDirectiveComponent.prototype.constructor = TrainingDirectiveComponent;
+
+TrainingDirectiveComponent.prototype.clickSaveButton = function () {
+    this.click(this.saveButtonId);
+}
 
 TrainingDirectiveComponent.prototype.clickAddExerciseButton = function (name) {
     this.findAndClick(this.addExerciseButtonIdPattern, '{{exercise.name}}', name);

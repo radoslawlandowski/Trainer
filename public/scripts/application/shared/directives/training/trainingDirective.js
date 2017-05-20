@@ -1,25 +1,38 @@
-define(['MainModule', 'ExerciseFactory', 'TrainingFactory'], function (MainModule) {
-    MainModule.directive('trainingDirective', function (ExerciseFactory, TrainingFactory) {
+define(['MainModule', 'TrainingFactory', 'Exercises', 'Days'], function (MainModule) {
+    MainModule.directive('trainingDirective', function (TrainingFactory, Exercises, Days) {
         return {
             restrict: 'E',
             scope: {
-                'availableExercises': "=",
-                'training': '=?',
-                'isEdited': "=?"
+                'training': '<?',
+                'isEdited': "=?",
+                'onSave': '&'
             },
             templateUrl: 'scripts/application/shared/directives/training/trainingDirectiveTemplate.html',
             link: function (scope, element, attrs) {
-                scope.addExercise = function(exerciseName) {
-                    scope.training.addExercise(ExerciseFactory.create(exerciseName));
+                scope.tempTraining = angular.copy(scope.training);
+                scope.availableExercises = Exercises;
+                scope.daysOfWeek = Days;
+
+                scope.addExercise = function (exerciseName) {
+                    scope.tempTraining.addExercise(exerciseName);
                 }
 
-                scope.removeExercise = function(exercise) {
-                    scope.training.removeExercise(exercise);
+                scope.removeExercise = function (exerciseName) {
+                    scope.tempTraining.removeExercise(exerciseName);
                 }
 
-                scope.edit = function() {
+                scope.edit = function () {
                     scope.isEdited = !scope.isEdited;
+                }
+
+                scope.discard = function () {
                     scope.tempTraining = angular.copy(scope.training);
+                    scope.isEdited = false;
+                }
+
+                scope.save = function () {
+                    scope.onSave({ training: scope.tempTraining });
+                    scope.isEdited = false;
                 }
             }
         };
