@@ -1,5 +1,5 @@
-define(['MainModule', 'ExerciseFactory', 'TrainingFactory', 'Exercises', 'Days'], function (MainModule) {
-    MainModule.directive('trainingDirective', function (ExerciseFactory, TrainingFactory, Exercises, Days) {
+define(['MainModule', 'TrainingFactory', 'Exercises', 'Days'], function (MainModule) {
+    MainModule.directive('trainingDirective', function (TrainingFactory, Exercises, Days) {
         return {
             restrict: 'E',
             scope: {

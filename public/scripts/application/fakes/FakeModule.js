@@ -27,15 +27,25 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
 
         self.trainings = [training1, training2, training3];
 
+        $httpBackend.whenGET(/.html/).passThrough(); 
+
         $httpBackend.whenGET('/api/training').respond(self.trainings);
 
         $httpBackend.whenPOST('/api/training').respond(function (method, url, data) {
             var training = angular.fromJson(data);
+            self.trainings = self.trainings.filter((item) => { return item.name != training.name});
             self.trainings.push(training);
             return [200, training, {}];
         });
 
-        $httpBackend.whenGET(/.html/).passThrough(); 
+        self.reports = [];
+        $httpBackend.whenGET('/api/reports').respond(self.reports);
+
+        $httpBackend.whenPOST('/api/reports').respond(function (method, url, data) {
+            var report = angular.fromJson(data);
+            self.reports.push(report);
+            return [200, report, {}];
+        });
     })
 
     return m;

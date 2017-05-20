@@ -17,19 +17,19 @@ define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (
 
         describe('When calling create function', function () {
             it("it should return an object with valid name", function () {
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
                 
                 expect(training.getName()).toEqual(trainingName);
             });
 
             it("it should return an object with addExercise function", function () { 
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
                 
                 expect(training.addExercise).toBeDefined();
             });
 
             it("it should return an object with removeExercise function", function () {
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
                 
                 expect(training.removeExercise).toBeDefined();
             });
@@ -41,11 +41,11 @@ define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (
                     'name': 'exerciseName'
                 }
 
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
 
                 training.addExercise(exercise);
 
-                expect(training.getExercises()[0]).toEqual(exercise);
+                expect(training.getExercises()[0].getName()).toEqual(exercise);
             });  
         });
 
@@ -55,9 +55,9 @@ define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (
                     'name': 'exerciseName'
                 }
 
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
 
-                training.addExercise(exercise);
+                training.addExercise(exercise.name);
                 training.removeExercise(exercise.name);
 
                 expect(training.getExercises()[0]).toBeUndefined();
@@ -70,7 +70,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (
                     'name': 'exerciseName'
                 }
 
-                var training = TrainingFactory.create(trainingName);
+                var training = TrainingFactory.create({ 'name': trainingName });
 
                 training.addExercise(exercise);
                 training.removeExercise(exercise.name);

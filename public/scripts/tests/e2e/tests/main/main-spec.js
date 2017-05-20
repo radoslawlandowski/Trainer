@@ -22,7 +22,7 @@ describe('Main tests', function () {
         mainPage.clickAthleteSref();
         expect(mainPage.getUrl()).toEqual('http://localhost:3000/#!/athlete');
     });
-    
+
 });
 
 

@@ -12,7 +12,7 @@
             <span id="discard-training-button" ng-show="atc.createNewTraining" class="glyphicon glyphicon-remove red font-size-32 pointer-on-hover" ng-click="atc.discardNewTraining()"></span> 
         </div>
         <div ng-if="atc.createNewTraining">
-            <training-directive training="atc.training" available-exercises="atc.exercises" is-edited="true" on-save="atc.saveTraining(training)"></training-directive>
+            <training-directive id="new-training" training="atc.training" available-exercises="atc.exercises" is-edited="true" on-save="atc.saveTraining(training)"></training-directive>
         </div>
     </div>
 </div>

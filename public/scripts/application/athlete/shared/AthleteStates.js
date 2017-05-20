@@ -7,11 +7,7 @@ define(['AthleteModule'], function (AthleteModule) {
         'TRAINING': {
             'state': 'athlete.training',
             'displayedName': 'training'
-        }, 
-        'DIET': {
-            'state': 'athlete.diet',
-            'displayedName': 'diet'
-        }, 
+        },
         'STATS': {
             'state': 'athlete.stats',
             'displayedName': 'stats'

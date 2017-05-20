@@ -15,7 +15,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'Exercises', 'ExerciseFactory'
             element = angular.element('<exercise-plan-directive exercise="exercise"></exercise-plan-directive>');
             
             scope = $rootScope.$new();
-            exercise = ExerciseFactory.create("testExcercise");
+            exercise = ExerciseFactory.create({ 'name': 'testExcercise' });
             scope.exercise = exercise;
 
             $compile(element)(scope);
