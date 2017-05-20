@@ -27,6 +27,10 @@ TrainingDirectiveComponent.prototype.clickSaveButton = function () {
     this.click(this.saveButtonId);
 }
 
+TrainingDirectiveComponent.prototype.clickEditButton = function () {
+    this.click(this.editButtonId);
+}
+
 TrainingDirectiveComponent.prototype.clickAddExerciseButton = function (name) {
     this.findAndClick(this.addExerciseButtonIdPattern, '{{exercise.name}}', name);
 }
