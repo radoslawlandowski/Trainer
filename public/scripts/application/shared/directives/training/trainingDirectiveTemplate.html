@@ -1,7 +1,7 @@
 <div id='training' class="panel panel-success panel-custom">
     <div class="panel-heading panel-heading-custom">
         <span id="training-title" ng-if="!isEdited">{{tempTraining.getName()}}</span>
-        <input id="training-title-input" ng-model="tempTraining.name" ng-if="isEdited">
+        <input id="training-title-input" ng-model="tempTraining._name" ng-if="isEdited">
 
         <span id="edit-button" class="glyphicon glyphicon-pencil orange font-size-18 pointer-on-hover pull-right" ng-click="edit()"></span>
     </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-xs-6">
-            <label ng-if="isEdited">Performed on:</label><br>
+            <label ng-if="isEdited">Performed on:</label><br> 
             <span ng-if="isEdited" ng-repeat="day in daysOfWeek">{{day}} : 
                 <input type="checkbox" ng-model="tempTraining.getDays()[$index]">
             </span>
