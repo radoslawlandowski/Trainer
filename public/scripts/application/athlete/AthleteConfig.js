@@ -1,5 +1,5 @@
 define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', 'AthleteBoardController'], function (AthleteModule) {
-    AthleteModule.config(function ($stateProvider) {
+    AthleteModule.config(function ($stateProvider, $qProvider) {
         var base = 'scripts/application/athlete/';
 
         var boardState = {
@@ -30,5 +30,7 @@ define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', '
             .state(boardState)
             .state(dataState)
             .state(trainingState);
+
+        $qProvider.errorOnUnhandledRejections(false);
     })
 })
