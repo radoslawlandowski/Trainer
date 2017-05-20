@@ -64,19 +64,16 @@ describe('Athlete spec', function () {
             trainingState.getTrainings().count().then(function(count) {
                 var presentTrainingCount = count;
 
-                var editedTraining;
-                trainingState.getTraining(2).then(function(training) {
-                    editedTraining = training;
+                trainingState.getTraining(2).then(function(editedTraining) {
+
                     editedTraining.clickEditButton();
                     editedTraining.clickAddExerciseButton("Rows");
                     editedTraining.clickSaveButton();
 
                     expect(trainingState.getTrainings().count()).toEqual(presentTrainingCount);
                 });
-
             });
-
         });
 
     });
-});
+}); 
