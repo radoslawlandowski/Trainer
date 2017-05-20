@@ -23,11 +23,11 @@ define(['AthleteModule', 'TrainingFactory', 'ExerciseFactory'], function (Athlet
         }
 
         function update(data) {
-            return $http.post('/api/training', data).then(function (response) {
+            return $http.put('/api/training', data).then(function (response) {
                 return TrainingFactory.create(response.data);
             }, function (failure) {
                 console.error('Posting training failed');
             });
         }
     })
-})
+}) 
