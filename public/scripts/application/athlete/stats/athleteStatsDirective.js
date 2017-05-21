@@ -1,4 +1,4 @@
-define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective'], function(AthleteModule, angular) {
+define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'exerciseStatsDirective', 'trainingStatsDirective', 'timingsStatsDirective'], function(AthleteModule, angular) {
     AthleteModule.directive('athleteStatsDirective', function() {
         return {
             restrict: 'E',
@@ -16,7 +16,7 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective'], funct
             },
             templateUrl: 'scripts/application/athlete/stats/athleteStatsDirectiveTemplate.html',
             link: function(scope, element, attrs) {
-
+                
             }
         };
     })
