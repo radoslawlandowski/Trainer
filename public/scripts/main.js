@@ -25,6 +25,10 @@ requirejs.config({
         'athleteGeneralStatsInputsDirective': 'application/athlete/stats/athleteGeneralStatsInputsDirective',
         'AthleteStatsTypes': 'application/athlete/stats/AthleteStatsTypes',
 
+        'exerciseStatsDirective': 'application/athlete/stats/processor-directive-pairs/exerciseStatsDirective',
+        'timingsStatsDirective': 'application/athlete/stats/processor-directive-pairs/timingsStatsDirective',
+        'trainingStatsDirective': 'application/athlete/stats/processor-directive-pairs/trainingStatsDirective',
+
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
