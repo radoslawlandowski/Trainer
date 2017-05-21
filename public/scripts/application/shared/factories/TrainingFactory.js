@@ -1,5 +1,5 @@
-define(['MainModule', 'ExerciseFactory', 'moment'], function (MainModule) {
-    MainModule.factory('TrainingFactory', function (ExerciseFactory, moment) {
+define(['MainModule', 'ExerciseFactory'], function (MainModule) {
+    MainModule.factory('TrainingFactory', function (ExerciseFactory) {
         return {
             create: function (data) {
                 if(data.exercises != undefined) {
@@ -10,7 +10,7 @@ define(['MainModule', 'ExerciseFactory', 'moment'], function (MainModule) {
                     _name: data.name || "New Training",
                     _exercises: data.exercises || [],
                     _days: data.days || [], // one bool for each day of week, moment.js: days[0] means 'Sunday'!
-                    _date: moment().format("MMM Do YY"),
+                    _date: new Date(),
 
                     getName: function () {
                         return this._name;
