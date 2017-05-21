@@ -63,7 +63,7 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             return [200, training, {}];
         });
 
-        self.reports = [];
+        self.reports = [generateTraining("First"), generateTraining("First"), generateTraining("First"), generateTraining("First"), generateTraining("First")];
 
         $httpBackend.whenGET('/api/reports').respond(self.reports);
 
