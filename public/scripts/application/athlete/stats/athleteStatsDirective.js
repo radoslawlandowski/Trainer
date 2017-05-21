@@ -1,4 +1,4 @@
-define(['AthleteModule', 'angular'], function(AthleteModule, angular) {
+define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective'], function(AthleteModule, angular) {
     AthleteModule.directive('athleteStatsDirective', function() {
         return {
             restrict: 'E',
