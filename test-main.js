@@ -33,6 +33,8 @@ require.config({
       'TrainingTimer': 'application/athlete/board/TrainingTimer',
       'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
+      'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
+
       'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
