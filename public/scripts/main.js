@@ -19,6 +19,8 @@ requirejs.config({
         'TrainingTimer': 'application/athlete/board/TrainingTimer',
         'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
+        'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
+
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
         'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',

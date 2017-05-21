@@ -1,4 +1,4 @@
-define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', 'AthleteBoardController'], function (AthleteModule) {
+define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', 'AthleteBoardController', 'AthleteStatsController'], function (AthleteModule) {
     AthleteModule.config(function ($stateProvider, $qProvider) {
         var base = 'scripts/application/athlete/';
 
@@ -26,10 +26,19 @@ define(['AthleteModule', 'AthleteTrainingController', 'AthleteDataController', '
             controllerAs: 'atc'
         };
 
+        var statsState = {
+            name: 'athlete.stats',
+            url: '/stats',
+            templateUrl: base + 'stats/athlete-stats.html',
+            controller: 'AthleteStatsController',
+            controllerAs: 'asc'
+        };
+
         $stateProvider
             .state(boardState)
             .state(dataState)
-            .state(trainingState);
+            .state(trainingState)
+            .state(statsState);
 
         $qProvider.errorOnUnhandledRejections(false);
     })
