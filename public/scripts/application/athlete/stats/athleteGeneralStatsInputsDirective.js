@@ -2,18 +2,29 @@ define(['AthleteModule', 'angular', 'AthleteStatsTypes'], function(AthleteModule
     AthleteModule.directive('athleteGeneralStatsInputsDirective', function(AthleteStatsTypes) {
         return {
             restrict: 'E',
+            require: '^athleteStatsDirective',
             scope: {
 
             },
             templateUrl: 'scripts/application/athlete/stats/athleteGeneralStatsInputsDirectiveTemplate.html',
-            link: function(scope, element, attrs) {
+            link: function(scope, element, attrs, athleteStatsController) {
                 scope.statsTypes = AthleteStatsTypes;
-                scope.chosenStatsType = scope.statsTypes[0];
+                athleteStatsController.statsType = scope.statsTypes[0];
 
-                scope.setStatsType = function(statsType) {
-                    scope.chosenStatsType = statsType;
+                var propertiesToWatch = ['trainingTitle', 'dateFrom', 'dateTo'];
 
-                    console.log(scope.chosenStatsType);
+                propertiesToWatch.map((property) => {
+                    scope.$watch(property, function(newVal) {
+                        setProperty(property, newVal);
+                    });
+                })
+
+                scope.setStatsType = function (value) {
+                    setProperty('statsType', value);
+                }
+
+                function setProperty(property, value) {
+                    athleteStatsController[property] = value;
                 }
             }
         };
