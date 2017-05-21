@@ -18,6 +18,8 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
                 training.getExercises()[0].addSet({});
             }
 
+            training.setDays([true, true, true, true, true, true, true]);
+
             return training.getData();
         }
 
@@ -62,6 +64,13 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
         });
 
         self.reports = [];
+
+        function generateReports(date) {
+
+        }
+
+
+
         $httpBackend.whenGET('/api/reports').respond(self.reports);
 
         $httpBackend.whenPOST('/api/reports').respond(function (method, url, data) {
