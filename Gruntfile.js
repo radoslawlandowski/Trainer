@@ -27,7 +27,11 @@ module.exports = function (grunt) {
                     'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
                     'jquery.min.js': 'jquery/dist/jquery.min.js',
                     'moment.min.js': 'moment/min/moment.min.js',
-                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js'
+                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js',
+                    'angular-chart.min.js': 'angular-chart/angular-chart.min.js',
+                    'c3.min.js': 'c3/c3.min.js',
+                    'c3.min.css': 'c3/c3.min.css',
+                    'd3.min.js': 'd3/d3.min.js'
                 }
             },
             fonts: {

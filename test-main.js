@@ -71,7 +71,10 @@ require.config({
       'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min',
       'jquery': 'libs/jquery.min',
       'moment': 'libs/moment.min',
-      'angular-moment': 'libs/angular-moment.min'
+      'angular-moment': 'libs/angular-moment.min',
+      'angular-chart': 'libs/angular-chart.min',
+      'c3': 'libs/c3.min',
+      'd3': 'libs/d3.min'
   },
   shim: {
       'angular': {
@@ -88,6 +91,9 @@ require.config({
       },
       'ui-bootstrap-tpls': {
           deps: ['angular']
+      },
+      'angular-chart': { 
+          deps: ['angular', 'd3', 'c3']
       }
   },
   // dynamically load all test files

@@ -59,6 +59,9 @@ requirejs.config({
         'moment': 'libs/moment.min',
         'angular-moment': 'libs/angular-moment.min',
         'angular-mocks': 'libs/angular-mocks',
+        'angular-chart': 'libs/angular-chart.min',
+        'c3': 'libs/c3.min',
+        'd3': 'libs/d3.min',
 
         /* Fakes */
         'FakeModule': 'application/fakes/FakeModule',
@@ -80,6 +83,9 @@ requirejs.config({
         'angular-mocks': {
             deps: ['angular']
         },
+        'angular-chart': {
+          deps: ['angular', 'd3', 'c3']        
+        }
     }
 });
 
