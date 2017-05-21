@@ -9,7 +9,7 @@
                 </div>
                 <label class="control-label col-sm-2">Stats type:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control pull-left" id="training-title" ng-model="statsType" placeholder="Enter stats type">
+                    <button id="button-{{statsType}}" ng-repeat="statsType in statsTypes" ng-click="setStatsType(statsType)" class="btn btn-xs">{{statsType}}</button>
                 </div>
             </div>
 
