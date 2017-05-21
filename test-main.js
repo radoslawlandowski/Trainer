@@ -35,6 +35,7 @@ require.config({
 
       'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
       'athleteGeneralStatsInputsDirective': 'application/athlete/stats/athleteGeneralStatsInputsDirective',
+      'AthleteStatsTypes': 'application/athlete/stats/AthleteStatsTypes',
 
       'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
 
