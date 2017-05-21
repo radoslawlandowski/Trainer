@@ -22,6 +22,7 @@ requirejs.config({
         'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
 
         'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
+        'athleteGeneralStatsInputsDirective': 'application/athlete/stats/athleteGeneralStatsInputsDirective',
 
         'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
         'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',

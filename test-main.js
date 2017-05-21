@@ -34,6 +34,7 @@ require.config({
       'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
       'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
+      'athleteGeneralStatsInputsDirective': 'application/athlete/stats/athleteGeneralStatsInputsDirective',
 
       'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
 
