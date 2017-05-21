@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function () {
+define(['moment', 'angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (moment) {
     describe('TrainingFactory', function () {
 
         beforeEach(module('MainModule'));
@@ -32,6 +32,14 @@ define(['angular', 'angular-mocks', 'MainModule', 'TrainingFactory'], function (
                 var training = TrainingFactory.create({ 'name': trainingName });
                 
                 expect(training.removeExercise).toBeDefined();
+            });
+
+            it("it should assign today's date", function () {
+                var training = TrainingFactory.create({ 'name': trainingName });
+
+                var today = moment().format("MMM Do YY");
+                
+                expect(training.getDate()).toEqual(today);
             });
         });
 
