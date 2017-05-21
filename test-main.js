@@ -27,6 +27,7 @@ require.config({
       'AthleteDataController': 'application/athlete/data/AthleteDataController',
       'AthleteDataService': 'application/athlete/data/AthleteDataService',
       'AthleteBoardController': 'application/athlete/board/AthleteBoardController',
+      'AthleteReportService': 'application/athlete/board/AthleteReportService', 
       'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
       'performTrainingDirective': 'application/athlete/board/performTrainingDirective',
       'TrainingTimer': 'application/athlete/board/TrainingTimer',
