@@ -7,9 +7,9 @@ define(['AthleteModule', 'angular', 'AthleteStatsTypes'], function(AthleteModule
 
             },
             templateUrl: 'scripts/application/athlete/stats/athleteGeneralStatsInputsDirectiveTemplate.html',
-            link: function(scope, element, attrs, athleteStatsDirectiveController) {
+            link: function(scope, element, attrs, asc) {
                 scope.statsTypes = AthleteStatsTypes;
-                athleteStatsDirectiveController.statsType = scope.statsTypes[0];
+                asc.statsType = scope.statsTypes[0];
 
                 var propertiesToWatch = ['trainingTitle', 'dateFrom', 'dateTo'];
 
@@ -24,7 +24,7 @@ define(['AthleteModule', 'angular', 'AthleteStatsTypes'], function(AthleteModule
                 }
 
                 function setProperty(property, value) {
-                    athleteStatsDirectiveController[property] = value;
+                    asc[property] = value;
                 }
             }
         };

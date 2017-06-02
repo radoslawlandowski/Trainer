@@ -20,10 +20,10 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'Athle
                     getData(vm.trainingTitle, vm.dateFrom, vm.dateTo).then(function(responseData) {
                         var data = responseData;
 
-                        console.log(data);
 
                         vm.chartData = processor.process(data, processorSettings);
 
+                        console.log(vm.chartData);
                         console.info("Stats generated!");
                     });
                 }

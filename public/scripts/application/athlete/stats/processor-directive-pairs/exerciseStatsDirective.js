@@ -5,12 +5,11 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
             require: '^athleteStatsDirective',
             templateUrl: 'scripts/application/athlete/stats/processor-directive-pairs/exerciseStatsDirectiveTemplate.html',
             link: function(scope, element, attrs, asc) {
-                
-                processorSettings = {
-                    option: scope.optionOne
-                }
-
                 scope.generateStats = function() {
+                    processorSettings = {
+                        exerciseName: scope.exerciseName
+                    }
+
                     asc.generateStats(exerciseStatsProcessor, processorSettings);
                 }
             }
