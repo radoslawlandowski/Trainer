@@ -45,6 +45,8 @@ require.config({
       'timingsStatsProcessor': 'application/athlete/stats/processor-directive-pairs/timingsStatsProcessor',
       'trainingStatsProcessor': 'application/athlete/stats/processor-directive-pairs/trainingStatsProcessor',
 
+      'athleteChartDirective': 'application/athlete/stats/athleteChartDirective',
+
       'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
  
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',

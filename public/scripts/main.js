@@ -19,6 +19,8 @@ requirejs.config({
         'TrainingTimer': 'application/athlete/board/TrainingTimer',
         'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
+        'athleteChartDirective': 'application/athlete/stats/athleteChartDirective',
+
         'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
 
         'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
