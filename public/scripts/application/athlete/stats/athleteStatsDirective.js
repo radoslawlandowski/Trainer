@@ -9,6 +9,20 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'exerc
                 vm.dateFrom;
                 vm.dateTo;
                 vm.statsType;
+
+                vm.chartData = {};
+
+                function getData(trainingTitle, dateFrom, dateTo) {
+                    return {};
+                }
+
+                vm.generateStats = function(processor, processorSettings) {
+                    var data = getData(vm.trainingTitle, vm.dateFrom, vm.dateTo);
+
+                    vm.chartData = processor.process(data, processorSettings);
+
+                    console.info("Stats generated!");
+                }
             },
             controllerAs: "asc",
             scope: {
