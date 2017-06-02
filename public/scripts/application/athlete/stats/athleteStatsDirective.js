@@ -29,13 +29,7 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'Athle
                 }
             },
             controllerAs: "asc",
-            scope: {
-            
-            },
-            templateUrl: 'scripts/application/athlete/stats/athleteStatsDirectiveTemplate.html',
-            link: function(scope, element, attrs) {
-                
-            }
+            templateUrl: 'scripts/application/athlete/stats/athleteStatsDirectiveTemplate.html'
         };
     })
 })
