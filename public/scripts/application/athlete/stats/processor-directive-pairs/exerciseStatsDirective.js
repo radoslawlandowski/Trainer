@@ -10,13 +10,16 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
             link: function(scope, element, attrs, asc) {
                 
                 processorSettings = {
-                    option: scope.option
+                    option: scope.optionOne
                 }
 
                 var processor = {
-                    process: function() {
+                    process: function(data, processorSettings) {
                         console.info("Exercise stats processor processed!");
-                        return {};
+
+                        var processedData = data.map((item) => {item.name = "PROCESSED NAME"});
+
+                        return processedData;
                     }
                 }
 
