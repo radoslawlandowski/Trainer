@@ -4,9 +4,23 @@
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2">Exercise name:</label>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <input type="text" class="form-control pull-left" id="exercise-name" ng-model="exerciseName" placeholder="Enter name">
                 </div>
+
+                <label class="control-label col-sm-2">Sets:</label>
+                <div class="col-sm-2">
+                    <select ng-model="selectedSet">
+                        <option ng-repeat="set in sets" value="{{set}}">{{set}}</option>
+                    </select>
+                </div> 
+
+                <label class="control-label col-sm-2">Reps or weigths:</label>
+                <div class="col-sm-2">
+                    <select ng-model="selectedRepsOrWeights">
+                        <option ng-repeat="repsOrWeight in repsOrWeights" value="{{repsOrWeight}}">{{repsOrWeight}}</option>
+                    </select>
+                </div> 
             </div>
         </form>
     </div>

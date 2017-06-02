@@ -5,9 +5,16 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
             require: '^athleteStatsDirective',
             templateUrl: 'scripts/application/athlete/stats/processor-directive-pairs/exerciseStatsDirectiveTemplate.html',
             link: function(scope, element, attrs, asc) {
+
+                scope.sets = exerciseStatsProcessor.sets; 
+                scope.repsOrWeights = exerciseStatsProcessor.repsOrWeights;
+
                 scope.generateStats = function() {
+
                     processorSettings = {
-                        exerciseName: scope.exerciseName
+                        exerciseName: scope.exerciseName,
+                        set: scope.selectedSet,
+                        repsOrWeights: scope.selectedRepsOrWeights
                     }
 
                     asc.generateStats(exerciseStatsProcessor, processorSettings);
