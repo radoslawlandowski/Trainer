@@ -15,7 +15,7 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             }
 
             for (var i = 0; i < SETS_COUNT; i++) {
-                training.getExercises()[0].addSet({});
+                training.getExercises()[0].addSet({reps: i* 3, weight: i*10});
             }
 
             training.setDays([true, true, true, true, true, true, true]);

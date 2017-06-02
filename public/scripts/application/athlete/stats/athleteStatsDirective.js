@@ -1,4 +1,4 @@
-define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'AthleteReportService', 'exerciseStatsDirective', 'trainingStatsDirective', 'timingsStatsDirective'], function(AthleteModule, angular) {
+define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'AthleteReportService', 'exerciseStatsDirective', 'athleteChartDirective', 'trainingStatsDirective', 'timingsStatsDirective'], function(AthleteModule, angular) {
     AthleteModule.directive('athleteStatsDirective', function(AthleteReportService) {
         return {
             restrict: 'E',
@@ -20,11 +20,7 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'Athle
                     getData(vm.trainingTitle, vm.dateFrom, vm.dateTo).then(function(responseData) {
                         var data = responseData;
 
-
                         vm.chartData = processor.process(data, processorSettings);
-
-                        console.log(vm.chartData);
-                        console.info("Stats generated!");
                     });
                 }
             },
