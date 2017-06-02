@@ -1,4 +1,4 @@
-define(['angular', 'MainModule', 'AthleteMainController', 'AthleteStates'], function (angular, MainModule, AthleteMainController, AthleteStates) {
+define(['angular', 'MainModule', 'AthleteMainController', 'AthleteStates', 'AthleteConfig'], function (angular, MainModule, AthleteMainController, AthleteStates) {
     MainModule.config(function ($stateProvider, $urlRouterProvider) {
         var basePath = 'scripts/application/';
 
