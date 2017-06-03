@@ -9,10 +9,17 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
                 scope.sets = exerciseStatsProcessor.sets; 
                 scope.repsOrWeights = exerciseStatsProcessor.repsOrWeights;
 
+                asc.getData(1, 2, 3).then(function(response) {
+                    scope.exerciseNames = exerciseStatsProcessor.getExercisesNames(response);
+                });
+
+                scope.selectedSet = scope.sets[0];
+                scope.selectedRepsOrWeights = scope.repsOrWeights[0];
+
                 scope.generateStats = function() {
 
                     processorSettings = {
-                        exerciseName: scope.exerciseName,
+                        exerciseName: scope.selectedExerciseName,
                         set: scope.selectedSet,
                         repsOrWeights: scope.selectedRepsOrWeights
                     }

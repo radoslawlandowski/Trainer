@@ -3,10 +3,12 @@
     <div class="panel-body">
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="control-label col-sm-2">Exercise name:</label>
+                <label class="control-label col-sm-2">Exercise:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control pull-left" id="exercise-name" ng-model="exerciseName" placeholder="Enter name">
-                </div>
+                    <select ng-model="selectedExerciseName">
+                        <option ng-repeat="exerciseName in exerciseNames" value="{{exerciseName}}">{{exerciseName}}</option>
+                    </select>
+                </div> 
 
                 <label class="control-label col-sm-2">Sets:</label>
                 <div class="col-sm-2">

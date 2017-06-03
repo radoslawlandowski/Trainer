@@ -7,26 +7,29 @@ define(['AthleteModule', 'angular'], function(AthleteModule, angular) {
             link: {
                 pre: function(scope, elem, attrs, asc) {
 
-                    scope.$watch('asc.chartData', function(newVal) {
-                        scope.options.data = newVal;
+                    scope.$watch('asc.chartData', function(data) {
+                        scope.options = {
+                            data: data,
+                            dimensions: __createChartDimensions(data)
+                        }
                     })
+                    
+                    scope.instance = null;
 
-                    scope.options = {
-                        data: asc.chartData,
-                        dimensions: {
-                            set1: {
-                                axis: 'y2'
-                            },
-                            set2: {
-                                axis: 'y2'
-                            },
-                            set3: {
+                    function __createChartDimensions(data) {
+                        if(angular.isUndefined(data[0])) return {};
+                        
+                        var keys = Object.keys(data[0]);
+                        var dimensions = {};
+
+                        keys.map((item) => {
+                            dimensions[item] = {
                                 axis: 'y2'
                             }
-                        }
-                    };
+                        })
 
-                    scope.instance = null;
+                        return dimensions;
+                    }
                 }
             } 
         };

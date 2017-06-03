@@ -2,7 +2,17 @@ define(['AthleteModule'], function (AthleteModule) {
     AthleteModule.factory('exerciseStatsProcessor', function () {
         return {
             sets: ['all', 'last'],
-            repsOrWeights: ['reps', 'exercises', 'both'],
+            repsOrWeights: ['weights', 'reps', 'reps and weights'],
+
+            getExercisesNames : function (data) {
+                var training = data[0];
+
+                var names = training.exercises.map((exercise) => {
+                    return exercise.name;
+                })
+                
+                return names;
+            },
 
             process: function (data, processorSettings) {
 
@@ -35,52 +45,63 @@ define(['AthleteModule'], function (AthleteModule) {
                 }
 
                 function _extractSets(data, option) {
-                    var extractedData;
-                    
-                    if(option == 'all') {
-                        extractedData = __extractAllSets(data)
-                    } else {
-                        extractedData = __extractLastSets(data)
+                    var __extractingFunctions = {
+                        'last': __extractLastSets,
+                        'all': __extractAllSets
                     }
 
-                    return extractedData;
+                    return __extractingFunctions[option](data);
 
                     function __extractAllSets(data) {
-                        data.map((item) => {
-                            
-                        })
+                        return data;
                     };
 
                     function __extractLastSets(data) {
-
+                        return data;
                     };
                 };
 
-
-
                 function _extractRepsOrWeights(data, option) {
-                    var data;
-                    
-                    if(option == 'reps') {
-                        data = __extractReps(data);
-                    } else if(option == 'exercises') {
-                        data = __extractExercises(data);
-                    } else {
-                        data = __extractBoth(data);
+
+                    var __extractingFunctions = {
+                        'reps': __extractReps,
+                        'weights': __extractWeights,
+                        'reps and weights': __extractRepsAndWeights
                     }
 
-                    return data;
+                    return __extractingFunctions[option](data);
 
-                    function __extractReps() {
-
+                    function __extractReps(data) {
+                        return data.map((item) => {
+                            return item.sets.map((set) => {
+                                return set.reps;
+                            })
+                        })
                     };
 
-                    function __extractExercises() {
+                    function __extractWeights(data) {
+                        var extractedData = data.map((item) => {
+                            var weightsArray = item.sets.map((set) => {
+                                return set.weight;
+                            })
 
+                            var weightsObject = {};
+                            weightsArray.map((item, index) => {
+                                weightsObject[`set ${index+1}`] = item;
+                            })
+
+                            return weightsObject;
+                        })
+
+                        return extractedData;
                     };
 
-                    function __extractBoth() {
-
+                    function __extractRepsAndWeights(data) {
+                        return data.map((item) => {
+                            return item.sets.map((set) => {
+                                return { reps: set.reps, weight: set.weight };
+                            })
+                        })
                     };
                 };
             }

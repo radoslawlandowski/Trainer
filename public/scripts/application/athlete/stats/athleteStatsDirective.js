@@ -11,16 +11,17 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'Athle
                 vm.statsType;
 
                 vm.chartData = {};
+                vm.rawData;
 
-                function getData(trainingTitle, dateFrom, dateTo) {
+                vm.getData = function (trainingTitle, dateFrom, dateTo) {
                     return AthleteReportService.get();
                 }
 
                 vm.generateStats = function(processor, processorSettings) {
-                    getData(vm.trainingTitle, vm.dateFrom, vm.dateTo).then(function(responseData) {
-                        var data = responseData;
+                    vm.getData(vm.trainingTitle, vm.dateFrom, vm.dateTo).then(function(responseData) {
+                        vm.rawData = responseData;
 
-                        vm.chartData = processor.process(data, processorSettings);
+                        vm.chartData = processor.process(vm.rawData, processorSettings);
                     });
                 }
             },
