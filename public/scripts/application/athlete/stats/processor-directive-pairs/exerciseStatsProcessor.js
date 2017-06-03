@@ -5,27 +5,27 @@ define(['AthleteModule'], function (AthleteModule) {
             repsOrWeights: ['weights', 'reps', 'reps and weights'],
 
             getExercisesNames : function (data) {
-                var training = data[0];
+                var training = data[0]; // get first training (any other training of given name has the same exercises)
 
-                var names = training.exercises.map((exercise) => {
+                var exercisesNames = training.exercises.map((exercise) => {
                     return exercise.name;
                 })
                 
-                return names;
+                return exercisesNames;
             },
 
-            process: function (data, processorSettings) {
+            process: function (trainings, processorSettings) {
 
-                var preprocessedData = _preProcess(data, processorSettings);
+                var extractedExercise = _extractExercise(trainings, processorSettings.exerciseName);
 
-                var processedData = _process(preprocessedData, processorSettings);
+                var processedData = _process(extractedExercise, processorSettings);
 
                 return processedData;
 
-                function _preProcess(data, processorSettings) {
-                    var preProcessedData = data.map((item) => {
+                function _extractExercise(trainings, exerciseName) {
+                    var preProcessedData = trainings.map((item) => {
                         var exercise = item.exercises.filter((exercise) => {
-                            return exercise.name === processorSettings.exerciseName;
+                            return exercise.name === exerciseName;
                         })
 
                         return exercise[0];
@@ -34,10 +34,10 @@ define(['AthleteModule'], function (AthleteModule) {
                     return preProcessedData;
                 }
                 
-                function _process(preProcessedData, processorSettings) {
+                function _process(extractedExercise, processorSettings) {
                     var processedData;
 
-                    processedData = _extractSets(preProcessedData, processorSettings.set);
+                    processedData = _extractSets(extractedExercise, processorSettings.set);
 
                     processedData = _extractRepsOrWeights(processedData, processorSettings.repsOrWeights);
 
@@ -45,6 +45,7 @@ define(['AthleteModule'], function (AthleteModule) {
                 }
 
                 function _extractSets(data, option) {
+                    
                     var __extractingFunctions = {
                         'last': __extractLastSets,
                         'all': __extractAllSets

@@ -27,6 +27,6 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
                     asc.generateStats(exerciseStatsProcessor, processorSettings);
                 }
             }
-        };
-    })
+        }; 
+    }) 
 })
