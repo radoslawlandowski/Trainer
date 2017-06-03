@@ -4,7 +4,10 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
     m.run(function ($httpBackend, TrainingFactory, ExerciseFactory) {
         var self = this;
 
-        var generateTraining = function (name) {
+        var generateTraining = function (name, multiplier, summer) {
+            multiplier = multiplier || 1;
+            summer = summer || 0;
+
             var EXERCISES_COUNT = 3;
             var SETS_COUNT = 3;
 
@@ -15,7 +18,9 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             }
 
             for (var i = 0; i < SETS_COUNT; i++) {
-                training.getExercises()[0].addSet({reps: i* 3, weight: i*10});
+                training.getExercises()[0].addSet({reps: i * 3 + summer, weight: multiplier * i * 10 + summer});
+                training.getExercises()[1].addSet({reps: i * 1 + summer, weight: multiplier * i * 10 + summer + 40});
+                training.getExercises()[2].addSet({reps: i * 5 + summer, weight: multiplier * i * 10 + summer + 100});
             }
 
             training.setDays([true, true, true, true, true, true, true]);
@@ -63,7 +68,7 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             return [200, training, {}];
         });
 
-        self.reports = [generateTraining("First"), generateTraining("First"), generateTraining("First"), generateTraining("First"), generateTraining("First")];
+        self.reports = [generateTraining("First", 2), generateTraining("First", 2.2), generateTraining("First", 2.5), generateTraining("First", 3), generateTraining("First", 4)];
 
         $httpBackend.whenGET('/api/reports').respond(self.reports);
 
