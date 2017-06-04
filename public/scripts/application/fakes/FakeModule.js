@@ -1,12 +1,13 @@
 define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
     var m = angular.module('FakeModule', ['MainModule', 'ngMockE2E']);
 
-    m.run(function ($httpBackend, TrainingFactory, ExerciseFactory) {
+    m.run(function ($httpBackend, TrainingFactory, ExerciseFactory, moment) {
         var self = this;
 
-        var generateTraining = function (name, multiplier, summer) {
+        var generateTraining = function (name, multiplier, summer, date) {
             multiplier = multiplier || 1;
             summer = summer || 0;
+            date = date || new Date();
 
             var EXERCISES_COUNT = 3;
             var SETS_COUNT = 3;
@@ -24,6 +25,7 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             }
 
             training.setDays([true, true, true, true, true, true, true]);
+            training.setDate(date);
 
             return training.getData();
         }
@@ -67,8 +69,25 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
 
             return [200, training, {}];
         });
+        var todayDiffered = function(diff) {
+            var today = moment().toDate();
 
-        self.reports = [generateTraining("First", 2), generateTraining("First", 2.2), generateTraining("First", 2.5), generateTraining("First", 3), generateTraining("First", 4)];
+            return moment(today).add(diff, 'days');
+        }
+
+        self.reports = [
+            generateTraining("First", 2, 1, todayDiffered(-7)), 
+            generateTraining("First", 2.2, 2, todayDiffered(0)), 
+            generateTraining("First", 2.5, 3, todayDiffered(7)), 
+            generateTraining("First", 3, 3, todayDiffered(14)), 
+            generateTraining("First", 3, 3, todayDiffered(21)), 
+            generateTraining("First", 3, 3, todayDiffered(28)), 
+            generateTraining("First", 3, 2, todayDiffered(35)), 
+            generateTraining("First", 3, 3, todayDiffered(42)), 
+            generateTraining("First", 3, 4, todayDiffered(49)), 
+            generateTraining("First", 3, 5, todayDiffered(56)), 
+            generateTraining("First", 4, 5, todayDiffered(63))
+        ];
 
         $httpBackend.whenGET('/api/reports').respond(self.reports);
 
