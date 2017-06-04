@@ -5,7 +5,7 @@ define(['AthleteModule', 'angular', 'AthleteStatsTypes'], function(AthleteModule
             templateUrl: 'scripts/application/athlete/stats/athleteGeneralStatsInputsDirectiveTemplate.html',
             link: function(scope) {
                 scope.statsTypes = AthleteStatsTypes;
-                scope.statsType = scope.statsTypes[0];
+                scope.statsType = scope.statsTypes['Exercise'].name;
 
                 scope.setStatsType = function (value) {
                     scope.statsType = value;
