@@ -69,8 +69,11 @@ define(['AthleteModule', 'AthleteStatsTypes'], function (AthleteModule) {
                         'reps and weights': __extractRepsAndWeights
                     }
 
-                    return __extractingFunctions[option](data);
+                    var processedData = __extractingFunctions[option](data);
+                    var dimensions = __createChartDimensions(processedData);
 
+                    return { data: processedData, dimensions: dimensions };
+                        
                     function __extractReps(data) {
                         return data.map((item) => {
                             var repsArray = item.sets.map((set) => {
@@ -106,6 +109,21 @@ define(['AthleteModule', 'AthleteStatsTypes'], function (AthleteModule) {
                         })
 
                         return obj;
+                    }
+
+                    function __createChartDimensions(data) {
+                        if(angular.isUndefined(data[0])) return {};
+                        
+                        var keys = Object.keys(data[0]);
+                        var dimensions = {};
+
+                        keys.map((item) => {
+                            dimensions[item] = {
+                                axis: 'y'
+                            }
+                        })
+
+                        return dimensions;
                     }
                 };
             } 

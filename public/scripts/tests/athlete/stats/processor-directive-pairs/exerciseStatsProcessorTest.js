@@ -52,20 +52,20 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
                 var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps"};
                 var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
-                expect(data.length).toEqual(5);
+                expect(data.data.length).toEqual(5);
 
                 var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 3, 'set 4': 6 };
-                expect(data[0]).toEqual(expectedDataStructure);
+                expect(data.data[0]).toEqual(expectedDataStructure);
             });
 
             it("When 'weights' as argument then the 'process' function should return only weights", function () {
                 var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "weights"};
                 var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
-                expect(data.length).toEqual(5);
+                expect(data.data.length).toEqual(5);
 
                 var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 10, 'set 4': 20 };
-                expect(data[0]).toEqual(expectedDataStructure);
+                expect(data.data[0]).toEqual(expectedDataStructure);
             });
 
             it("When 'both' as argument then the 'process' function should return reps and weights", function () {
@@ -79,8 +79,8 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
                     { reps: 6, weight: 20},                        
                 ]
 
-                expect(data.length).toEqual(5);
-                expect(data[0]).toEqual(expectedData);
+                expect(data.data.length).toEqual(5);
+                expect(data.data[0]).toEqual(expectedData);
             });
         });
     });
