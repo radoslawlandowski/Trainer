@@ -1,5 +1,5 @@
-define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule'], function () {
-    describe('SidebarDirective Tests', function () {
+define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'athleteStatsDirective'], function () {
+    describe('AthleteStatsDirective Tests', function () {
 
         beforeEach(module('MainModule'));
         beforeEach(module('AthleteModule'));
@@ -24,29 +24,23 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule'], function () 
             mockDirective('athleteGeneralStatsInputsDirective', '<div id="agsid">athleteGeneralStatsInputsDirective</div>');
             mockDirective('exerciseStatsDirective', '<div id="esd">exerciseStatsDirective</div>');
             mockDirective('timingsStatsDirective', '<div id="tsd">timingsStatsDirective</div>');
-            mockDirective('trainingStatsDirective', '<div id="tsd">trainingStatsDirective</div>');
+            mockDirective('trainingStatsDirective', '<div id="trsd">trainingStatsDirective</div>');
             mockDirective('athleteChartDirective', '<div id="acd">athleteChartDirective</div>');
 
         }));
 
-        beforeEach(inject(function($rootScope, $compile) {
+        var $httpBackend;
+        var $rootScope;
+        beforeEach(inject(function(_$rootScope_, $compile, _$httpBackend_) {
+            $httpBackend = _$httpBackend_;
+            $rootScope = _$rootScope_
 
-            var element1 = angular.element('<athlete-general-stats-inputs-directive></athlete-general-stats-inputs-directive>');
-            var element2 = angular.element('<exercise-stats-directive></exercise-stats-directive>');
-            var element3 = angular.element('<timings-stats-directive></timings-stats-directive>');
-            var element4 = angular.element('<training-stats-directive></training-stats-directive>');
-            var element5 = angular.element('<athlete-chart-directive></athlete-chart-directive>');
-
-            $compile(element1); $compile(element2); $compile(element3); $compile(element4); $compile(element5);
+            $rootScope.$digest();
 
             element = angular.element('<athlete-stats-directive></athlete-stats-directive>');
-            $rootScope.$digest();
+            
             scope = $rootScope.$new();
-
-            var a = $compile(element)(scope);
-
-            console.log(element);
-
+            $compile(element)(scope);
             scope.$digest();
         }));
 
@@ -54,13 +48,18 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule'], function () 
             return angular.element(element[0].querySelector(selector));
         }
 
-        describe('When provided valid states attribute', function () {
-            it("it should create corresponding count of buttons", function () {
-                var el = getBySelector("#tsd");
- 
-                console.log(el);
-            });
-        });
+        describe('When directive is compiled', function () {
+            it("it should have nested directives compiled", function () {
+                var timingsDir = getBySelector("#tsd");
+                var exerciseDir = getBySelector("#esd");
+                var trainingsDir = getBySelector("#trsd");
+
+                expect(timingsDir).toBeDefined();
+                expect(exerciseDir).toBeDefined();
+                expect(trainingsDir).toBeDefined();
+
+             });
+        });  
     });
 });
-
+ 

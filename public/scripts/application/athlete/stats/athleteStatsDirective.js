@@ -5,23 +5,23 @@ define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'Athle
             controller: function($scope, AthleteReportService) {
                 var vm = this;
                 
-                vm.trainingTitle;
-                vm.dateFrom;
-                vm.dateTo;
-                vm.statsType;
+                $scope.trainingTitle;
+                $scope.dateFrom;
+                $scope.dateTo;
+                $scope.statsType;
 
-                vm.chartData = {};
-                vm.rawData;
+                $scope.chartData = {};
+                $scope.rawData;
 
                 vm.getData = function (trainingTitle, dateFrom, dateTo) {
                     return AthleteReportService.get();
                 }
 
                 vm.generateStats = function(processor, processorSettings) {
-                    vm.getData(vm.trainingTitle, vm.dateFrom, vm.dateTo).then(function(responseData) {
-                        vm.rawData = responseData;
+                    vm.getData($scope.trainingTitle, $scope.dateFrom, $scope.dateTo).then(function(responseData) {
+                        $scope.rawData = responseData;
 
-                        vm.chartData = processor.process(vm.rawData, processorSettings);
+                        $scope.chartData = processor.process($scope.rawData, processorSettings);
                     });
                 }
             },

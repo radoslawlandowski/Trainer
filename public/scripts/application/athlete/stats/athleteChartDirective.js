@@ -7,7 +7,7 @@ define(['AthleteModule', 'angular'], function(AthleteModule, angular) {
             link: {
                 pre: function(scope, elem, attrs, asc) {
 
-                    scope.$watch('asc.chartData', function(data) {
+                    scope.$watch('chartData', function(data) {
                         scope.options = {
                             data: data,
                             dimensions: __createChartDimensions(data)
