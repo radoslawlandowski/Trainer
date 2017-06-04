@@ -72,7 +72,7 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
         var todayDiffered = function(diff) {
             var today = moment().toDate();
 
-            return moment(today).add(diff, 'days');
+            return moment(today).add(diff, 'days').format('DD-MM-YYYY');
         }
 
         self.reports = [
@@ -88,8 +88,10 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             generateTraining("First", 3, 5, todayDiffered(56)), 
             generateTraining("First", 4, 5, todayDiffered(63))
         ];
-
-        $httpBackend.whenGET('/api/reports').respond(self.reports);
+        //?dateFrom=2&dateTo=3&trainingName=
+        $httpBackend.whenGET(/\/api\/reports\?.*\=.*&.*\=.*&.*\=.*/).respond(function(method, url, data, headers, params) {
+            return [200, self.reports, {}];
+        });
 
         $httpBackend.whenPOST('/api/reports').respond(function (method, url, data) {
             var report = angular.fromJson(data);
