@@ -2,9 +2,8 @@ define(['AthleteModule', 'angular', 'AthleteStatsTypes'], function(AthleteModule
     AthleteModule.directive('athleteGeneralStatsInputsDirective', function(AthleteStatsTypes) {
         return {
             restrict: 'E',
-            require: '^athleteStatsDirective',
             templateUrl: 'scripts/application/athlete/stats/athleteGeneralStatsInputsDirectiveTemplate.html',
-            link: function(scope, element, attrs, asc) {
+            link: function(scope) {
                 scope.statsTypes = AthleteStatsTypes;
                 scope.statsType = scope.statsTypes[0];
 
