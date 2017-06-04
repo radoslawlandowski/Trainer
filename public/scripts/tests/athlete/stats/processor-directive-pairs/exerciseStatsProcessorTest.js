@@ -42,27 +42,35 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
             });
 
             it("the 'process' function should return defined data", function () {
-                var data = ExerciseStatsProcessor.process(fakeReports, {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps and weights"})
+                var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps and weights"};
+                var data = ExerciseStatsProcessor.process(fakeReports, processorSettings);
 
                 expect(data).toBeDefined();
             });
 
             it("When 'reps' as argument then the 'process' function should return only reps", function () {
-                var data = ExerciseStatsProcessor.process(fakeReports, {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps"})
+                var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps"};
+                var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
                 expect(data.length).toEqual(5);
-                expect(data[0]).toEqual([undefined, 0, 3, 6]);
+
+                var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 3, 'set 4': 6 };
+                expect(data[0]).toEqual(expectedDataStructure);
             });
 
             it("When 'weights' as argument then the 'process' function should return only weights", function () {
-                var data = ExerciseStatsProcessor.process(fakeReports, {exerciseName: "exercise-0", set: "all", repsOrWeights: "weights"})
+                var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "weights"};
+                var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
                 expect(data.length).toEqual(5);
-                expect(data[0]).toEqual({ 'set 1': undefined, 'set 2': 0, 'set 3': 10, 'set 4': 20 });
+
+                var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 10, 'set 4': 20 };
+                expect(data[0]).toEqual(expectedDataStructure);
             });
 
             it("When 'both' as argument then the 'process' function should return reps and weights", function () {
-                var data = ExerciseStatsProcessor.process(fakeReports, {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps and weights"})
+                var processorSettings = {exerciseName: "exercise-0", set: "all", repsOrWeights: "reps and weights"};
+                var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
                 var expectedData = [
                     { reps: undefined, weight: undefined },

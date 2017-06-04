@@ -6,15 +6,14 @@ define(['AthleteModule', 'angular', 'athleteStatsDirective', 'exerciseStatsProce
             templateUrl: 'scripts/application/athlete/stats/processor-directive-pairs/exerciseStatsDirectiveTemplate.html',
             link: function(scope, element, attrs, asc) {
 
-                scope.sets = exerciseStatsProcessor.sets; 
-                scope.repsOrWeights = exerciseStatsProcessor.repsOrWeights;
+                scope.options = exerciseStatsProcessor.options;
 
                 asc.getData(1, 2, 3).then(function(response) {
                     scope.exerciseNames = exerciseStatsProcessor.getExercisesNames(response);
                 });
 
-                scope.selectedSet = scope.sets[0];
-                scope.selectedRepsOrWeights = scope.repsOrWeights[0];
+                scope.selectedSet = scope.options.sets[0];
+                scope.selectedRepsOrWeights = scope.options.repsOrWeights[0];
 
                 scope.generateStats = function() {
 

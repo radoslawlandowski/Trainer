@@ -13,14 +13,14 @@
                 <label class="control-label col-sm-2">Sets:</label>
                 <div class="col-sm-2">
                     <select ng-model="selectedSet">
-                        <option ng-repeat="set in sets" value="{{set}}">{{set}}</option>
+                        <option ng-repeat="set in options.sets" value="{{set}}">{{set}}</option>
                     </select>
                 </div> 
 
                 <label class="control-label col-sm-2">Reps or weigths:</label>
                 <div class="col-sm-2">
                     <select ng-model="selectedRepsOrWeights">
-                        <option ng-repeat="repsOrWeight in repsOrWeights" value="{{repsOrWeight}}">{{repsOrWeight}}</option>
+                        <option ng-repeat="repsOrWeight in options.repsOrWeights" value="{{repsOrWeight}}">{{repsOrWeight}}</option>
                     </select>
                 </div> 
             </div>

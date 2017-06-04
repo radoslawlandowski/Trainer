@@ -1,8 +1,7 @@
-define(['AthleteModule'], function (AthleteModule) {
-    AthleteModule.factory('exerciseStatsProcessor', function () {
+define(['AthleteModule', 'AthleteStatsTypes'], function (AthleteModule) {
+    AthleteModule.factory('exerciseStatsProcessor', function (AthleteStatsTypes) {
         return {
-            sets: ['all', 'last'],
-            repsOrWeights: ['weights', 'reps', 'reps and weights'],
+            options: AthleteStatsTypes.Exercise.options,
 
             getExercisesNames : function (data) {
                 var training = data[0]; // get first training (any other training of given name has the same exercises)
@@ -74,27 +73,22 @@ define(['AthleteModule'], function (AthleteModule) {
 
                     function __extractReps(data) {
                         return data.map((item) => {
-                            return item.sets.map((set) => {
+                            var repsArray = item.sets.map((set) => {
                                 return set.reps;
-                            })
+                            });
+
+                            return __convertToObject(repsArray);
                         })
                     };
 
                     function __extractWeights(data) {
-                        var extractedData = data.map((item) => {
+                        return data.map((item) => {
                             var weightsArray = item.sets.map((set) => {
                                 return set.weight;
                             })
 
-                            var weightsObject = {};
-                            weightsArray.map((item, index) => {
-                                weightsObject[`set ${index+1}`] = item;
-                            })
-
-                            return weightsObject;
+                            return __convertToObject(weightsArray);
                         })
-
-                        return extractedData;
                     };
 
                     function __extractRepsAndWeights(data) {
@@ -104,8 +98,17 @@ define(['AthleteModule'], function (AthleteModule) {
                             })
                         })
                     };
+
+                    function __convertToObject(array) {
+                        var obj = {};
+                        array.map((item, index) => {
+                            obj[`set ${index+1}`] = item;
+                        })
+
+                        return obj;
+                    }
                 };
-            }
+            } 
         }
     })
 })

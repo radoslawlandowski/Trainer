@@ -9,7 +9,7 @@
                 </div>
                 <label class="control-label col-sm-2">Stats type:</label>
                 <div id="stats-buttons" class="col-sm-4">
-                    <button id="button-{{statsType}}" ng-repeat="statsType in statsTypes" ng-click="setStatsType(statsType)" class="btn btn-xs">{{statsType}}</button>
+                    <button id="button-{{value.name}}" ng-repeat="(key, value) in statsTypes" ng-click="setStatsType(value.name)" class="btn btn-xs">{{value.name}}</button>
                 </div>
             </div>
 
