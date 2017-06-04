@@ -24,7 +24,7 @@ define(['AthleteModule', 'angular'], function(AthleteModule, angular) {
 
                         keys.map((item) => {
                             dimensions[item] = {
-                                axis: 'y2'
+                                axis: 'y'
                             }
                         })
 
