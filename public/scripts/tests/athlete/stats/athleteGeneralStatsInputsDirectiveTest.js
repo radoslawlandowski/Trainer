@@ -31,6 +31,7 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'athleteGener
                 expect(trainingTitleInput.scope().trainingTitle).toEqual("test");
              });
 
+
             it("the dateFrom should be visible on scope", function () {
                 var dateFromInput = getBySelector("#date-from");
 
@@ -40,11 +41,11 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'athleteGener
              });
 
             it("the dateTo should be visible on scope", function () {
-                var input = getBySelector("#date-to");
+                var dateToInput = getBySelector("#date-to");
 
-                sendKeys(input, "test");
+                sendKeys(dateToInput, "test");
 
-                expect(input.scope().dateTo).toEqual("test");
+                expect(dateToInput.scope().dateTo).toEqual("test");
              });
 
              function sendKeys(element, text) {
@@ -54,14 +55,17 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'athleteGener
 
         describe('When directive is compiled', function () {
             it("it should have buttons already rendered", function () {
-                var statsButtons = getBySelector("#stats-buttons");
-                var exerciseButton = statsButtons.find("button")[0];
-                var timingButton = statsButtons.find("button")[1];
-                var trainingButton = statsButtons.find("button")[2];
+                var statsButtonsGroup = getBySelector("#stats-buttons");
 
-                expect(angular.element(exerciseButton).html()).toEqual("Exercise");
-                expect(angular.element(trainingButton).html()).toEqual("Training");
-                expect(angular.element(timingButton).html()).toEqual("Timings");
+                var statsButtons = statsButtonsGroup.find("button");
+
+                var exerciseButton = angular.element(statsButtons[0]);
+                var timingButton = angular.element(statsButtons[1]);
+                var trainingButton = angular.element(statsButtons[2]);
+
+                expect(exerciseButton.html()).toEqual("Exercise");
+                expect(trainingButton.html()).toEqual("Training");
+                expect(timingButton.html()).toEqual("Timings");
              });
         });   
 
