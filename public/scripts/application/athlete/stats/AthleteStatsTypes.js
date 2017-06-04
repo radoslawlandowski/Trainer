@@ -16,7 +16,7 @@ define(['AthleteModule'], function(AthleteModule) {
          'Training': {
             'name': 'Training',
             'options': {
-
+                'tonnages': ['total', 'per exercise']
             }
          },
     })
