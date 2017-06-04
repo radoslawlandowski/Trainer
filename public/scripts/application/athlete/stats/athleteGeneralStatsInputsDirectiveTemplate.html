@@ -8,7 +8,7 @@
                     <input type="text" class="form-control pull-left" id="training-title" ng-model="trainingTitle" placeholder="Enter title">
                 </div>
                 <label class="control-label col-sm-2">Stats type:</label>
-                <div class="col-sm-4">
+                <div id="stats-buttons" class="col-sm-4">
                     <button id="button-{{statsType}}" ng-repeat="statsType in statsTypes" ng-click="setStatsType(statsType)" class="btn btn-xs">{{statsType}}</button>
                 </div>
             </div>
@@ -16,11 +16,11 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Date from:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control pull-left" id="training-title" ng-model="dateFrom" placeholder="from">
+                    <input type="text" class="form-control pull-left" id="date-from" ng-model="dateFrom" placeholder="from">
                 </div>
                 <label class="control-label col-sm-2">Date to:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control pull-left" id="training-title" ng-model="dateTo" placeholder="to">
+                    <input type="text" class="form-control pull-left" id="date-to" ng-model="dateTo" placeholder="to">
                 </div>
             </div>
         </form>
