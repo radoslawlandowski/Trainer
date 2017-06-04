@@ -57,7 +57,6 @@ define(['angular', 'angular-mocks', 'MainModule', 'AthleteModule', 'athleteStats
                 expect(timingsDir).toBeDefined();
                 expect(exerciseDir).toBeDefined();
                 expect(trainingsDir).toBeDefined();
-
              });
         });  
     });
