@@ -82,11 +82,11 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             generateTraining("First", 3, 3, todayDiffered(14)), 
             generateTraining("First", 3, 3, todayDiffered(21)), 
             generateTraining("First", 3, 3, todayDiffered(28)), 
-            generateTraining("First", 3, 2, todayDiffered(35)), 
-            generateTraining("First", 3, 3, todayDiffered(42)), 
-            generateTraining("First", 3, 4, todayDiffered(49)), 
-            generateTraining("First", 3, 5, todayDiffered(56)), 
-            generateTraining("First", 4, 5, todayDiffered(63))
+            generateTraining("First", 2, 2, todayDiffered(35)), 
+            generateTraining("First", 2, 3, todayDiffered(42)), 
+            generateTraining("First", 2, 4, todayDiffered(49)), 
+            generateTraining("First", 3, 2, todayDiffered(56)), 
+            generateTraining("First", 1, 2, todayDiffered(63))
         ];
         //?dateFrom=2&dateTo=3&trainingName=
         $httpBackend.whenGET(/\/api\/reports\?.*\=.*&.*\=.*&.*\=.*/).respond(function(method, url, data, headers, params) {

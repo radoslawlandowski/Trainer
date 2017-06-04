@@ -2,8 +2,8 @@ define(['AthleteModule'], function (AthleteModule) {
     AthleteModule.service('AthleteReportService', function ($http, $q) {
         var self = this;
 
-        self.get = function () {
-            return $http({ method: 'GET', url: '/api/reports' }).then(function (response) {                
+        self.get = function (trainingName, dateFrom, dateTo) {
+            return $http.get('/api/reports', {params: {trainingName: trainingName, dateFrom: dateFrom, dateTo: dateTo} }).then(function (response) {                
                 return response.data;
             }, function (response) {
                 console.error("Get all trainings failed");
