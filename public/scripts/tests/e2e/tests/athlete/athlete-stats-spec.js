@@ -27,9 +27,11 @@ describe('Athlete spec', function () {
         describe('GeneralInputsDirective', function() {
 
             var inputsComponent;
+            var athleteStatsComponent;
 
             beforeEach(function () {
-                inputsComponent = athletePage.Stats.athleteStatsComponent.athleteGeneralStatsInputsCompontent;
+                athleteStatsComponent = athletePage.Stats.athleteStatsComponent;
+                inputsComponent = athleteStatsComponent.athleteGeneralStatsInputsCompontent;
             })
 
             it('When entering the page default value are put in inputs', function () {
@@ -46,6 +48,12 @@ describe('Athlete spec', function () {
                 inputsComponent.fillTrainingTitle("Test").then(function(value) {
                     expect(inputsComponent.getTrainingTitleInputText()).toEqual("Test");
                 })
+            });
+
+            it('When clicking buttons components change', function () {
+                inputsComponent.clickStatsButton("Exercise");
+                
+                expect(athleteStatsComponent.isComponentDisplayed("Exercise")).toBeTruthy();
             });
         })
     });

@@ -1,26 +1,26 @@
-<div id="general-stats-inputs" class="panel panel-success">
-    <div class="panel-heading">Exercise stats options</div>
+<div id="exercise-stats-directive" class="panel panel-success">
+    <div id="panel-heading-text" class="panel-heading">Exercise stats options</div>
     <div class="panel-body">
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2">Exercise:</label>
                 <div class="col-sm-2">
-                    <select ng-model="selectedExerciseName">
-                        <option ng-repeat="exerciseName in exerciseNames" value="{{exerciseName}}">{{exerciseName}}</option>
+                    <select id="exercise-name-dropdown" ng-model="selectedExerciseName">
+                        <option id="exercise-name-dropdown-{{exerciseName}}" ng-repeat="exerciseName in exerciseNames" value="{{exerciseName}}">{{exerciseName}}</option>
                     </select>
                 </div> 
 
                 <label class="control-label col-sm-2">Sets:</label>
                 <div class="col-sm-2">
-                    <select ng-model="selectedSet">
-                        <option ng-repeat="set in options.sets" value="{{set}}">{{set}}</option>
+                    <select id="sets-dropdown" ng-model="selectedSet">
+                        <option id="sets-dropdown-{{set}}" ng-repeat="set in options.sets" value="{{set}}">{{set}}</option>
                     </select>
                 </div> 
 
                 <label class="control-label col-sm-2">Reps or weigths:</label>
                 <div class="col-sm-2">
-                    <select ng-model="selectedRepsOrWeights">
-                        <option ng-repeat="repsOrWeight in options.repsOrWeights" value="{{repsOrWeight}}">{{repsOrWeight}}</option>
+                    <select id="reps-or-weights-dropdown" ng-model="selectedRepsOrWeights">
+                        <option id="reps-or-weights-dropdown-{{repsOrWeight}}" ng-repeat="repsOrWeight in options.repsOrWeights" value="{{repsOrWeight}}">{{repsOrWeight}}</option>
                     </select>
                 </div> 
             </div>
