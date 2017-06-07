@@ -37,17 +37,15 @@ describe('Athlete spec', function () {
             });
 
             it('When entering the page the correct buttons are available', function () {
-       //         expect(inputsComponent.clickStatsButton("Exercise"));
-       //         expect(inputsComponent.clickStatsButton("Timings"));
-        //        expect(inputsComponent.clickStatsButton("Training"));
+       //         inputsComponent.clickStatsButton("Exercise");
+       //         inputsComponent.clickStatsButton("Timings");
+        //        inputsComponent.clickStatsButton("Training");
             });
 
             it('When trying to input text the value of input box changes', function () {
                 inputsComponent.fillTrainingTitle("Test").then(function(value) {
-                    console.log(value);
+                    expect(inputsComponent.getTrainingTitleInputText()).toEqual("Test");
                 })
-
-                browser.driver.sleep(10000);
             });
         })
     });
