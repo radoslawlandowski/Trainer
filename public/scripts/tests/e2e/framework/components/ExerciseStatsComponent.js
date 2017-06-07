@@ -18,8 +18,12 @@ function ExerciseStatsComponent(parentName) {
 ExerciseStatsComponent.prototype = new BaseComponent();
 ExerciseStatsComponent.prototype.constructor = ExerciseStatsComponent;
 
-ExerciseStatsComponent.prototype.checkExerciseName = function(name) {
+ExerciseStatsComponent.prototype.clickExerciseDropdown = function() {
     return this.click(this.exerciseNameDropdownId);
+}
+
+ExerciseStatsComponent.prototype.getPanelHeading = function() {
+    return this.getByCss(".panel-heading").getText();
 }
 
 module.exports = ExerciseStatsComponent;

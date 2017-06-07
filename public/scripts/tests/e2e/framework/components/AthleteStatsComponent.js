@@ -1,6 +1,7 @@
 var BaseComponent = require('./BaseComponent');
 var AthleteGeneralStatsInputsCompontent = require('./AthleteGeneralStatsInputsCompontent');
-var ExerciseStatsComponent = require('./ExerciseStatsComponent');
+var ExerciseStatsComponent = require('./ExerciseStatsComponent'); 
+var TrainingStatsComponent = require('./TrainingStatsComponent');
 
 function AthleteStatsComponent(parentName) {
     this.id = `athlete-stats-directive`;
@@ -8,8 +9,10 @@ function AthleteStatsComponent(parentName) {
     this.athleteGeneralStatsInputsCompontent = new AthleteGeneralStatsInputsCompontent();
     this.exerciseStatsComponent = new ExerciseStatsComponent();
     this.timingsStatsComponent;
-    this.trainingStatsComponent;
+    this.trainingStatsComponent = new TrainingStatsComponent();
     this.athleteChartComponent;
+
+    this.switcherSelector = "[ng-switch-when]";
 
     this.components = {
         "GeneralInputs": this.athleteGeneralStatsInputsCompontent,
@@ -25,8 +28,8 @@ function AthleteStatsComponent(parentName) {
 AthleteStatsComponent.prototype = new BaseComponent();
 AthleteStatsComponent.prototype.constructor = AthleteStatsComponent;
 
-AthleteStatsComponent.prototype.isComponentDisplayed = function(name) {
-    return this.components[name].amIDisplayed()
+AthleteStatsComponent.prototype.getChosenComponentHeading = function() {
+    return this.getByCss(this.switcherSelector).element(by.css(".panel-heading")).getText();
 }
 
 module.exports = AthleteStatsComponent;

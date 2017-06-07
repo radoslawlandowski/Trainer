@@ -18,6 +18,10 @@ BaseComponent.prototype.getAllByCss = function(css) {
     return this.element.all(by.css(css));
 };
 
+BaseComponent.prototype.getByCss = function(css) {
+    return this.element.element(by.css(css));
+}
+
 BaseComponent.prototype.getInputText = function (id) {
     return this.element.element(by.id(id)).getAttribute("value").then(function(value) {
       return value;
