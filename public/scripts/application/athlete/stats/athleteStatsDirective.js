@@ -1,4 +1,12 @@
-define(['AthleteModule', 'angular', 'athleteGeneralStatsInputsDirective', 'AthleteReportService', 'exerciseStatsDirective', 'athleteChartDirective', 'trainingStatsDirective', 'timingsStatsDirective'], function(AthleteModule, angular) {
+define(['AthleteModule', 
+    'angular', 
+    'athleteGeneralStatsInputsDirective', 
+    'AthleteReportService', 
+    'exerciseStatsDirective', 
+    'athleteChartDirective', 
+    'trainingStatsDirective', 
+    'timingsStatsDirective'], 
+function(AthleteModule, angular) {
     AthleteModule.directive('athleteStatsDirective', function(AthleteReportService, moment) {
         return {
             restrict: 'E',
