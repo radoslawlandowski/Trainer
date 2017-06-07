@@ -46,4 +46,8 @@ BaseComponent.prototype.findAndClick = function(idPattern, placeholder, name) {
     this.getById(buttonId).click();
 };
 
+BaseComponent.prototype.amIDisplayed = function () {
+    return this.element.isDisplayed();
+};
+
 module.exports = BaseComponent;
