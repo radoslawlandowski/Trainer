@@ -4,7 +4,7 @@ define(['MainModule'], function (MainModule) {
             create: function (data) {
                 return {
                     _name: data.name || "New exercise",
-                    _sets: data.sets || [{}],
+                    _sets: data.sets || [{reps: 0, weight: 0}],
 
                     getName: function() {
                         return this._name;

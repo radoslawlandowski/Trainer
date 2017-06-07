@@ -3,13 +3,13 @@ define(['AthleteModule', 'AthleteStatsTypes', 'TrainingReporter'], function (Ath
         return {
             options: AthleteStatsTypes.Training.options,
 
-            getExercisesNames : function (data) {
+            getExercisesNames: function (data) {
                 var training = data[0]; // get first training (any other training of given name has the same exercises)
 
                 var exercisesNames = training.exercises.map((exercise) => {
                     return exercise.name;
                 })
-                
+
                 return exercisesNames;
             },
 
@@ -19,7 +19,7 @@ define(['AthleteModule', 'AthleteStatsTypes', 'TrainingReporter'], function (Ath
 
                 return processedData;
 
-                
+
                 function _process(trainings, processorSettings) {
                     var processedData;
 
@@ -44,40 +44,44 @@ define(['AthleteModule', 'AthleteStatsTypes', 'TrainingReporter'], function (Ath
                         var tonnages = data.map((item, trainingIndex) => {
                             var total = 0;
                             item.exercises.map((exer) => {
-                                 exer.sets.map((set, index) => {
-                                    if(index === 0) return;
+                                exer.sets.map((set) => {
                                     total += set.reps * set.weight;
                                 })
                             })
                             var propName = {};
                             propName['tonnage'] = total
                             return propName;
-                        }) 
+                        })
 
                         return tonnages;
                     };
 
                     function __extractPerExercise(data) {
                         return data.map((item) => {
-                            var weightsArray = item.sets.map((set) => {
-                                return set.weight;
-                            })
+                            var exerciseArray = item.exercises.map((exer) => {
 
-                            return __convertToObject(weightsArray);
+                                var exerciseTonnage = 0;
+                                exer.sets.map((set) => {
+                                    exerciseTonnage += set.reps * set.weight;
+                                })
+
+                                return {tonnage: exerciseTonnage, name: exer.name};
+                            })
+                            return __convertToObject(exerciseArray);
                         })
                     };
 
-                    function __convertToObject(array, propertyName) {
+                    function __convertToObject(array) {
                         var obj = {};
-                        array.map((item, index) => {
-                            obj[`${propertyName} ${index+1}`] = item;
+                        array.map((item) => {
+                            obj[`${item.name}`] = item.tonnage;
                         })
 
                         return obj;
                     }
 
-                    function __createChartDimensions(data) {     
-                        var keys = Object.keys(data[0]);                   
+                    function __createChartDimensions(data) {
+                        var keys = Object.keys(data[0]);
 
                         var dimensions = {};
 
@@ -90,7 +94,7 @@ define(['AthleteModule', 'AthleteStatsTypes', 'TrainingReporter'], function (Ath
                         return dimensions;
                     }
                 };
-            } 
+            }
         }
     })
 })
