@@ -102,5 +102,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-run');
 
     grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
-    grunt.registerTask('e2e-tests', ['run:run_protractor']);
+    grunt.registerTask('e2e', ['run:run_protractor']);
 };
