@@ -30,9 +30,9 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             return training.getData();
         }
 
-        var training1 = generateTraining("First");
-        var training2 = generateTraining("Second");
-        var training3 = generateTraining("Thrid");
+        var training1 = generateTraining("First", 2, 1);
+        var training2 = generateTraining("Second", 3, 1);
+        var training3 = generateTraining("Thrid", 5, 1);
 
         self.trainings = [training1, training2, training3];
 
