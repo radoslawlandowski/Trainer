@@ -54,7 +54,7 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
 
                 expect(data.data.length).toEqual(5);
 
-                var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 3, 'set 4': 6 };
+                var expectedDataStructure = { 'set 1': 0, 'set 2': 0, 'set 3': 3, 'set 4': 6 };
                 expect(data.data[0]).toEqual(expectedDataStructure);
             });
 
@@ -64,7 +64,7 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
 
                 expect(data.data.length).toEqual(5);
 
-                var expectedDataStructure = { 'set 1': undefined, 'set 2': 0, 'set 3': 10, 'set 4': 20 };
+                var expectedDataStructure = { 'set 1': 0, 'set 2': 0, 'set 3': 10, 'set 4': 20 };
                 expect(data.data[0]).toEqual(expectedDataStructure);
             });
 
@@ -73,7 +73,7 @@ define(['angular', 'angular-mocks', 'exerciseStatsProcessor', 'AthleteModule', '
                 var data = ExerciseStatsProcessor.process(fakeReports, processorSettings)
 
                 var expectedData = [
-                    { reps: undefined, weight: undefined },
+                    { reps: 0, weight: 0 },
                     { reps: 0, weight: 0},
                     { reps: 3, weight: 10},
                     { reps: 6, weight: 20},                        
