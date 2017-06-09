@@ -18,14 +18,22 @@ BaseComponent.prototype.getAllByCss = function(css) {
     return this.element.all(by.css(css));
 };
 
-BaseComponent.prototype.getInputText = function (element) {
-    return this.element.getAttribute("value").then(function(value) {
+BaseComponent.prototype.getByCss = function(css) {
+    return this.element.element(by.css(css));
+}
+
+BaseComponent.prototype.getInputText = function (id) {
+    return this.element.element(by.id(id)).getAttribute("value").then(function(value) {
       return value;
     });
 };
 
 BaseComponent.prototype.fillInput = function(id, text) {
     return this.element.element(by.id(id)).sendKeys(text);
+};
+
+BaseComponent.prototype.clearAndFillInput = function(id, text) {
+    return this.element.element(by.id(id)).clear().sendKeys(text);
 };
 
 BaseComponent.prototype.clickMyself = function () {
@@ -40,6 +48,10 @@ BaseComponent.prototype.findAndClick = function(idPattern, placeholder, name) {
     var buttonId = idPattern.replace(placeholder, name);
 
     this.getById(buttonId).click();
+};
+
+BaseComponent.prototype.amIDisplayed = function () {
+    return this.element.isDisplayed();
 };
 
 module.exports = BaseComponent;

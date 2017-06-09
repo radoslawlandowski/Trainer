@@ -1,5 +1,5 @@
-define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'selectByDayFilter'], function (AthleteModule) {
-    AthleteModule.controller('AthleteBoardController', function (AthleteTrainingService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
+define(['AthleteModule', 'AthleteTrainingService', 'AthleteReportService', 'Exercises', 'performTrainingDirective', 'TrainingFactory', 'ExerciseFactory', 'selectByDayFilter'], function (AthleteModule) {
+    AthleteModule.controller('AthleteBoardController', function (AthleteTrainingService, AthleteReportService, Exercises, TrainingFactory, ExerciseFactory, moment, $filter) {
         var vm = this;
 
         vm.init = init;
@@ -40,6 +40,12 @@ define(['AthleteModule', 'AthleteTrainingService', 'Exercises', 'performTraining
             vm.trainingStarted = false;
             vm.trainingChosen = false;
             vm.currentTraining = {};
+
+            AthleteReportService.save(training.getData()).then(function(response) {
+                alert("Training successfully finalized!")
+            }, function(failure) {
+                console.warn(failure.data.message);
+            });
         }
     })
 })

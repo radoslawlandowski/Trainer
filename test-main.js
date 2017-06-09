@@ -27,11 +27,28 @@ require.config({
       'AthleteDataController': 'application/athlete/data/AthleteDataController',
       'AthleteDataService': 'application/athlete/data/AthleteDataService',
       'AthleteBoardController': 'application/athlete/board/AthleteBoardController',
+      'AthleteReportService': 'application/athlete/board/AthleteReportService', 
       'AthleteTrainingService': 'application/athlete/training/AthleteTrainingService',
       'performTrainingDirective': 'application/athlete/board/performTrainingDirective',
       'TrainingTimer': 'application/athlete/board/TrainingTimer',
       'TrainingReporter': 'application/athlete/board/TrainingReporter',
 
+      'athleteStatsDirective': 'application/athlete/stats/athleteStatsDirective',
+      'athleteGeneralStatsInputsDirective': 'application/athlete/stats/athleteGeneralStatsInputsDirective',
+      'AthleteStatsTypes': 'application/athlete/stats/AthleteStatsTypes',
+
+      'exerciseStatsDirective': 'application/athlete/stats/processor-directive-pairs/exerciseStatsDirective',
+      'timingsStatsDirective': 'application/athlete/stats/processor-directive-pairs/timingsStatsDirective',
+      'trainingStatsDirective': 'application/athlete/stats/processor-directive-pairs/trainingStatsDirective',
+
+      'exerciseStatsProcessor': 'application/athlete/stats/processor-directive-pairs/exerciseStatsProcessor',
+      'timingsStatsProcessor': 'application/athlete/stats/processor-directive-pairs/timingsStatsProcessor',
+      'trainingStatsProcessor': 'application/athlete/stats/processor-directive-pairs/trainingStatsProcessor',
+
+      'athleteChartDirective': 'application/athlete/stats/athleteChartDirective',
+
+      'AthleteStatsController': 'application/athlete/stats/AthleteStatsController',
+ 
       'sidebarDirective': 'application/shared/directives/sidebar/sidebarDirective',
       'exerciseCardDirective': 'application/shared/directives/exercise/exerciseCardDirective',
       'exercisePlanDirective': 'application/shared/directives/exercise/exercisePlanDirective',
@@ -60,7 +77,10 @@ require.config({
       'ui-bootstrap-tpls': 'libs/ui-bootstrap-tpls.min',
       'jquery': 'libs/jquery.min',
       'moment': 'libs/moment.min',
-      'angular-moment': 'libs/angular-moment.min'
+      'angular-moment': 'libs/angular-moment.min',
+      'angular-chart': 'libs/angular-chart.min',
+      'c3': 'libs/c3.min',
+      'd3': 'libs/d3.min'
   },
   shim: {
       'angular': {
@@ -77,6 +97,12 @@ require.config({
       },
       'ui-bootstrap-tpls': {
           deps: ['angular']
+      },
+      'c3': {
+          deps: ['d3'] 
+      },
+      'angular-chart': { 
+          deps: ['angular', 'c3']
       }
   },
   // dynamically load all test files

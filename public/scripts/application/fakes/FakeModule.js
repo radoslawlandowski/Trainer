@@ -1,10 +1,14 @@
 define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
     var m = angular.module('FakeModule', ['MainModule', 'ngMockE2E']);
 
-    m.run(function ($httpBackend, TrainingFactory, ExerciseFactory) {
+    m.run(function ($httpBackend, TrainingFactory, ExerciseFactory, moment) {
         var self = this;
 
-        var generateTraining = function (name) {
+        var generateTraining = function (name, multiplier, summer, date) {
+            multiplier = multiplier || 1;
+            summer = summer || 0;
+            date = date || new Date();
+
             var EXERCISES_COUNT = 3;
             var SETS_COUNT = 3;
 
@@ -15,15 +19,20 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
             }
 
             for (var i = 0; i < SETS_COUNT; i++) {
-                training.getExercises()[0].addSet({});
+                training.getExercises()[0].addSet({reps: i * 3 + summer, weight: multiplier * i * 10 + summer});
+                training.getExercises()[1].addSet({reps: i * 1 + summer, weight: multiplier * i * 10 + summer + 40});
+                training.getExercises()[2].addSet({reps: i * 5 + summer, weight: multiplier * i * 10 + summer + 100});
             }
+
+            training.setDays([true, true, true, true, true, true, true]);
+            training.setDate(date);
 
             return training.getData();
         }
 
-        var training1 = generateTraining("First");
-        var training2 = generateTraining("Second");
-        var training3 = generateTraining("Thrid");
+        var training1 = generateTraining("First", 2, 1);
+        var training2 = generateTraining("Second", 3, 1);
+        var training3 = generateTraining("Thrid", 5, 1);
 
         self.trainings = [training1, training2, training3];
 
@@ -60,9 +69,29 @@ define(['angular', 'angular-mocks', 'MainModule'], function (angular) {
 
             return [200, training, {}];
         });
+        var todayDiffered = function(diff) {
+            var today = moment().toDate();
 
-        self.reports = [];
-        $httpBackend.whenGET('/api/reports').respond(self.reports);
+            return moment(today).add(diff, 'days').format('DD-MM-YYYY');
+        }
+
+        self.reports = [
+            generateTraining("First", 2, 1, todayDiffered(-7)), 
+            generateTraining("First", 2.2, 2, todayDiffered(0)), 
+            generateTraining("First", 2.5, 3, todayDiffered(7)), 
+            generateTraining("First", 3, 3, todayDiffered(14)), 
+            generateTraining("First", 3, 3, todayDiffered(21)), 
+            generateTraining("First", 3, 3, todayDiffered(28)), 
+            generateTraining("First", 2, 2, todayDiffered(35)), 
+            generateTraining("First", 2, 3, todayDiffered(42)), 
+            generateTraining("First", 2, 4, todayDiffered(49)), 
+            generateTraining("First", 3, 2, todayDiffered(56)), 
+            generateTraining("First", 1, 2, todayDiffered(63))
+        ];
+        //?dateFrom=2&dateTo=3&trainingName=
+        $httpBackend.whenGET(/\/api\/reports\?.*\=.*&.*\=.*&.*\=.*/).respond(function(method, url, data, headers, params) {
+            return [200, self.reports, {}];
+        });
 
         $httpBackend.whenPOST('/api/reports').respond(function (method, url, data) {
             var report = angular.fromJson(data);

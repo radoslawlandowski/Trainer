@@ -27,7 +27,11 @@ module.exports = function (grunt) {
                     'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
                     'jquery.min.js': 'jquery/dist/jquery.min.js',
                     'moment.min.js': 'moment/min/moment.min.js',
-                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js'
+                    'angular-moment.min.js': 'angular-moment/angular-moment.min.js',
+                    'angular-chart.min.js': 'angular-chart/angular-chart.min.js',
+                    'c3.min.js': 'c3/c3.min.js',
+                    'c3.min.css': 'c3/c3.min.css',
+                    'd3.min.js': 'd3/d3.min.js'
                 }
             },
             fonts: {
@@ -98,5 +102,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-run');
 
     grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
-    grunt.registerTask('e2e-tests', ['run:start_app', 'run:run_protractor', 'run:stop_app']);
+    grunt.registerTask('e2e', ['run:run_protractor']);
 };

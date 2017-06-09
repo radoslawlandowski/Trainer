@@ -1,5 +1,6 @@
 var BasePageObject = require('./BasePageObject');
 var AthleteTrainingPageObject = require('./athlete/AthleteTrainingPageObject');
+var AthleteStatsPageObject = require('./athlete/AthleteStatsPageObject');
 
 var SidebarComponent = require('../components/SidebarComponent');
 
@@ -11,6 +12,7 @@ function AthletePageObject() {
     this.sidebar = new SidebarComponent();
 
     this.Training = new AthleteTrainingPageObject();
+    this.Stats = new AthleteStatsPageObject();
 }
 
 AthletePageObject.prototype = new BasePageObject();
