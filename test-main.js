@@ -98,8 +98,11 @@ require.config({
       'ui-bootstrap-tpls': {
           deps: ['angular']
       },
+      'c3': {
+          deps: ['d3'] 
+      },
       'angular-chart': { 
-          deps: ['angular', 'd3', 'c3']
+          deps: ['angular', 'c3']
       }
   },
   // dynamically load all test files
