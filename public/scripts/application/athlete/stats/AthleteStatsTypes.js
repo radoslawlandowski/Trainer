@@ -3,10 +3,16 @@ define(['AthleteModule'], function(AthleteModule) {
          'Exercise' : {
             'name': 'Exercise',
             'options': {
-                'sets': ['all'],
+                'sets': ['all', 'last'],
                 'repsOrWeights': ['weights', 'reps']
             }
-         },
+         }, 
+         'Timings': {
+            'name': 'Timings',
+            'options': {
+
+            }
+         }, 
          'Training': {
             'name': 'Training',
             'options': {
