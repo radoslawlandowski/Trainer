@@ -20,9 +20,10 @@ pipeline {
     }
     stage('End to End tests') {
       steps {
-        sh '''grunt e2e
-'''
-        waitUntil()
+        ansiColor(colorMapName: 'xterm') {
+          sh 'grunt e2e'
+        }
+        
       }
     }
   }
