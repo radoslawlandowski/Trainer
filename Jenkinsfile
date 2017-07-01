@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'CIS'
+    }
+    
+  }
   stages {
     stage('Installation') {
       steps {
