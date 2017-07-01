@@ -46,6 +46,8 @@ function Run-Protractor($argums) {
 function Run-UITests() {
     Start-App 3000
 
+    Start-Sleep -Seconds 5
+
     Run-Protractor
     
     Kill-App 3000
