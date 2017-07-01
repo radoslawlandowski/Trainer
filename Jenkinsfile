@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'CIS'
+      label 'master'
     }
     
   }
@@ -22,6 +22,7 @@ pipeline {
       steps {
         sh '''grunt e2e
 '''
+        waitUntil()
       }
     }
   }
