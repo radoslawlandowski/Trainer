@@ -60,18 +60,37 @@ module.exports = function (grunt) {
             }
         },
 
+        shell: {
+            e2e: {
+                options: {
+                    stdout: true
+                },
+                command: 'powershell -command "& {. ./scripts/PowershellUtils.ps1; Run-UITests}"'
+            }
+        },
+
         run: {
             options: {
             // Task-specific options go here. 
+        },
+            start_webdriver: {
+                options: {
+                    wait: false
+                },
+                cmd: 'webdriver-manager',
+                args: [
+                    'start'
+                ]
             },
             start_app: {
                 options: {
                     wait: false,
                     ready: /Application is started!*/
                 },
-                cmd: 'npm',
+                cmd: '',
                 args: [
-                    'start'
+                    
+                    // powershell -command "& { . <path>\script1.ps1; My-Func }"
                 ]
             },
             stop_app: {
@@ -81,6 +100,7 @@ module.exports = function (grunt) {
                 cmd: 'fuser',
                 args: [
                     '-k',
+                    '-s',
                     '3000/tcp'
                 ]
             },
@@ -100,7 +120,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-run');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask('install', ['copy:requirejs', 'bowercopy:libs', 'bowercopy:fonts']);
-    grunt.registerTask('e2e', ['run:run_protractor']);
+    grunt.registerTask('e2e', ['shell:e2e']);
 };
