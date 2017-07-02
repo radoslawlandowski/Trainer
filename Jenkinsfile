@@ -15,12 +15,6 @@ pipeline {
           },
           "Tests2": {
             library 'First'
-            script {
-              Globals.name = 'Alice'
-              echo Globals.name
-              Globals.caution 'The queen is angry!'
-            }
-            
             
           }
         )
