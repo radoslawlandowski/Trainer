@@ -15,9 +15,7 @@ pipeline {
           },
           "Tests2": {
             library 'First'
-            Globals.name = 'Alice'
-            echo Globals.name /* prints: 'Alice' */
-            Globals.caution 'The queen is angry!' /* prints: 'Hello, Alice. CAUTION: The queen is angry!' */
+
           }
         )
       }
