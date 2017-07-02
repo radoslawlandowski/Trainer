@@ -26,5 +26,11 @@ pipeline {
         
       }
     }
+    stage('Archive and publish results') {
+      steps {
+        archiveArtifacts 'testresults/**/*.*'
+        junit(testResults: 'testresults/**/*.*', allowEmptyResults: true)
+      }
+    }
   }
 }
