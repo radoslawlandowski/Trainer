@@ -1,5 +1,3 @@
-@Library('First') _
-
 pipeline {
   agent {
     node {
@@ -11,7 +9,6 @@ pipeline {
     stage('Tests') {
       steps {
         echo 'asd'
-        library 'First'
       }
     }
   }
