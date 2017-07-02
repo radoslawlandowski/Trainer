@@ -1,5 +1,3 @@
-@Library('First') _
-
 pipeline {
   agent {
     node {
@@ -10,7 +8,20 @@ pipeline {
   stages {
     stage('Tests') {
       steps {
-        echo 'asd'
+        parallel(
+          "Tests": {
+            echo 'asd'
+            
+          },
+          "Tests2": {
+            library 'First'
+            script {
+              println Globals.myself
+            }
+            
+            
+          }
+        )
       }
     }
   }
