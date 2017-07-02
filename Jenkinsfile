@@ -16,13 +16,11 @@ pipeline {
           "Tests2": {
             library 'First'
             script {
-              {
                 Globals.name = 'Alice'
                 Globals.caution 'The queen is angry!'
-              }
             }
             
-            
+         
           }
         )
       }
