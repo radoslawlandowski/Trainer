@@ -9,6 +9,7 @@ pipeline {
     stage('Tests') {
       steps {
         echo 'asd'
+        library 'First'
       }
     }
   }
