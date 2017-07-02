@@ -40,7 +40,7 @@ function Free-Port ($port) {
 function Run-Protractor($argums) {
     $command = "protractor ./public/scripts/tests/e2e/tests/conf.js"
 
-    Call-Command $command
+    return Call-Command $command
 }
 
 function Run-UITests() {
@@ -48,7 +48,24 @@ function Run-UITests() {
 
     Start-Sleep -Seconds 5
 
-    Run-Protractor
+    $output = Run-Protractor 
+
+    Write-Host $output
+
+    $SUCCESS_CODE = 0;
+    $ERROR_CODE = 1;
     
+    if($output -match "ECONNREFUSED") {
+        Write-Host "Webdriver is not started!"
+    } else {
+        if($output -match "0 failures") {
+            $testsCode = $SUCCESS_CODE
+        } else {
+            $testsCode = $ERROR_CODE
+        }
+    }
+
     Kill-App 3000
+
+    exit $testsCode
 }
