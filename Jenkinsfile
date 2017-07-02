@@ -10,12 +10,6 @@ pipeline {
       steps {
         echo 'asd'
         library 'First'
-        script {
-          @Library('First')
-          
-          def a = new First()
-        }
-        
       }
     }
   }
