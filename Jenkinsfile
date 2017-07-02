@@ -16,7 +16,7 @@ pipeline {
           "Tests2": {
             library 'First'
             script {
-              println Globals.myself
+              println myself
             }
             
             
