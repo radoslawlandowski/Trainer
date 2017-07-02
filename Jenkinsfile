@@ -16,7 +16,9 @@ pipeline {
           "Tests2": {
             library 'First'
             script {
-              println First.Globals.myself
+              Globals.name = 'Alice'
+              echo Globals.name
+              Globals.caution 'The queen is angry!'
             }
             
             
