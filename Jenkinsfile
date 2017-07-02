@@ -12,7 +12,7 @@ pipeline {
         script {
           Globals.name = 'Alice'
           echo Globals.name
-          Globals.caution('asd')
+          echo Globals.caution('asd')
         }
         
       }
